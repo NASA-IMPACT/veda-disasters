@@ -1,11 +1,13 @@
 export const EVENTS = [
     {
-        id: 'event1',
-        title: 'Event 1',
+        id: 'ca-wildfires-2025',
+        title: 'California Wildfires (2025)',
         description: 'Description of Event 1',
-        date: '2023-10-01',
-        location: 'Location 1',
+        date: '2025-01',
+        location: 'Southern California',
         link: 'https://example.com/event1',
+        image: '/images/event/california-wildfire-aviris.png'
+
     },
     {
         id: 'event2',

@@ -22,8 +22,8 @@ export default function Page() {
                   <div className='usa-card__media'>
                     <div className='usa-card__img'>
                       <img
-                        src='https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg'
-                        alt='A placeholder image'
+                        src={event.image || 'https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg'}
+                        alt={`${event.title} image`}
                       />
                     </div>
                   </div>
