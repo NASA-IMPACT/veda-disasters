@@ -9,9 +9,9 @@ const StoriesHub = dynamic(() => import('./hub'), {
 });
 
 export default function Page() {
-  const stories = getStoriesMetadata().map((d) => ({
+  const events = getStoriesMetadata().map((d) => ({
     ...d.metadata,
-    path: `stories/${d.slug}`,
+    path: `events/${d.slug}`,
   }));
 
   return (
@@ -23,7 +23,7 @@ export default function Page() {
           over time.
         </p>
       </div>
-      <StoriesHub stories={stories} />
+      <StoriesHub stories={events} />
     </div>
   );
 }

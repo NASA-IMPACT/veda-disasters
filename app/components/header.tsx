@@ -26,7 +26,7 @@ export const navItems: NavItem[] = [
     type: 'internalLink',
   },
   {
-    id: 'stories',
+    id: 'events',
     title: 'Events',
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',

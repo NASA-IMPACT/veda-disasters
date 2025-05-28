@@ -23,7 +23,7 @@ const mainTopSectionData = [
 const featuredStories = getStoriesMetadata()
   .map((d) => ({
     ...d.metadata,
-    path: `stories/${d.slug}`,
+    path: `events/${d.slug}`,
   }))
   .filter((_d, idx) => idx < 3);
 

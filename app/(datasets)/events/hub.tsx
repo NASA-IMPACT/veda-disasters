@@ -3,7 +3,7 @@ import React from 'react';
 import { StoriesHubContent, useFiltersWithQS } from '@lib';
 import Providers from '../providers';
 
-export default function Hub({ stories: allStories }: { stories: any }) {
+export default function Hub({ events: allStories }: { events: any }) {
   const controlVars = useFiltersWithQS();
 
   return (
@@ -12,8 +12,8 @@ export default function Hub({ stories: allStories }: { stories: any }) {
         allStories={allStories}
         onFilterchanges={() => controlVars}
         storiesString={{
-          one: 'story',
-          other: 'stories',
+          one: 'event',
+          other: 'events',
         }}
       />
     </Providers>
