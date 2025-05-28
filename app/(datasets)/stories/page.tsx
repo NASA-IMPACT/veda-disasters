@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <div className='grid-container'>
       <div className='margin-top-8 margin-bottom-3'>
-        <h1 className='font-sans-xl'>Stories</h1>
+        <h1 className='font-sans-xl'>Events</h1>
         <p className='font-sans-md margin-top-1'>
           This dashboard explores key indicators to track and compare changes
           over time.
