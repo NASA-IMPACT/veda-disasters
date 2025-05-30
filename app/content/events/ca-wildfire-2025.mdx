@@ -18,7 +18,7 @@ taxonomy:
 <Block>
   <Figure>
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', width: '100%' }}>
-      <a href="https://deploy-preview-1--disasters-hub.netlify.app/data-catalog?taxonomy=%7B%22Event%22%3A%5B%22ca_wildfire%22%5D%7D" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
+      <a href="https://deploy-preview-1--disasters-hub.netlify.app/data-catalog/ca-wildfires-2025" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
         <img src="/images/event/data-catalog.png" alt="Dataset" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
         <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Dataset</div>
       </a>
@@ -76,9 +76,11 @@ taxonomy:
 
   <Figure>
     <Map
+      center={[-156.68108, 20.88130]}
+      zoom={12}    
       datasetId='ca-wildfires-2025'
-      layerId='landsat9_Jan2025_wildfire1'
-      dateTime='2025-01-11'
+      layerId='llandsat9_Jan2025_wildfire'
+      dateTime='2025-01-06'
       compareDateTime='2025-01-13'
 
     />
