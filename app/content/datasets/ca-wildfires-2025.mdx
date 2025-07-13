@@ -3,7 +3,7 @@ id: ca-wildfires-2025
 name: California Wildfires January 2025
 description: Unprecedented flames reshape Southern California’s landscape, economy, and future.
 media:
-  src: /images/story/california-wildfire-aviris.png
+  src: /images/dataset/california-wildfire-aviris.png
   alt: False Color Composite satellite imagery of the burned area from the Palisades Fire.
   author:
     name:  NASA
@@ -119,19 +119,10 @@ layers:
       crs: EPSG:3857
       nodata: 255
       resampling: bilinear
-      rescale:
-        - 0
-        - 100
     legend:
       unit:
         label: Percent vegetation loss
       type: gradient
-      colormap_name: "reds"
-      min: 0
-      max: 100
-      stops:
-        - "#ffffe5" # White
-        - "#ff6666" # Red
     info:
       source: NASA
       spatialExtent: Southern California
