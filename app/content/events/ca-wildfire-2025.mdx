@@ -1,6 +1,6 @@
 ---
 id: ca-wildfire-2025
-name: The Devastating January, 2025 California Wildfire
+name: The Devastating January 2025 California Wildfire
 description: "A Satellite-Based Overview of the California Wildfire"
 media:
   src: /images/dataset/ca-fires-burn-severity.thumbnail.jpg
@@ -18,7 +18,7 @@ taxonomy:
 <Block>
   <Figure>
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', width: '100%' }}>
-      <a href="https://deploy-preview-1--disasters-hub.netlify.app/data-catalog/ca-wildfires-2025" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
+      <a href="/data-catalog/ca-wildfires-2025" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
         <img src="/images/event/data-catalog.png" alt="Dataset" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
         <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Dataset</div>
       </a>
@@ -28,11 +28,12 @@ taxonomy:
       </a>
       <a href="https://data.disasters.openveda.cloud/california_wildfires_202501/browseui/#california_wildfires_202501/" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
         <img src="/images/event/download-data.png" alt="Download Data" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Download Data</div>
+        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Access Data</div>
       </a>
     </div>
   </Figure>
 </Block>
+
 <Block>
   <Prose>
     ## Introduction
@@ -45,8 +46,6 @@ taxonomy:
     The Eaton Fire burned over 18,000 acres in less than 72 hours, damaging critical infrastructure and prompting the deployment of state and federal emergency resources. Satellite-based detection and airborne hyperspectral data—collected through programs like AVIRIS-3 and OPERA—have since provided detailed assessments of the burn scar, post-fire vegetation loss, and infrastructure impacts. These data products, coupled with near-real-time analysis tools, are crucial for informing recovery efforts and future fire risk assessments. 
   </Prose>
 </Block>
-
-
 
 
 <Block>
@@ -100,12 +99,12 @@ taxonomy:
       center={[-118.24, 34.05]}
       zoom={9}
       datasetId='ca-wildfires-2025'
-      layerId='opera_dist_alert_Jan2025_wildfire'
+      layerId='opera_dist_S1_Jan2025_wildfire'
       dateTime='2025-01-12'
       compareDateTime='2025-01-13'
     />
     <Caption>
-    OPERA Distance Alert
+     OPERA Radiometric and Terrain Corrected Sentinel-1 Disturance at 30 meter resolution.
     </Caption>
   </Figure>
 </Block>
