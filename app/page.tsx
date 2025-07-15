@@ -7,16 +7,20 @@ const mainTopSectionData = [
     title: 'Earth scientists',
     description:
       'Easily access high quality Earth data from NASA and its associated partners',
+    img: '/images/homepage/user-scientists.jpg'
+    
   },
   {
     title: 'Academic researchers',
     description:
       'Support your research efforts with an open source cloud-computing platform backed by NASA data.',
+    img: '/images/homepage/user-researcher.jpg'
   },
   {
     title: 'Science enthusiasts',
     description:
       'Easily access high quality Earth data from NASA and its associated partners',
+    img: '/images/homepage/user-enthusiasts.jpg'
   },
 ];
 
@@ -49,8 +53,9 @@ export default function HomePage() {
                 <div>
                   <img
                     className='radius-pill'
-                    src='https://placehold.co/400x400'
-                  ></img>
+                    src={d.img}
+                    alt={d.title}
+                  />
                 </div>
                 <div className='margin-top-3'>
                   <h3>{d.title}</h3>
