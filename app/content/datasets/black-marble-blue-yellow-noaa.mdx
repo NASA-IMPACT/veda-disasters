@@ -1,5 +1,5 @@
 ---
-id: black-marble
+id: black-marble-blue-yellow-noaa
 name: Black Marble Nighttime Light Emissions
 description: Nighttime light emissions observed by Suomi NPP VIIRS Day/Night Band in a linear latitude-longitude projection and gridded at 500m
 
@@ -35,10 +35,10 @@ infoDescription: |
     - Data Type: Operational
     - Data Latency: Updated daily       
 layers:
-  - id: blackmarble-blue-yellow
-    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  - id: black-marble-blue-yellow-noaa
+    stacApiEndpoint: https://staging.openveda.cloud/api/stac
     stacCol:  VIIRS_NOAA20_DayNightBand_AtSensor_M15
-    name: Nighttime Light Emissions
+    name: Black Marble (Blue/Yellow) Nighttime Light Emissions
     type: wmts 
     description: At sensor nighttime radiance observed by the Suomi NPP VIIRS Day/Night band.
     sourceParams:

@@ -20,7 +20,7 @@
         "temporal": {
             "interval": [
                 [
-                    "2020-04-30T00:00:00Z",
+                    "2024-03-18T00:00:00Z",
                     "2025-07-29T00:00:00Z"
                 ]
             ]
@@ -71,5 +71,6 @@
     "time_interval": "P1D",
     "title": "Black Marble Nighttime Light Emissions v2 NRT (Blue/Yellow) Composite",
     "type": "Collection",
-    "units": "nW/(cm²sr)"
+    "units": "nW/(cm²sr)", 
+    "tenant": ["nasa-disasters"]
 }
