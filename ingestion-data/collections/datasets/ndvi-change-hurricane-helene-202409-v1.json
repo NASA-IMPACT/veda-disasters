@@ -1,0 +1,91 @@
+{
+    "assets": {},
+    "collection": "ndvi-change-hurricane-helene-202409-v1",
+    "data_type": "cog",
+    "spatial_extent": {
+        "xmin": -180.0,
+        "ymin": -90.0,
+        "xmax": 180.0,
+        "ymax": 90.0
+    },
+    "temporal_extent": {
+        "startdate": "2024-10-02T00:00:00Z",
+        "enddate": "2024-10-07T23:59:59Z"
+    },
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "title": "Experimental Binary Normalized Difference Vegetation Index",
+    "description": "he Experimental Binary NDVI change product is highlighting areas that experienced change (of any kind) since the pre-event Copernicus Sentinel-2 pass (October 2024) used in the analysis. The product is further filters to reduce noise and focus the identification on the more pronounced areas of change in an effort to identify areas that may have experienced damage during Hurricane Helene's passage and associated water and wind impacts.",
+    "discovery_items": [
+        {
+            "discovery": "s3",
+            "collection": "ndvi-change-hurricane-helene-202409-v1",
+            "bucket": "nasa-disasters",
+            "prefix": "202409_Hurricane_Helene/NDVIchange/",
+            "filename_regex": ".*tif$",
+            "datetime_range": "day",
+            "assets": {
+                "binary_mask": {
+                    "title": "Binary Mask",
+                    "description": "Experimental NDVI Binary Mask",
+                    "regex": ".*[A-Z0-9]+_binaryMaskFilter_(\\d{8})\\.tif$"
+                }
+            },
+            "id_regex": ".*_(.*).tif$",
+            "id_template": "ndvi-change-hurricane-helene-202409-v1-{}"
+        }
+    ],
+    "is_periodic": false,
+    "license": "CC0-1.0",
+    "sample_files": [
+        ""
+    ],
+    "providers": [
+        {
+            "name": "NASA"
+        }
+    ],
+    "renders": {
+        "binary_mask": {
+            "assets": [
+                "binary_mask"
+            ],
+            "rescale": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "colormap": {
+                "0": [
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "1": [
+                    255,
+                    255,
+                    0,
+                    255
+                ]
+            }
+        }
+    },
+    "item_assets": {
+        "binary_mask": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Fill later",
+            "description": "Fill later"
+        }
+    },
+    "time_density": "day",
+    "tenant": ["nasa-disasters"]
+}
