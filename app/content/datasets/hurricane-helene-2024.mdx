@@ -1,6 +1,6 @@
 ---
 id: hurricane-helene-2024
-name: Black Marble Nighttime Light Emissions
+name: Datasets supporting 2024 Hurricane Helene Data Story
 description: Nighttime light emissions observed by Suomi NPP VIIRS Day/Night Band in a linear latitude-longitude projection and gridded at 500m
 
 media:
@@ -35,62 +35,22 @@ infoDescription: |
     - Data Type: Operational
     - Data Latency: Updated daily       
 layers:
-  - id: black-marble-blue-yellow-noaa
-    stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    stacCol:  VIIRS_NOAA20_DayNightBand_AtSensor_M15
-    name: Black Marble (Blue/Yellow) Nighttime Light Emissions
-    type: wmts 
-    description: At sensor nighttime radiance observed by the Suomi NPP VIIRS Day/Night band.
-    sourceParams:
-      layers: VIIRS_NOAA20_DayNightBand_AtSensor_M15
-      version: 1.3.0
-      crs: EPSG:3857
-      colormap_name: ylgrbu
-      rescale:
-        - 0
-        - 1  
-      styles:
-    zoomExtent:
-      - 0
-      - 1
-    analysis:
-      exclude: true
-    legend:
-      unit:
-        label: W/cm²/sr        
-      type: gradient
-      min: "No lights"
-      max: "Lights"
-      stops:
-        - '#00204C'
-        - '#214D70'
-        - '#5B798A'
-        - '#9BA78F'
-        - '#D6D18B'
-        - '#FFF878'
-    info:
-      source: NASA
-      spatialExtent: Global 
-      temporalResolution: Daily
-      unit: W/cm²/sr                
+         
 
 
   - id: ndvi-change-hurricane-helene-202409-v3
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
     tileApiEndpoint: https://dev.openveda.cloud/api/raster
     stacCol:  ndvi-change-hurricane-helene-202409-v3
-    name: Experimental Binary Normalized Difference Vegetation Index test 2
+    name: Experimental Binary Normalized Difference Vegetation Index
     type: raster 
     initialDatetime: newest
     description: The Experimental Binary NDVI change product is highlighting areas that experienced change (of any kind) since the pre-event Copernicus Sentinel-2 pass (October 2024) used in the analysis. The product is further filters to reduce noise and focus the identification on the more pronounced areas of change in an effort to identify areas that may have experienced damage during Hurricane Helene's passage and associated water and wind impacts.
     sourceParams:
       assets: binary_mask
-      resampling: bilinear
-      colormap_name: 'reds'
+      resampling: nearest
       nodata: 0
-      rescale:
-        - 0
-        - 1 
+      colormap: '{"0":[255,255,255,0],"1":[255,255,0,255]}' 
     zoomExtent:
       - 0
       - 20
@@ -103,9 +63,9 @@ layers:
       min: "0"
       max: "1"
       stops:
-        - color: rgb(255,255,255)
+        - color: rgba(255,255,255,0)
           label: No NDVI Change
-        - color: rgba(255, 0, 0, 1)
+        - color: rgba(255,255,0,1)
           label: NDVI Change
     info:
       source: NASA
@@ -113,22 +73,142 @@ layers:
       temporalResolution: Daily
       unit: NDVI Change   
 
-  - id: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  # - id: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2'
+  #   sourceParams:
+  #     assets: VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask   
+
+  # - id: DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2'
+  #   sourceParams:
+  #     assets: DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'hot'
+  #     nodata: -9999
+  #     rescale:
+  #       - 0
+  #       - 3258 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: test      
+  #     type: gradient
+  #     min: "0"
+  #     max: "3258"
+  #     stops:
+  #       - rgba(0, 0, 0, 1)
+  #       - rgba(43, 15, 15, 1)
+  #       - rgba(193, 20, 20, 1)
+  #       - rgba(196, 114, 73, 1)
+  #       - rgba(246, 82, 0, 1)
+  #       - rgba(215, 199, 120, 1)
+  #       - rgba(199, 168, 58, 1)
+  #       - rgba(247, 218, 0, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: test  
+
+  # - id: DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2'
+  #   sourceParams:
+  #     assets: DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2
+  #     resampling: bilinear
+  #     colormap_name: 'hot'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 7916 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: test      
+  #     type: gradient
+  #     min: "0"
+  #     max: "7916"
+  #     stops:
+  #       - rgba(0, 0, 0, 1)
+  #       - rgba(43, 15, 15, 1)
+  #       - rgba(193, 20, 20, 1)
+  #       - rgba(196, 114, 73, 1)
+  #       - rgba(246, 82, 0, 1)
+  #       - rgba(215, 199, 120, 1)
+  #       - rgba(199, 168, 58, 1)
+  #       - rgba(247, 218, 0, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: test  
+
+  - id: black-marble-Corrected_NTLC2_Mosaic_C2-v1
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
     tileApiEndpoint: https://dev.openveda.cloud/api/raster
-    stacCol:  black-marble-hurricane-helene-202409-v4
-    name: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+    stacCol:  black-marble-Corrected_NTLC2_Mosaic_C2-v1
+    name: black-marble-Corrected_NTLC2_Mosaic_C2-v1
     type: raster 
     initialDatetime: newest
-    description: 'black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2'
+    description: 'black-marble-Corrected_NTLC2_Mosaic_C2-v1'
     sourceParams:
-      assets: VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+      assets: Corrected_NTLC2_Mosaic_C2
       resampling: bilinear
-      colormap_name: 'greys'
+      colormap_name: 'inferno'
       nodata: 0
       rescale:
         - 0
-        - 1 
+        - 30 
     zoomExtent:
       - 0
       - 20
@@ -136,19 +216,385 @@ layers:
       exclude: true
     legend:
       unit:
-        label: NDVI Change       
+        label: test      
       type: gradient
       min: "0"
-      max: "1"
+      max: "30"
       stops:
-        - rgb(255,255,255)
-
-        - rgb(255,0, 0)
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
     info:
       source: NASA
       spatialExtent: Global 
       temporalResolution: Daily
-      unit: NDVI Change    
+      unit: test  
+
+  # - id: black-marble-QF_Cloud_Mask_Mosaic_SNPP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-QF_Cloud_Mask_Mosaic_SNPP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-QF_Cloud_Mask_Mosaic_SNPP_C2'
+  #   sourceParams:
+  #     assets: QF_Cloud_Mask_Mosaic_SNPP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+  # - id: black-marble-QF_Cloud_Mask_Mosaic_VJ1_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-QF_Cloud_Mask_Mosaic_VJ1_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-QF_Cloud_Mask_Mosaic_VJ1_C2'
+  #   sourceParams:
+  #     assets: QF_Cloud_Mask_Mosaic_VJ1_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+  # - id: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2'
+  #   sourceParams:
+  #     assets: VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+  # - id: black-marble-VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2'
+  #   sourceParams:
+  #     assets: VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+
+  - id: sentinel-1-S1A_rgb_gpufed
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-hurricane-helene-202409-v2
+    name: sentinel-1-S1A_rgb_gpufed
+    type: raster 
+    description: 'sentinel-1-S1A_rgb_gpufed'
+    sourceParams:
+      asset_bidx: S1A_rgb_gpufed|1,2,3
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Cloud Mask  
+
+
+  - id: nighttime1
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  black-marble-Corrected_both-v1
+    name: NTLC2_Mosaic_C2
+    type: raster 
+    initialDatetime: newest
+    description: 'Corrected_NTLC2_Mosaic_C2'
+    sourceParams:
+      assets: Corrected_NTLC2_Mosaic_C2
+      resampling: bilinear
+      colormap_name: 'inferno'
+      nodata: 0
+      rescale:
+        - 0
+        - 30 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      unit:
+        label: test      
+      type: gradient
+      min: "0"
+      max: "30"
+      stops:
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: nighttime2
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  black-marble-Corrected_both-v1
+    name: NTL_Mosaic_VJ1_C2
+    type: raster 
+    initialDatetime: newest
+    description: 'Corrected_NTL_Mosaic_VJ1_C2'
+    sourceParams:
+      assets: Corrected_NTL_Mosaic_VJ1_C2
+      resampling: bilinear
+      colormap_name: 'inferno'
+      nodata: 0
+      rescale:
+        - 0
+        - 30 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:   
+      type: gradient
+      min: "0"
+      max: "30"
+      stops:
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: nighttimeCompare
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  black-marble-Corrected_both-v1
+    name: NTLC2_Mosaic_C2
+    type: raster 
+    initialDatetime: newest
+    description: 'Corrected_NTL_Mosaic_VJ1_C2 and Corrected_NTLC2_Mosaic_C2'
+    sourceParams:
+      assets: Corrected_NTLC2_Mosaic_C2
+      resampling: bilinear
+      colormap_name: 'inferno'
+      nodata: 0
+      rescale:
+        - 0
+        - 30 
+    compare:
+      datasetId: hurricane-helene-2024
+      layerId: nighttime2
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:    
+      type: gradient
+      min: "0"
+      max: "30"
+      stops:
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+
+  - id: dswx-water-extent-bwtr
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  aria-dswx-hurricane-helene-202409-v7
+    name: Opera DSWx Water Extent (BWTR)
+    type: raster 
+    initialDatetime: newest
+    description: 'Opera DSWx Water Extent - BWTR'
+    sourceParams:
+      assets: DSWx-bwtr
+      resampling: nearest
+      nodata: 0
+      colormap: '{"0":[255,255,255,0],"1":[0,191,255,255]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: categorical
+      min: "0"
+      max: "1"
+      stops:
+        - color: rgba(255, 255, 255, 1)
+          label: "No Water"
+        - color: rgba(0, 191, 255, 1)
+          label: "Water"     
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: sentinel1-S1A-IW
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-S1A-IW-hurricane-helene-202409-v4
+    name: Sentinel 1 Water Extent
+    type: raster 
+    initialDatetime: newest
+    description: 'Sentinel 1 Water Extent'
+    sourceParams:
+      assets: S1A_IW_gpufed
+      resampling: nearest
+      nodata: 0
+      colormap: '{"1":[1,92,230],"2":[255,0,0],"3":[56,168,1],"4":[230,151,2]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: categorical
+      min: "1"
+      max: "4"
+      stops:
+        - color: "#015CE6"
+          label: "Open Water"
+        - color: "#FF0000"
+          label: "Flooded Developed"
+        - color: "#38A801"
+          label: "Flooded Vegetation"
+        - color: "#E69702"
+          label: "Flooded Cropland/Grassland"
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
 
 ---
 <Block>
