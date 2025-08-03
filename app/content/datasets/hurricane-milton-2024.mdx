@@ -1,0 +1,519 @@
+---
+id: hurricane-milton-2024
+name: Datasets supporting 2024 Hurricane Milton Data Story
+description: Nighttime light emissions observed by Suomi NPP VIIRS Day/Night Band in a linear latitude-longitude projection and gridded at 500m
+
+media:
+  src: https://eoimages.gsfc.nasa.gov/images/imagerecords/90000/90008/europe_vir_2016.jpg
+  alt: Night Light Map
+  author:
+    name:  Earth Observatory NASA
+    url:  https://earthobservatory.nasa.gov
+taxonomy:
+  - name: Topics
+    values:
+      - Land
+      - Aquatic    
+  - name: Source
+    values:
+      - NASA
+      - NOAA
+  - name: Gas
+    values:
+      - CH₄
+      - CO₂
+  - name: Product Type
+    values:
+      - Satellite Observations
+infoDescription: |
+  ::markdown 
+    - Temporal Extent: October 10, 2023 - Ongoing
+    - Temporal Resolution: Daily
+    - Spatial Extent: Global    
+    - Spatial Resolution: 500m   
+    - Data Units: Watts per square centimeter per steradian (W/cm²/sr)       
+    - Data Type: Operational
+    - Data Latency: Updated daily       
+layers:
+  - id: black-marble-blue-yellow-noaa
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    stacCol:  VIIRS_NOAA20_DayNightBand_AtSensor_M15
+    name: Black Marble (Blue/Yellow) Nighttime Light Emissions
+    type: wmts 
+    description: At sensor nighttime radiance observed by the Suomi NPP VIIRS Day/Night band.
+    sourceParams:
+      layers: VIIRS_NOAA20_DayNightBand_AtSensor_M15
+      version: 1.3.0
+      crs: EPSG:3857
+      colormap_name: ylgrbu
+      rescale:
+        - 0
+        - 1  
+      styles:
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      unit:
+        label: W/cm²/sr        
+      type: gradient
+      min: "No lights"
+      max: "Lights"
+      stops:
+        - '#00204C'
+        - '#214D70'
+        - '#5B798A'
+        - '#9BA78F'
+        - '#D6D18B'
+        - '#FFF878'
+    compare:
+      datasetId: hurricane-milton-2024
+      layerId: black-marble-blue-yellow-noaa
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: W/cm²/sr                     
+
+
+  - id: sentinel-1-S1A_rgb_gpufed-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-hurricane-milton-202410-v3
+    name: sentinel-1-S1A_rgb_gpufed Milton
+    type: raster 
+    description: 'sentinel-1-S1A_rgb_gpufed'
+    sourceParams:
+      asset_bidx: S1A_rgb_gpufed|1,2,3
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      label: RGB Imagery (Copernicus Sentinel-1) for Hurricane Milton
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Cloud Mask  
+
+  - id: sentinel1-S1A-IW-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-S1A-IW-hurricane-milton-202410-v1
+    name: Sentinel 1 Water Extent Milton
+    type: raster 
+    initialDatetime: newest
+    description: 'Sentinel 1 Water Extent'
+    sourceParams:
+      assets: S1A_IW_gpufed
+      resampling: nearest
+      nodata: 0
+      colormap: '{"1":[1,92,230],"2":[255,0,0],"3":[56,168,1],"4":[230,151,2]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: categorical
+      min: "1"
+      max: "4"
+      stops:
+        - color: "#015CE6"
+          label: "Open Water"
+        - color: "#FF0000"
+          label: "Flooded Developed"
+        - color: "#38A801"
+          label: "Flooded Vegetation"
+        - color: "#E69702"
+          label: "Flooded Cropland/Grassland"
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+
+  - id: sentinel1-Milton-compare
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-hurricane-milton-202410-v3
+    name: Sentinel 1 Hurrican Milton Comparison
+    type: raster 
+    description: 'sentinel-1-S1A_rgb_gpufed'
+    sourceParams:
+      asset_bidx: S1A_rgb_gpufed|1,2,3
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Cloud Mask  
+    compare:
+      datasetId: hurricane-milton-2024
+      layerId: sentinel1-S1A-IW-Milton
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+    legend:
+      type: categorical
+      min: "1"
+      max: "4"
+      stops:
+        - color: "#015CE6"
+          label: "Open Water"
+        - color: "#FF0000"
+          label: "Flooded Developed"
+        - color: "#38A801"
+          label: "Flooded Vegetation"
+        - color: "#E69702"
+          label: "Flooded Cropland/Grassland"
+
+
+  - id: dswx-water-extent-wtr-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  opera-dswx-hurricane-milton-202410-v3
+    name: Opera DSWx Water Extent (WTR)
+    type: raster 
+    initialDatetime: newest
+    description: 'Opera DSWx Water Extent - WTR'
+    sourceParams:
+      assets: DSWx-wtr
+      resampling: nearest
+      nodata: 0
+      colormap: '{"0":[255,255,255,0],"1":[0,191,255,255]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: categorical
+      min: "0"
+      max: "1"
+      stops:
+        - color: rgba(255, 255, 255, 1)
+          label: "No Water"
+        - color: rgba(0, 191, 255, 1)
+          label: "Water"     
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: dswx-water-extent-wtr-HLS-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  opera-dswx-HLS-hurricane-milton-202410-v1
+    name: Opera DSWx HLS Water Extent (WTR)
+    type: raster 
+    initialDatetime: newest
+    description: 'Opera DSWx Water Extent - WTR'
+    sourceParams:
+      assets: DSWx-HLS
+      resampling: nearest
+      nodata: 0
+      colormap: '{"0":[255,255,255,0],"1":[0,191,255,255], "253":[152, 152, 152, 255]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: categorical
+      min: "0"
+      max: "253"
+      stops:
+        - color: rgba(255, 255, 255, 1)
+          label: "No Water"
+        - color: rgba(0, 191, 255, 1)
+          label: "Water"     
+        - color: rgba(152, 152, 152, 1)
+          label: "Cloud Cover"   
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: dswx-water-extent-wtr-ChangeMap-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  opera-dswx-ChangeMap-hurricane-milton-202410-v1
+    name: Opera DSWx Water Extent Change Map
+    type: raster 
+    description: 'Opera DSWx Change Map Water Extent'
+    sourceParams:
+      assets: DSWx-ChangeMap
+      resampling: bilinear
+      colormap_name: rdbu
+      nodata: 0
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: gradient
+      min: "-1"
+      max: "1"
+      stops:
+        - rgba(251, 6, 6, 1)
+        - rgba(255, 255, 255, 1)
+        - rgba(1, 55, 252, 1)
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: dswx-veg-anom-max-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  opera-DIST-ALERT-hurricane-milton-202410-v1
+    name: Opera VEG ANOM MAX
+    type: raster 
+    description: 'Opera VEG ANOM MAX'
+    sourceParams:
+      assets: VEG-ANOM-MAX
+      resampling: nearest
+      colormap_name: hot
+      nodata: 0
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: gradient
+      min: "0"
+      max: "100"
+      stops:
+        - rgba(0, 0, 0, 1)
+        - rgba(64, 0, 0, 1)
+        - rgba(80, 0, 0, 1)
+        - rgba(96, 0, 0, 1)
+        - rgba(112, 0, 0, 1)
+        - rgba(128, 0, 0, 1)
+        - rgba(144, 0, 0, 1)
+        - rgba(160, 0, 0, 1)
+        - rgba(176, 0, 0, 1)
+        - rgba(192, 0, 0, 1)
+        - rgba(208, 0, 0, 1)
+        - rgba(224, 0, 0, 1)
+        - rgba(240, 0, 0, 1)
+        - rgba(255, 16, 0, 1)
+        - rgba(255, 112, 0, 1)
+        - rgba(255, 208, 0, 1)
+        - rgba(255, 255, 255, 0)
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+    compare:
+      datasetId: hurricane-milton-2024
+      layerId: dswx-veg-anom-max-Milton
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+
+  - id: dswx-gen-anom-max-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  opera-DIST-ALERT-hurricane-milton-202410-v1
+    name: Opera GEN ANOM MAX
+    type: raster 
+    description: 'Opera GEN ANOM MAX'
+    sourceParams:
+      assets: GEN-ANOM-MAX
+      resampling: nearest
+      colormap_name: hot
+      nodata: 0
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: gradient
+      min: "0"
+      max: "100"
+      stops:
+        - rgba(0, 0, 0, 1)
+        - rgba(64, 0, 0, 1)
+        - rgba(80, 0, 0, 1)
+        - rgba(96, 0, 0, 1)
+        - rgba(112, 0, 0, 1)
+        - rgba(128, 0, 0, 1)
+        - rgba(144, 0, 0, 1)
+        - rgba(160, 0, 0, 1)
+        - rgba(176, 0, 0, 1)
+        - rgba(192, 0, 0, 1)
+        - rgba(208, 0, 0, 1)
+        - rgba(224, 0, 0, 1)
+        - rgba(240, 0, 0, 1)
+        - rgba(255, 16, 0, 1)
+        - rgba(255, 112, 0, 1)
+        - rgba(255, 208, 0, 1)
+        - rgba(255, 255, 255, 0)
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+    compare:
+      datasetId: hurricane-milton-2024
+      layerId: dswx-gen-anom-max-Milton
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+  - id: uavsar-Milton
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  uavsar-hurricane-milton-202410-v3
+    name: UAVSAR
+    type: raster 
+    description: 'UAVSAR'
+    sourceParams:
+      assets: UAVSAR
+      bidx:
+        - 1
+        - 2
+        - 3
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      label: RGB Imagery (Copernicus Sentinel-1) for Hurricane Milton
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+
+
+  - id: ndvi-hurricane-milton-202410-v2
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  ndvi-hurricane-milton-202410-v2
+    name: Experimental Binary Normalized Difference Vegetation Index
+    type: raster 
+    initialDatetime: newest
+    description: The Experimental Binary NDVI change product is highlighting areas that experienced change (of any kind) since the pre-event Copernicus Sentinel-2 pass (October 2024) used in the analysis. The product is further filters to reduce noise and focus the identification on the more pronounced areas of change in an effort to identify areas that may have experienced damage during Hurricane Helene's passage and associated water and wind impacts.
+    sourceParams:
+      assets: ndvi
+      resampling: nearest
+      nodata: 0
+      colormap: '{"0":[255,255,255,0],"1":[255,255,0,255]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: false
+    legend:
+      unit:
+        label: NDVI Change       
+      type: categorical
+      min: "0"
+      max: "1"
+      stops:
+        - color: rgba(255,255,255,0)
+          label: No NDVI Change
+        - color: rgba(255,255,0,1)
+          label: NDVI Change
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: NDVI Change      
+
+  - id: landsat-hurricane-milton-202410-v2
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol: landsat-hurricane-milton-202410-v2
+    name: Landsat False Color
+    type: raster 
+    initialDatetime: newest
+    description: Landsat False Color
+    sourceParams:
+      assets: fcc
+      bidx: 
+        - 1
+        - 2
+        - 3
+    zoomExtent:
+      - 0
+      - 20
+    minZoom:
+      - 0
+      - 20
+    analysis:
+      exclude: false
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Landsat FCC   
+---
+<Block>
+  <Prose>   
+    **Temporal Extent:** October 10, 2023 - Ongoing<br />
+    **Temporal Resolution:** Daily<br />
+    **Spatial Extent:** Global    
+    **Spatial Resolution:** 500m   
+    **Data Units:** Watts per square centimeter per steradian (W/cm²/sr)       
+    **Data Type:** Operational<br />
+    **Data Latency:** Updated daily
+
+    Greenhouse gas (GHG) emission indicators, such as energy consumption, urban development, transportation, and industrial processes, are often difficult to monitor due to limitations in the spatial and temporal coverage of conventional ground-based measurements. In 2022 alone, the Intergovernmental Panel on Climate Change (IPCC) report indicated that approximately 35% of anthropogenic emissions recorded in 2019 were attributed to electricity and heat production. Satellite observations offer unique capabilities for enhancing GHG monitoring efforts as they can effectively map the extent and distribution of the GHGs across varied geographic areas and times with a high degree of accuracy. Nightlight data can particularly present valuable insights into human activities as they possess high radiometric resolution, enabling the identification of bright urban lights down to gas flares. Collected by the Visible Infrared Imaging Radiometer Suite (VIIRS) sensor aboard the Suomi National Polar-orbiting Partnership (NPP) satellite, the Daily Gridded Day/Night Band (DNB) product supplies measurements of nocturnal visible and near-infrared (NIR) light emitted from cities, industrial sites, power plants, gas flaring sources, biomass burning, as well as other human-induced emission initiators. The light emitted and captured by the VIIRS sensor can be a valuable indicator of GHG emissions, enabling the better identification of hotspots and the estimation of emissions across a given location in Near Real-Time (NRT). The DNB collection provides global linear 0.0045° x 0.0045° latitude and longitude grid nightlight data with a 500-meter spatial resolution. 
+
+  </Prose>
+</Block>
+<Block>
+  <Prose>
+    ## Source Data Product Citation
+    Román, M. O. 2023. About. MODAPS Services. NASA Suomi-NPP/VIIRS Land SIPS/Land, Atmosphere Near real-time Capability for EOS (LANCE) Moderate Resolution Imaging Spectroradiometer (MODIS). https://doi.org/10.5067/VIIRS/VNP46A1_NRT.002
+    
+    ## Version History
+
+    ## Dataset Accuracy
+
+    ## Disclaimer
+
+    ## Scientific Details
+    The Top of Atmosphere (TOA) nighttime radiance product is updated daily and contains 26 Science Data Sets (SDS), including sensor radiance, zenith and azimuth angles (at-sensor, solar, and lunar), cloud-mask flags, time, shortwave infrared (IR) radiance, brightness temperatures, VIIRS quality flags, moon phase angle, and moon illumination fraction. The DNB’s ultra-sensitivity in low-light conditions enhances the process of monitoring the magnitude and radiance signature of nighttime phenomena, particularly sources of manmade light emissions. The product is produced using lunar irradiance modeling, temporal gap filling, and gridding algorithms to convert data to a lat and long grid available at 15 arc-second resolution. The gidding algorithms were modified to comply with DNB’s unique viewing geometry and to collect observations from available 6-min swath granules (2,366 km along track, and about 3,100 km across track), allowing for the derivation of high-quality data with minimal impact from cloud cover and off-nadir viewing. By employing the “turning off the moon” approach, the upward surface radiance from artificial light emissions can be extracted from at-sensor nighttime radiance at TOA. To reduce uncertainty due to existing vegetation within the ground-to-sensor geometry path, particularly in cities with temperate climates, the clumping index, known as the vegetation dispersion parameter, was used to quantify the confined distribution of foliage for a given area. Radiance values are reported in Watts per square centimeter per steradian (W/cm²/sr) and span across a spectral range of 500 to 900 nm with global coverage between ±75° latitude. The files are originally provided in the standard Hierarchical Data Format - Earth Observing System (HDF-EOS) format. 
+
+    ## Key Publications
+
+    ## Other Relevant Publications
+
+    ## Learn More
+
+    ## Acknowledgment
+    This dataset was produced by researchers at NASA Suomi-NPP/VIIRS Land SIPS/Land, Atmosphere Near Real-time Capability for EOS (LANCE)Moderate Resolution Imaging Spectroradiometer (MODIS), located at NASA Goddard Space Flight Center (GSFC) in Greenbelt, MD, United States. We thank the Black Marble Science Team for their continued efforts in acquiring, processing, validating, and disseminating this product.
+
+    ## License
+    [Creative Commons Zero v1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (CC0 1.0)
+
+
+  </Prose>
+</Block>

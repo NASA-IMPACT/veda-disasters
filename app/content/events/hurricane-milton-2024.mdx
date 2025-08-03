@@ -50,18 +50,17 @@ taxonomy:
   Use the slider below to view changes in nighttime lights. More information on the Black Marble Blue/Yellow Composite product is available [here](https://www.earthdata.nasa.gov/news/feature-articles/new-black-marble-nighttime-blue-yellow-composite-product-makes-detecting).
   
   </Prose>
-  
 </Block>
 
-<Block type='wide' style={{ maxWidth: '70%', margin: '0 auto' }}>
+<Block type='wide'>
   <Figure>
-    <CompareImage 
-      leftImageSrc='/images/story/milton-night-lights-before_compressed.jpg'
-      leftImageAlt='NASA Black Marble Nighttime Lights Pre-Milton.'
-      leftImageLabel='Nighttime Lights (Sept. 24, 2024)'
-      rightImageSrc='/images/story/milton-night-lights-after_compressed.jpg'
-      rightImageAlt='NASA Black Marble Nighttime Lights Post-Milton.'
-      rightImageLabel='Nighttime Lights (Oct. 13, 2024)'
+    <Map
+      center={[-82.1457,28.746]}
+      zoom={7}
+      datasetId='hurricane-milton-2024'
+      layerId='black-marble-blue-yellow-noaa'
+      dateTime='2024-09-24'
+      compareDateTime='2024-10-13'
     />
     <Caption>
     Black Marble Nighttime Lights Blue/Yellow Composite (VIIRS / NOAA-20 & SNPP) for Hurricane Milton in the Southeast US Fall 2024. Default views show pre-Helene imagery from Sept. 24 (left) and post-Milton imagery from Oct. 13 (right). Credits: NASA/GSFC/ESDIS, NASA GIBS.
@@ -82,21 +81,23 @@ taxonomy:
   </Prose>
 </Block>
 
-<Block type='wide' style={{ maxWidth: '70%', margin: '0 auto' }}>
+
+<Block type='wide'>
   <Figure>
-    <CompareImage 
-      leftImageSrc='/images/story/milton-s1-rgb_compressed.jpg'
-      leftImageAlt='Sentinel 1 RGB Imagery Post-Milton.'
-      leftImageLabel='Sentinel 1 RGB Imagery (Oct. 11, 2024)'
-      rightImageSrc='/images/story/milton-s1-surface-water-extent-map-w-legend_compressed.jpg'
-      rightImageAlt='Sentinel 1 SAR post-incident water extents.'
-      rightImageLabel='Sentinel 1 SAR Water Extents (Oct. 10, 2024)'
+    <Map
+      center={[-82.1457,28.746]}
+      zoom={7}
+      datasetId='hurricane-milton-2024'
+      layerId='sentinel1-Milton-compare'
+      dateTime='2024-10-11'
+      compareDateTime='2024-10-11'
     />
     <Caption>
-    Post-incident water extents (Oct. 10) derived from Sentinel 1 SAR. Credits: NASA/MSFC, USGS, ESA Copernicus. This derived product contains modified Copernicus Sentinel data (2024), processed by ESA, Alaska Satellite Facility.
+    Post-incident water extents (Oct. 10) derived from Sentinel 1 SAR. Credits: NASA/MSFC, USGS, ESA Copernicus. This derived product contains modified Copernicus Sentinel data (2024), processed by ESA, Alaska Satellite Facility.    
     </Caption>
   </Figure>
 </Block>
+
 
 <Block>
   <Prose>
@@ -114,16 +115,88 @@ taxonomy:
 
   The results posted here are preliminary and unvalidated, primarily intended to aid the field response and people who want to have a rough first look at the water extent. The ARIA-share website has always focused on posting preliminary results as fast as possible for disaster response.
   </Prose>
+</Block>
+
+<Block type='wide'>
   <Figure>
-  <Image
-      src='/images/story/milton-s1-opera-swx_compressed.jpg'
-      alt='OPERA DSWx - Hurricane Milton.'
+    <Map
+      center={[-81.4083, 28.5074]}
+      zoom={9}
+      datasetId='hurricane-milton-2024'
+      layerId='dswx-water-extent-wtr-Milton'
+      dateTime='2024-10-11'
     />
     <Caption>
-    OPERA Dynamic Surface Water eXtent (DSWx) Hurricane Milton. Credits: NASA JPL-Caltech ARIA/OPERA Team. The OPERA project, managed by the Jet Propulsion Laboratory and funded by NASA under the Satellite Needs Working Group cycle-2 activities, creates remote sensing products to address Earth observation needs across U.S. civilian federal agencies.
+    DSWx Water Extent
     </Caption>
   </Figure>
 </Block>
+
+<Block>
+  <Figure>
+    <Map
+      center={[-81.4083, 28.5074]}
+      zoom={9}
+      datasetId='hurricane-milton-2024'
+      layerId='dswx-water-extent-wtr-HLS-Milton'
+      dateTime='2024-09-27'
+    />
+    <Caption>
+    DSWx HLS Water Extent Mosaic between September 27 - October 7, 2024 
+    </Caption>
+  </Figure>
+</Block>
+
+<Block>
+  <Figure>
+    <Map
+      center={[-82.44, 28.3162]}
+      zoom={10}
+      datasetId='hurricane-milton-2024'
+      layerId='dswx-water-extent-wtr-ChangeMap-Milton'
+      dateTime='2024-10-08'
+    />
+    <Caption>
+    DSWx Change Map (October 8 - October 11, 2024)
+    </Caption>
+  </Figure>
+</Block>
+
+
+<Block>
+  <Figure>
+    <Map
+      center={[-82.0332, 28.5672]}
+      zoom={12}
+      datasetId='hurricane-milton-2024'
+      layerId='dswx-veg-anom-max-Milton'
+      dateTime='2024-10-12'
+      compareDateTime='2024-10-30'
+
+    />
+    <Caption>
+    OPERA DIST VEG ANOM MAX (slide to see underlying terrain)
+    </Caption>
+  </Figure>
+</Block>
+
+<Block>
+  <Figure>
+    <Map
+      center={[-82.0332, 28.56722]}
+      zoom={12}
+      datasetId='hurricane-milton-2024'
+      layerId='dswx-gen-anom-max-Milton'
+      dateTime='2024-10-12'
+      compareDateTime='2024-10-30'
+
+    />
+    <Caption>
+    OPERA DIST GEN ANOM MAX (slide to see underlying terrain)
+    </Caption>
+  </Figure>
+</Block>
+
 
 <Block>
   <Prose>
@@ -137,11 +210,31 @@ taxonomy:
 </Block>
 
 <Block>
-
   <Figure>
-  <Image
-      src='/images/story/milton-ndvi-changes_compressed.jpg'
-      alt='Hurricane Milton NDVI Changes.'
+    <Map
+      center={[-81.378, 28.3528]}
+      zoom={9}
+      datasetId='hurricane-milton-2024'
+      layerId='uavsar-Milton'
+      dateTime='2024-10-12'
+
+    />
+    <Caption>
+    UAVSAR
+    </Caption>
+  </Figure>
+</Block>
+
+
+<Block>
+  <Figure>
+    <Map
+      center={[-81.6787, 28.44088]}
+      zoom={9}
+      datasetId='hurricane-milton-2024'
+      layerId='ndvi-hurricane-milton-202410-v2'
+      dateTime='2024-10-14'
+
     />
     <Caption>
     NDVI Change Map for Hurricane Milton. Credits: MSFC, NASA, Copernicus Sentinel-2. Contains modified Copernicus Sentinel data (2024) processed by ESA.
@@ -160,6 +253,8 @@ taxonomy:
   </Prose>
 </Block>  
 
+
+
 <Block>
   <Prose>
 
@@ -168,21 +263,24 @@ taxonomy:
   </Prose>
 </Block>  
 
-<Block type='wide' style={{ maxWidth: '70%', margin: '0 auto' }}>
+
+<Block type='wide'>
   <Figure>
-    <CompareImage 
-      leftImageSrc='/images/story/milton-landsat-fcc-before_compressed.jpg'
-      leftImageAlt='Landsat False Color Composite Imagery Pre-Milton.'
-      leftImageLabel='Landsat FCC Imagery Pre-Milton'
-      rightImageSrc='/images/story/milton-landsat-fcc-after_compressed.jpg'
-      rightImageAlt='Landsat False Color Composite Imagery Post-Milton.'
-      rightImageLabel='Landsat FCC Imagery Post-Milton'
+    <Map
+      center={[-81.3157, 28.489]}
+      zoom={8}
+      datasetId='hurricane-milton-2024'
+      layerId='landsat-hurricane-milton-202410-v2'
+      dateTime='2024-08-24'
+      compareDateTime='2024-10-02'
+
     />
     <Caption>
     Landsat False Color Composite (FCC) imagery mosaicked across Florida for both pre-Milton in early October 2024 and post-Milton between October 12-14, 2024.
     </Caption>
   </Figure>
 </Block>
+
 
 <Block>
   <Prose>
