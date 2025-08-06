@@ -1,0 +1,158 @@
+---
+id: cog-test
+name: Testing data with and without COG conversions
+description: N/A
+
+media:
+  src: https://eoimages.gsfc.nasa.gov/images/imagerecords/90000/90008/europe_vir_2016.jpg
+  alt: Night Light Map
+  author:
+    name:  Earth Observatory NASA
+    url:  https://earthobservatory.nasa.gov
+taxonomy:
+  - name: Topics
+    values:
+      - Land
+      - Aquatic    
+  - name: Source
+    values:
+      - NASA
+      - NOAA
+  - name: Gas
+    values:
+      - CH₄
+      - CO₂
+  - name: Product Type
+    values:
+      - Satellite Observations
+infoDescription: |
+  ::markdown 
+    - Temporal Extent: October 10, 2023 - Ongoing
+    - Temporal Resolution: Daily
+    - Spatial Extent: Global    
+    - Spatial Resolution: 500m   
+    - Data Units: Watts per square centimeter per steradian (W/cm²/sr)       
+    - Data Type: Operational
+    - Data Latency: Updated daily       
+layers:
+
+  - id: landsat-hurricane-milton-202410-v2
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol: landsat-hurricane-milton-202410-v2
+    name: Landsat False Color
+    type: raster 
+    initialDatetime: newest
+    description: Landsat False Color
+    sourceParams:
+      assets: fcc
+      bidx: 
+        - 1
+        - 2
+        - 3
+    zoomExtent:
+      - 0
+      - 20
+    minZoom:
+      - 0
+      - 20
+    analysis:
+      exclude: false
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Landsat FCC   
+    compare:
+      datasetId: cog-test
+      layerId: landsat-hurricane-milton-202410-v2
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+  - id: landsat-COG-hurricane-milton-202410-v1
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol: landsat-COG-hurricane-milton-202410-v1
+    name: Landsat False Color
+    type: raster 
+    initialDatetime: newest
+    description: Landsat False Color
+    sourceParams:
+      nodata: 255
+      assets: fcc
+      bidx: 
+        - 1
+        - 2
+        - 3
+    zoomExtent:
+      - 0
+      - 20
+    minZoom:
+      - 0
+      - 20
+    analysis:
+      exclude: false
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Landsat FCC   
+    compare:
+      datasetId: cog-test
+      layerId: landsat-COG-hurricane-milton-202410-v1
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+
+---
+<Block>
+  <Prose>   
+    Testing rendering speed between cloud optimized geotiffs and non-cloud optimized geotiffs
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+  # Geotiff (NOT cloud optimized)
+  
+  <Figure>
+    <Map
+      center={[-81.8157, 28.489]}
+      zoom={8}
+      datasetId='cog-test'
+      layerId='landsat-hurricane-milton-202410-v2'
+      dateTime='2024-08-24'
+      compareDateTime='2024-10-02'
+
+    />
+    <Caption>
+    Landsat False Color Composite (FCC) imagery mosaicked across Florida for both pre-Milton in early October 2024 and post-Milton between October 12-14, 2024.
+    </Caption>
+  </Figure>
+  </Prose>
+</Block>
+
+
+<Block>
+<Prose>
+  # Cloud optimized geotiff (COG)
+  <Figure>
+    <Map
+      center={[-81.8157, 28.489]}
+      zoom={8}
+      datasetId='cog-test'
+      layerId='landsat-COG-hurricane-milton-202410-v1'
+      dateTime='2024-08-24'
+      compareDateTime='2024-10-02'
+
+    />
+    <Caption>
+    Landsat False Color Composite (FCC) imagery mosaicked across Florida for both pre-Milton in early October 2024 and post-Milton between October 12-14, 2024.
+    </Caption>
+  </Figure>
+  </Prose>
+</Block>
