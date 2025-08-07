@@ -108,6 +108,46 @@ layers:
         }
 
 
+  - id: sentinel-1-S1A_rgb_gpufed
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-hurricane-helene-202409-v2
+    name: sentinel-1-S1A_rgb_gpufed
+    type: raster 
+    description: 'sentinel-1-S1A_rgb_gpufed'
+    sourceParams:
+      asset_bidx: S1A_rgb_gpufed|1,2,3
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Cloud Mask  
+
+  - id: sentinel-1-S1A_rgb_gpufed_COG
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-COG-hurricane-helene-202409-v1
+    name: sentinel-1-S1A_rgb_gpufed-COG
+    type: raster 
+    description: 'sentinel-1-S1A_rgb_gpufed'
+    sourceParams:
+      asset_bidx: S1A_rgb_gpufed|1,2,3
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Cloud Mask  
+
 ---
 <Block>
   <Prose>   
@@ -152,6 +192,47 @@ layers:
     />
     <Caption>
     Landsat False Color Composite (FCC) imagery mosaicked across Florida for both pre-Milton in early October 2024 and post-Milton between October 12-14, 2024.
+    </Caption>
+  </Figure>
+  </Prose>
+</Block>
+
+
+<Block>
+  <Prose> 
+    ## Colorized SAR - Not cloud optimized
+    <Figure>
+    <Map
+      datasetId='hurricane-helene-2024'
+      layerId='sentinel-1-S1A_rgb_gpufed'
+      dateTime='2024-09-28'
+      zoom={5}
+      center={[-81.2668, 35.1586]}
+    />
+    <Caption
+      attrAuthor='NASA'
+      attrUrl='https://nasa.gov/'
+    >
+    Post-incident water extents (Sept. 28) derived from Sentinel 1 SAR by the Alaskan Satellite Facility. Credits: NASA/MSFC, USGS, ESA Copernicus. Sentinel data used in this derived product, contains modified Copernicus Sentinel data (2019-2022), processed by ESA, Alaska Satellite Facility.
+    </Caption>
+    </Figure>
+  </Prose>
+</Block>
+
+<Block>
+<Prose>
+  # Colorized SAR (COG)
+  <Figure>
+    <Map
+      zoom={5}
+      center={[-81.2668, 35.1586]}
+      datasetId='cog-test'
+      layerId='sentinel-1-S1A_rgb_gpufed_COG'
+      dateTime='2024-09-28'
+
+    />
+    <Caption>
+    Post-incident water extents (Sept. 28) derived from Sentinel 1 SAR by the Alaskan Satellite Facility. Credits: NASA/MSFC, USGS, ESA Copernicus. Sentinel data used in this derived product, contains modified Copernicus Sentinel data (2019-2022), processed by ESA, Alaska Satellite Facility.
     </Caption>
   </Figure>
   </Prose>
