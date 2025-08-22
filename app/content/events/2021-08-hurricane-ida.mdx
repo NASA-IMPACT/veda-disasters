@@ -1,0 +1,270 @@
+---
+id: hurricane-ida
+name: "NASA Products for Hurricane Ida 2021"
+pubDate: 2021-08-31
+description: "NASA Disasters Response Coordination System"
+media:
+  src: /public/images/story/ida-thumbnail.png
+  alt: satellite view of hurricane ida
+taxonomy:
+  - name: Topics
+    values:
+      - Disasters
+---
+
+<Block>
+  <Prose>
+    ## Home
+
+    This photograph of Hurricane Ida was taken by Astronaut Thomas Pesquet (@Thom_astro) on board the International Space Station (ISS) on August 29, 2021. 
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+    ## Black Marble
+
+    _Visualization Overview_
+
+    This visualization represents a "false color" band combination (Red = DNB, Green = DNB, Blue = Inverted M15) of data collected by the VIIRS instrument on the joint NASA/NOAA [Suomi-NPP](https://science.nasa.gov/mission/suomi-npp/) satellite. The imagery is most useful for identifying nighttime lights from cities, fires, boats, and other phenomena. At its highest resolution, this visualization represents the underlying data scaled to a resolution of 500m per pixel at the equator.
+
+    The algorithm to combine the VIIRS DNB and M15 bands into an RGB composite was originally designed by the Naval Research Lab and was subsequently incorporated into NASA research and applications efforts. As you will see, nighttime city lights appear in shades of yellow, while clouds appear in shades of blue to yellow/white as the illumination from the moon changes over the lunar month. Hence, this visualization is colloquially referred to as a "blue-yellow RGB."
+
+    The following guidelines will aid in understanding this visualization.
+
+    * Interpretation of both the presence and relative brightness of the city lights will be affected by the lunar cycle. This composite offers a qualitative assessment of the light conditions and should not be used as the sole source of information concerning power outages. 
+    * During bright moonlight conditions, moonlight reflected from cloud tops and the land surface may also provide a yellow hue to those features. 
+    * Comparisons of cloud-free conditions before and after a period of significant change, such as new city growth, disasters, fires, or other factors, may exhibit a change in emitted light (yellows) from those features over time.
+    
+    _Multi-Spectral Bands_
+
+    At its highest resolution, this visualization represents the underlying data scaled from its native 750m per pixel resolution to 500m per pixel at the equator. 
+
+    The following table lists the VIIRS bands that are utilized to create this visualization. See [here](https://www.earthdata.nasa.gov/data/instruments/viirs#viirs-spectral-bands) for a full description of all VIIRS bands.
+
+    
+
+    Band	Description	Wavelength (µm)	Resolution (m)
+    DNB	Visible (reflective)	0.5 - 0.9	750
+    DNB	Visible (reflective)	0.5 - 0.9	750
+    M15 (Inverted)	Longwave IR	10.26 - 11.26	750
+    
+
+    _Temporal Coverage_
+
+    By default, this layer will display the imagery currently available for today’s date. This imagery is a "daily composite" that is assembled from hundreds of individual data files. When viewing imagery for “today,” you may notice that only a portion of the map has imagery. This is because the visualization is continually updated as the satellite collects more data. To view imagery over time, you can update the layer properties to [enable time animation](https://doc.arcgis.com/en/arcgis-online/reference/configure-time.htm) and [configure time settings](https://doc.arcgis.com/en/arcgis-online/reference/configure-time.htm). Currently, this layer is available from present back to April 30th, 2021. In the coming months, this will be extended to the start of the mission (October 28th, 2011).
+
+    
+
+    _Data Access_
+
+    This visualization is generated from hourly and daily Near-Real Time versions of the "VIIRS/NPP Daily Gridded Day Night Band 500m Linear Lat Lon Grid Night" ([VNP46A1_NRT](https://modaps.modaps.eosdis.nasa.gov/services/about/products/viirs-land-c1-nrt/VNP46A1_NRT.html)) data product distributed by the Land, Atmosphere Near real-time Capability for EOS ([LANCE](https://lance.modaps.eosdis.nasa.gov/)). A standard quality version of the data product ([VNP46A1](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A1)), which is distributed by the Level-1 and Atmosphere Archive & Distribution System Distributed Active Archive Center ([LAADS DAAC](https://ladsweb.modaps.eosdis.nasa.gov/)), is also available within 1-2 days of acquisition. You may use the [Earthdata Search](https://search.earthdata.nasa.gov/search?q=VNP46A1) client to search for near real-time and science quality data files and associated documentation and services. Additionally, you may use the [Worldview Snapshots](https://wvs.earthdata.nasa.gov/?LAYERS=VIIRS_SNPP_DayNightBand_AtSensor_M15&CRS=EPSG:4326&COORDINATES=-90.000000,-180.000000,90.000000,180.000000&FORMAT=image/jpeg&AUTOSCALE=TRUE&RESOLUTION=10km) tool to download custom images in a GeoTIFF , JPEG, PNG, or KMZ format for offline use.
+
+    
+
+    _NASA Global Imagery Browse Services (GIBS), NASA Worldview, & NASA LANCE_
+    This visualization is provided through the [NASA Global Imagery Browse Services (GIBS)](https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api), which are a set of standard services to deliver global, full-resolution satellite imagery for hundreds of NASA Earth science datasets and science parameters. Through its services, and the [NASA Worldview](https://worldview.earthdata.nasa.gov/) client, GIBS enables interactive exploration of NASA's Earth imagery for a broad range of users. The data and imagery are generated within 3 hours of acquisition through the [NASA LANCE](https://www.earthdata.nasa.gov/data/projects/lance) capability.
+
+    
+
+    _Esri and NASA Collaborative Services_
+
+    This visualization is made available through an ArcGIS image service hosted on Esri servers and facilitates access to a NASA GIBS service endpoint. For each image service request, the Esri server issues multiple requests to the GIBS service, processes and assembles the responses, and returns a proper mosaic image to the user. Processing occurs on-the-fly for each and every request to ensure that any update to the GIBS imagery is immediately available to the user. As such, availability of this visualization is dependent on both the Esri and the NASA GIBS services.
+
+    
+    **Layers**
+
+    [VIIRS](https://modis.arcgis.com/arcgis/rest/services/VIIRS/ImageServer)
+  </Prose>
+</Block>
+
+<Block>
+    <Prose>
+        ## Black Marble HD
+
+        **Date of Image:**
+
+        8/9/2021 (left)
+
+        8/31/2021 (right)
+
+        
+
+        **Summary:**
+
+        These Black Mable High-Definition (BMHD) images were created by the [USRA/NASA Black Marble Science team](https://blackmarble.gsfc.nasa.gov/), with directed funding the NASA-Google Partnership program. The images map the widespread impact of the recent tropical storm Ida in electric grids within the neighborhoods of New Orleans, LA. The baseline image (before the storm) was from August 9th 2021 – a cloud-free moon-free night and the after image was from August 31th – day after the storm landfall in the Gulf of Mexico. This comparison between the two images is meant as a visual assessment of outage impacts from the storm to aid various partners who are working to deliver emergency aids to local communities. Power outage maps like these help disaster response efforts in the short-term as well as long-term monitoring during the crucial stages of disaster recovery.
+
+        
+
+        **Suggested Use:**
+
+        NOTE: Black Marble HD images are downscaled from NASA’s Black Marble nighttime lights product (VNP46), and as such are a “modelled” or “best guess” estimate of how lights are distributed at a 30m resolution. These images should be used for visualization purposes, not for quantitative analysis.
+
+        The image is in inferno color scale. Yellow represents presence of more light; dark blue less lights.
+
+        
+
+        **Satellite/Sensor:**
+
+        The primary data source, NASA’s Black Marble nighttime lights product suite (VNP46), utilized to generate this product is derived from the [Visible Infrared Imaging Radiometer Suite (VIIRS)](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/viirs/) Day/Night Band (DNB) onboard the Suomi National Polar-orbiting Platform (SNPP) along with high resolution base layers - Landsat derived normalized index products (NDVI and NDWI) and OpenStreetMap (OSM) derived road layer
+
+        
+
+        **Resolution:**
+
+        Scaled resolution of 30 meters
+
+        
+
+        **Credits:**
+
+        [USRA/NASA Black Marble Science team](https://blackmarble.gsfc.nasa.gov/)
+
+        Please cite the following two references when using this data:
+
+        [Román MO, Stokes EC, Shrestha R, Wang Z, Schultz L, Carlo EA, Sun Q, Bell J, Molthan A, Kalb V, Ji C. Satellite-based assessment of electricity restoration efforts in Puerto Rico after Hurricane Maria. PloS one. 2019 Jun 28;14(6):e0218883.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0218883)
+
+        [Román MO, Wang Z, Sun Q, Kalb V, Miller SD, Molthan A, Schultz L, Bell J, Stokes EC, Pandey B, Seto KC. NASA's Black Marble nighttime lights product suite. Remote Sensing of Environment. 2018 Jun 1;210:113-43.](https://www.sciencedirect.com/science/article/pii/S003442571830110X)
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+        ## Sentinel-1 SAR
+
+        **Dates of Images:**
+
+        8/17/2021, 8/18/2021, 8/22/2021, 8/23/2021, 8/24/2021, 8/29/2021, 8/30/2021
+
+        
+
+        **Summary:**
+
+        
+
+        The Alaska Satellite Facility has developed a false color Red, Green, Blue (RGB) composite image of the Sentinel-1A/B Synthetic Aperture Radar (SAR) instrument which assigns the co- and cross-polarization information to a channel in the RGB composite. When used to support a flooding event, areas in blue denotes water present at the time of the satellite overpass before or after the start of the flooding event.
+
+        
+
+        **Suggested Use:**
+
+        In this image, water appears in blue, vegetated areas in shades of green and urban areas in bright orange. It is recommended to use this product with ancillary information to derive flooded areas.
+
+        
+
+        **Satellite/Sensor:**
+
+        Copernicus Sentinel-1 Synthetic Aperture Radar (SAR).
+
+        
+
+        **Resolution:**
+
+        30 meters
+
+        
+
+        **Credits:**
+
+        NASA/MSFC, ESA Copernicus
+
+        
+
+        **Esri REST Endpoint:**
+
+        See URL section on the right side of page.
+
+        
+
+        WMS Endpoint:
+
+        https://maps.disasters.nasa.gov/ags04/services/hurricane_ida_2021/sentinel1_rgb/MapServer/WMSServer
+
+        
+
+        **Data Download:**
+
+        https://maps.disasters.nasa.gov/download/gis_products/event_specific/2021/hurricane_ida/sentinel1/rgb/
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+        ## Damage Proxy Map
+
+        **Date of Image:**
+
+        9/3/2021
+
+        
+
+        **Summary:**
+
+        The Advanced Rapid Imaging and Analysis (ARIA) team at NASA's Jet Propulsion Laboratory and California Institute of Technology in Southern California, in collaboration with the Earth Observatory of Singapore (EOS), created this Damage Proxy Map (DPM) depicting areas that are likely damaged by the Hurricane Ida (August 29, 2021) in central and western Louisiana, United States. The map was derived from synthetic aperture radar (SAR) images on Sep 03, 2021 by the Copernicus Sentinel-1 satellites operated by the European Space Agency (ESA). The pre-event images were taken before (Aug 10, 2021 and Aug 22, 2021) the hurricane hit land. The image covers an area of 337 by 250 kilometers (210 by 155 miles. Each pixel measures about 30 meters across.
+
+        
+
+        **Suggested Use:**
+
+        Use the swipe tool to compare damage with locations of critical infrastructure and crowdsourced photos.
+
+        The color variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with the Media reports.
+
+        This damage proxy map should be used as guidance to identify damaged areas, and may be less reliable over vegetated or flooded areas. For example, the scattered colored pixels over vegetated areas and flooded fields may be false positives, and the lack of colored pixels over vegetated areas does not necessarily mean no damage. Some additional false positives in the middle of the image are likely due to the stitching of Sentinel-1 frames as a thin line running across the map at a ENE-WSW angle. This map is most sensitive to building damage, but small-scale change or partial structural damage may not be detected by this map.
+
+        
+
+        **Crowdsourced Data:**
+
+        For more info: https://2020-crowdsourced-disaster-photos-napsg.hub.arcgis.com/datasets/volunteer-dashboard-2020-disasters-crowdsourced-photos
+
+
+        2020 Disaster Crowdsource Photos. Volunteers from NAPSG and GISCorps and the public upload photos found on social media and news outlets to provide situational awareness of on-the-ground conditions before, during, and after disasters.  
+
+        
+
+        **Satellite/Sensor:**
+
+        Copernicus Sentinel-1 Synthetic Aperture Radar (SAR)
+
+        
+
+        **Resolution:**
+
+        30 meters
+
+        
+
+        **Credits:**
+
+        Sentinel-1 data were accessed through the Copernicus Open Hub and the Alaska Satellite Facility server. The product contains modified Copernicus Sentinel data (2021), processed by ESA and analyzed by the NASA-JPL/Caltech ARIA team and EOS team. Part of the funding was provided by NASA's Earth Applied Sciences Disasters Program.
+
+        For more information about ARIA, visit: http://aria.jpl.nasa.gov
+
+        For more information about EOS, visit: http://earthobservatory.sg
+
+        
+
+        **Data Download:**
+
+        https://aria-share.jpl.nasa.gov/20210829-Hurricane_Ida_USA/DPM/
+
+        The publicly accessible point layer can be found here: https://services.arcgis.com/0ZRg6WRC7mxSLyKX/arcgis/rest/services/survey123_85163dd9335b4c518e3006e60389cfdd_stakeholder/FeatureServer
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+    ## LIS Soil Moisture
+
+    The Land Information System (LIS) Soil Moisture Percentile product shows the departure from normal soil moisture conditions in the 0 - 100 centimeter layer of the soil. the yellow to red colors indicate abnormally dry conditions, while the green to blue colors are abnormally wet.
+
+    As Hurricane Ida makes landfall in Louisiana, this product shows the surge in soil moisture that appears and follows the storm as it moves up the Appalachian Mountains into New England. 
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+        ## Product Gallery
+    </Prose>
+</Block>
