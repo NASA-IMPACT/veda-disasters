@@ -1,0 +1,77 @@
+---
+id: test-pyarc2stac
+name: Testing new Disaster link
+isHidden: false
+description: Datasets supporting the data story on the damaging March 28, 2025 Burma magnitude 7.7 earthquake. 
+
+media:
+  src: /images/story/burma-eq-background.jpg
+  alt: Collapsed building in Mandalay, Burma.
+  author:
+    name: Cai Yang/AP
+
+taxonomy:
+  - name: Topics
+    values:
+      - Natural Disasters
+  - name: Subtopics
+    values:
+      - Earthquakes
+  - name: Source
+    values:
+      - NASA JPL
+      - Black Marble
+      - Planet
+
+infoDescription: |
+  ::markdown
+    - Temporal Extent: March 23-April 1, 2025
+
+
+layers:
+  - id: disasters_test_lis_vsm_percentile_10cm
+    stacCol: disasters_test_lis_vsm_percentile_10cm
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name:  Volumetric Soil Moisture (0-10cm), Updated Daily
+    type: wms
+    description: Volumetric soil moisture (VSM) is the total water volume content per total soil volume content.
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: lis_vsm_percentile_10cm
+      version: 1.3.0
+      crs: EPSG:3857
+    legend:
+      unit:
+        label: Percentage %
+      type: gradient
+      min: 0
+      max: 100
+      stops:
+        - rgb(19,100,209)
+        - rgb(40,129,240)
+        - rgb(79,165,245)
+        - rgb(149,209,250)
+        - rgb(225,255,255)
+        - rgb(199,199,199)
+        - rgb(255,254,102)
+        - rgb(255,179,102)
+        - rgb(235,116,1)
+        - rgb(235,0,0)
+        - rgb(106,0,0)
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: CONUS
+      temporalResolution: Daily
+      unit: Percentage %
+---
+
+
+
+
