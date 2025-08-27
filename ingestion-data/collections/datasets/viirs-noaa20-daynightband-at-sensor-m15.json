@@ -1,0 +1,76 @@
+{
+    "assets": {},
+    "collection": "VIIRS_NOAA20_DayNightBand_AtSensor_M15",
+    "dashboard:is_periodic": true,
+    "dashboard:time_density": "day",
+    "dashboard:time_interval": "P1D",
+    "data_type": "cog",
+    "description": "This dataset provides daily, Near Real Time (NRT) nighttime light emissions with a blue/yellow composite color observed by the Visible Infrared Imaging Radiometer Suite (VIIRS) Day/Night band on board the Suomi National Polar orbiting Partnership (NPP) satellite. Data are in units of nanoWatts per square centimeter per steradian (nW/cm²/sr) and gridded at 500 meter resolution. This records indexes the layers of this dataset from NASA’s WorldView Web Map Tile Service (WMTS) for visualization purposes. The source data and accompanying documentation can be found at https://doi.org/10.5067/VIIRS/VNP46A1_NRT.002",
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -180,
+                    -90,
+                    180,
+                    90
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2024-03-18T00:00:00Z",
+                    "2025-07-29T00:00:00Z"
+                ]
+            ]
+        }
+    },
+    "is_periodic": true,
+    "item_assets": {
+        "cog_default": {
+            "description": "At sensor nighttime radiance observed by the Suomi NPP VIIRS Day/Night band.",
+            "roles": [
+                "data",
+                "layer"
+            ],
+            "title": "Nighttime Light Emissions",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+        }
+    },
+    "license": "CC0-1.0",
+    "links": [
+        {
+            "href": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
+            "href:servers": [
+                "https://gibs-a.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
+                "https://gibs-b.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi"
+            ],
+            "rel": "wmts",
+            "title": "Visualized through a WMTS",
+            "type": "image/png",
+            "wmts:dimensions": [
+                "default"
+            ],
+            "wmts:layers": [
+                "VIIRS_NOAA20_DayNightBand_AtSensor_M15"
+            ]
+        }
+    ],
+    "product_level": "L3",
+    "providers": [],
+    "renders": {},
+    "stac_extensions": [
+        "https://stac-extensions.github.io/render/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+    ],
+    "stac_version": "1.1.0",
+    "temporal_frequency": "twenty four hours",
+    "tilematrixset": "GoogleMapsCompatible_Level8",
+    "time_density": "day",
+    "time_interval": "P1D",
+    "title": "Black Marble Nighttime Light Emissions v2 NRT (Blue/Yellow) Composite",
+    "type": "Collection",
+    "units": "nW/(cm²sr)", 
+    "tenant": ["nasa-disasters"]
+}
