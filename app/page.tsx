@@ -2,28 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { getStoriesMetadata } from 'app/content/utils/mdx';
 
-const mainTopSectionData = [
-  {
-    title: 'Earth scientists',
-    description:
-      'Easily access high quality Earth data from NASA and its associated partners',
-    img: '/images/homepage/user-scientists.jpg'
-    
-  },
-  {
-    title: 'Academic researchers',
-    description:
-      'Support your research efforts with an open source cloud-computing platform backed by NASA data.',
-    img: '/images/homepage/user-researcher.jpg'
-  },
-  {
-    title: 'Science enthusiasts',
-    description:
-      'Easily access high quality Earth data from NASA and its associated partners',
-    img: '/images/homepage/user-enthusiasts.jpg'
-  },
-];
-
 const featuredStories = getStoriesMetadata()
   .map((d) => ({
     ...d.metadata,
