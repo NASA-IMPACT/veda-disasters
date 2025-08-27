@@ -31,7 +31,7 @@ layers:
   - id: disasters_test_lis_vsm_percentile_10cm
     stacCol: disasters_test_lis_vsm_percentile_10cm
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    name:  Volumetric Soil Moisture (0-10cm), Updated Daily
+    name:  Volumetric Soil Moisture Percentile (0-10cm), Updated Daily
     type: wms
     description: Volumetric soil moisture (VSM) is the total water volume content per total soil volume content.
     initialDatetime: newest
@@ -69,6 +69,46 @@ layers:
       spatialExtent: CONUS
       temporalResolution: Daily
       unit: Percentage %
+
+  - id: disasters_test_lis_vsm_raw_10cm
+    stacCol: disasters_test_lis_vsm_raw_10cm
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name:  Volumetric Soil Moisture (0-10cm), Updated Daily
+    type: raster
+    description: Volumetric soil moisture (VSM) is the total water volume content per total soil volume content.
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      colormap_name: turbo_r
+      rescale: 
+        - 0.0
+        - 0.45
+    legend:
+      unit:
+        label: m3/m3
+      type: gradient
+      min: 0.0
+      max: 0.45
+      stops:
+        - "#FF0000"   # Red 
+        - "#FF9900"   # Orange
+        - "#FDE725"   # Yellow
+        - "#35B779"   # Green
+        - "#31678E"   # Cyan
+        - "#443983"    # Dark blue
+        - "#30123B"  # Deep purple 
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: CONUS
+      temporalResolution: Daily
+      unit: m3/m3
+
 ---
 
 
