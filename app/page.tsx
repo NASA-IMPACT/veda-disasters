@@ -21,28 +21,6 @@ export default function HomePage() {
           A powerful interface for viewing, analyzing, and downloading the latest near real-time and disaster specific data products in Geographic Information Systems (GIS) format. The Disasters Mapping Portal supports NASA’s Earth Applied Sciences Disasters program area in its mission to use Earth-observing data and applied research to improve the prediction of, preparation for, response to and recovery from hazards and disasters around the world.
           </h4>
         </div>
-        <div className='grid-row grid-gap-lg card--homepage-main margin-top-2'>
-          {mainTopSectionData.map((d) => {
-            return (
-              <div
-                key={d.title}
-                className='tablet:grid-col text-center padding-5'
-              >
-                <div>
-                  <img
-                    className='radius-pill'
-                    src={d.img}
-                    alt={d.title}
-                  />
-                </div>
-                <div className='margin-top-3'>
-                  <h3>{d.title}</h3>
-                  <p className='margin-top-1'>{d.description}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
 
         <div className='grid-row margin-top-5'>
           <h2>Featured Events</h2>
