@@ -83,67 +83,45 @@ layers:
       - 0
       - 20
     sourceParams:
-sourceParams:
-  colormap:
-    - "#3C28B4"
-    - "#6F60DB"
-    - "#A08BFF"
-    - "#95D1FB"
-    - "#4FA5F5"
-    - "#2881F0"
-    - "#1364D1"
-    - "#1DB41E"
-    - "#4FF04F"
-    - "#95F58B"
-    - "#FFE779"
-    - "#FFBF3C"
-    - "#FFA001"
-    - "#FF6000"
-    - "#FF3201"
-    - "#E21200"
-    - "#A50000"
-    - "#E1BEB4"
-    - "#B48B82"
-    - "#8B6459"
-  rescale:
-    - 0.0
-    - 0.45
+      colormap_name: nipy_spectral_r
+    rescale:
+      - 0.0
+      - 0.45
 
-legend:
-  unit:
-    label: m3/m3
-  type: gradient
-  min: 0.0
-  max: 0.45
-  stops:
-    - "#3C28B4"
-    - "#6F60DB"
-    - "#A08BFF"
-    - "#95D1FB"
-    - "#4FA5F5"
-    - "#2881F0"
-    - "#1364D1"
-    - "#1DB41E"
-    - "#4FF04F"
-    - "#95F58B"
-    - "#FFE779"
-    - "#FFBF3C"
-    - "#FFA001"
-    - "#FF6000"
-    - "#FF3201"
-    - "#E21200"
-    - "#A50000"
-    - "#E1BEB4"
-    - "#B48B82"
-    - "#8B6459"
-
-    analysis:
-      exclude: true
-    info:
-      source: NASA
-      spatialExtent: CONUS
-      temporalResolution: Daily
-      unit: m3/m3
+    legend:
+      unit:
+        label: m3/m3
+      type: gradient
+      min: 0.0
+      max: 0.45
+      stops:
+        - "#8B6459"
+        - "#B48B82"
+        - "#E1BEB4"
+        - "#A50000"
+        - "#E21200"
+        - "#FF3201"
+        - "#FF6000"
+        - "#FFA001"
+        - "#FFBF3C"
+        - "#FFE779"
+        - "#95F58B"
+        - "#4FF04F"
+        - "#1DB41E"
+        - "#1364D1"
+        - "#2881F0"
+        - "#4FA5F5"
+        - "#95D1FB"
+        - "#A08BFF"
+        - "#6F60DB"
+        - "#3C28B4"
+      analysis:
+        exclude: true
+      info:
+        source: NASA
+        spatialExtent: CONUS
+        temporalResolution: Daily
+        unit: m3/m3
 
 ---
 
