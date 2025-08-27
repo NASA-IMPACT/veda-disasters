@@ -8,7 +8,7 @@ export default function Page() {
 
         The program targets a broad spectrum of hazards and disasters, including floods, hurricanes, earthquakes, volcanoes and landslides, as well as combined hazards and cascading impacts. When disasters impact communities, the program collects and distributes relevant imagery, data, and damage assessments to provide response agencies and local governments with actionable data to aid in planning and recovery. The Disasters Program and its network of partners and volunteers assist with hazard assessment, evaluating severity, and identifying impacts near vulnerable infrastructure, crops, and lifelines, especially in remote areas where observations are sparse.
 
-        <a href="https://appliedsciences.nasa.gov/what-we-do/disasters">Learn More</a>.
+        <a href='https://appliedsciences.nasa.gov/what-we-do/disasters'>Learn More</a>.
 
       </p>
     </div>
