@@ -15,6 +15,16 @@ const otherStories = featuredStories.slice(1);
 export default function HomePage() {
   return (
     <section>
+      <div class="usa-alert usa-alert--info">
+    <div class="usa-alert__body">
+      <h4 class="usa-alert__heading">Current Activations</h4>
+      <p class="usa-alert__text">
+        The Disasters Program is currently providing support for the,
+        <a class="usa-link" href="https://disasters.openveda.cloud/events/ca-wildfire-2025">California Wildfires</a>
+        affecting the Los Angeles metropolitan area.
+      </p>
+    </div>
+  </div>
       <div className='grid-container'>
         <div className='grid-row margin-top-5'>
           <h4>
