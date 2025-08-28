@@ -20,7 +20,7 @@ export default function HomePage() {
          <h4 className='usa-alert__heading'>Current Activations</h4>
           <p className='usa-alert__text'>
            The Disasters Program is currently providing support for the
-          &nbsp <a className='usa-link' href='https://disasters.openveda.cloud/events/ca-wildfire-2025'>California Wildfires</a> &nbsp
+           <a className='usa-link' href='https://disasters.openveda.cloud/events/ca-wildfire-2025'>California Wildfires</a> 
           affecting the Los Angeles metropolitan area.
           </p>
         </div>
