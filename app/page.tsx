@@ -15,10 +15,10 @@ const otherStories = featuredStories.slice(1);
 export default function HomePage() {
   return (
     <section>
-      <div class='usa-alert usa-alert--error' role='alert'>
-        <div class='usa-alert__body'>
-          <h4 class='usa-alert__heading'>Error status</h4>
-          <p class='usa-alert__text'>
+      <div className='usa-alert usa-alert--error' role='alert'>
+        <div className='usa-alert__body'>
+          <h4 className='usa-alert__heading'>Error status</h4>
+          <p className='usa-alert__text'>
           This website is currently under maintenance. Some services and webpages may not work as expected.
           </p>
         </div>
