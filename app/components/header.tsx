@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <VedaUIConfigProvider>
       <PageHeader
-        title={'Disasters Mapping Dashboard'}
+        title={'Disasters Partnership and Learning Portal'}
         mainNavItems={navItems}
         subNavItems={subNavItems}
         logoSvg={

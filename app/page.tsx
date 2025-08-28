@@ -2,28 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { getStoriesMetadata } from 'app/content/utils/mdx';
 
-const mainTopSectionData = [
-  {
-    title: 'Earth scientists',
-    description:
-      'Easily access high quality Earth data from NASA and its associated partners',
-    img: '/images/homepage/user-scientists.jpg'
-    
-  },
-  {
-    title: 'Academic researchers',
-    description:
-      'Support your research efforts with an open source cloud-computing platform backed by NASA data.',
-    img: '/images/homepage/user-researcher.jpg'
-  },
-  {
-    title: 'Science enthusiasts',
-    description:
-      'Easily access high quality Earth data from NASA and its associated partners',
-    img: '/images/homepage/user-enthusiasts.jpg'
-  },
-];
-
 const featuredStories = getStoriesMetadata()
   .map((d) => ({
     ...d.metadata,
@@ -37,33 +15,29 @@ const otherStories = featuredStories.slice(1);
 export default function HomePage() {
   return (
     <section>
+      <div className='usa-alert usa-alert--error' role='alert'>
+        <div className='usa-alert__body'>
+          <h4 className='usa-alert__heading'>Under Maintenance</h4>
+          <p className='usa-alert__text'>
+          This website is currently being migrated. Some services and webpages may not work as expected.
+          </p>
+        </div>
+      </div>
+      <div className='usa-alert usa-alert--info'>
+        <div className='usa-alert__body'>
+         <h4 className='usa-alert__heading'>Current Activations</h4>
+          <p className='usa-alert__text'>
+           The Disasters Program is currently providing support for the
+           <a className='usa-link' href='https://disasters.openveda.cloud/events/ca-wildfire-2025'>California Wildfires</a> 
+          affecting the Los Angeles metropolitan area.
+          </p>
+        </div>
+      </div>
       <div className='grid-container'>
         <div className='grid-row margin-top-5'>
           <h4>
           A powerful interface for viewing, analyzing, and downloading the latest near real-time and disaster specific data products in Geographic Information Systems (GIS) format. The Disasters Mapping Portal supports NASA’s Earth Applied Sciences Disasters program area in its mission to use Earth-observing data and applied research to improve the prediction of, preparation for, response to and recovery from hazards and disasters around the world.
           </h4>
-        </div>
-        <div className='grid-row grid-gap-lg card--homepage-main margin-top-2'>
-          {mainTopSectionData.map((d) => {
-            return (
-              <div
-                key={d.title}
-                className='tablet:grid-col text-center padding-5'
-              >
-                <div>
-                  <img
-                    className='radius-pill'
-                    src={d.img}
-                    alt={d.title}
-                  />
-                </div>
-                <div className='margin-top-3'>
-                  <h3>{d.title}</h3>
-                  <p className='margin-top-1'>{d.description}</p>
-                </div>
-              </div>
-            );
-          })}
         </div>
 
         <div className='grid-row margin-top-5'>

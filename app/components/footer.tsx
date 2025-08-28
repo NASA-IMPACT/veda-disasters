@@ -8,11 +8,11 @@ import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 export default function Footer() {
   const defaultFooterSettings = {
     secondarySection: {
-      division: 'NASA EarthData 2024',
+      division: 'NASA Earth Action 2025',
       version: 'BETA VERSION',
       title: 'NASA Official',
-      name: 'Manil Maskey',
-      to: 'manil.maskey@nasa.gov',
+      name: 'Shanna McClain',
+      to: 'shanna.n.mcclain@nasa.gov',
       type: 'email',
     },
     returnToTop: true,
