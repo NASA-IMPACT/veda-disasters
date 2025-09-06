@@ -11,11 +11,11 @@ import {
 const additionalRoutes = ['about'];
 
 export default async function sitemap() {
-  const datasets = getDatasetsMetadata().map((post) => ({
+  const events = getDatasetsMetadata().map((post) => ({
     url: `${baseUrl}/${DATASET_CATALOG_PATH}/${post.slug}`,
   }));
 
-  const events = getStoriesMetadata().map((post) => ({
+  const summaries = getStoriesMetadata().map((post) => ({
     url: `${baseUrl}/${STORY_HUB_PATH}/${post.slug}`,
     lastModified: post.metadata.pubDate,
   }));
@@ -31,5 +31,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
-  return [...routes, ...datasets, ...events];
+  return [...routes, ...events, ...summaries];
 }
