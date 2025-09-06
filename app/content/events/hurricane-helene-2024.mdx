@@ -1,218 +1,646 @@
 ---
 id: hurricane-helene-2024
-name: "Hurricane Helene 2024"
-pubDate: 2025-07-30
-description: "Hurricane Helene NASA Observations over Southeast US"
+name: Datasets supporting 2024 Hurricane Helene Data Story
+description: Nighttime light emissions observed by Suomi NPP VIIRS Day/Night Band in a linear latitude-longitude projection and gridded at 500m
+
 media:
-  src: /images/dataset/Helene_BlackMarbleBYK_thumbnail.png
-  alt: Black Marble (blue/yellow) composite for Hurricane Helene over Southeast US.
+  src: https://eoimages.gsfc.nasa.gov/images/imagerecords/90000/90008/europe_vir_2016.jpg
+  alt: Night Light Map
   author:
-    name: NASA Worldview
+    name:  Earth Observatory NASA
+    url:  https://earthobservatory.nasa.gov
 taxonomy:
   - name: Topics
     values:
-      - Disasters
+      - Land
+      - Aquatic    
+  - name: Source
+    values:
+      - NASA
+      - NOAA
+  - name: Gas
+    values:
+      - CH₄
+      - CO₂
+  - name: Product Type
+    values:
+      - Satellite Observations
+infoDescription: |
+  ::markdown 
+    - Temporal Extent: October 10, 2023 - Ongoing
+    - Temporal Resolution: Daily
+    - Spatial Extent: Global    
+    - Spatial Resolution: 500m   
+    - Data Units: Watts per square centimeter per steradian (W/cm²/sr)       
+    - Data Type: Operational
+    - Data Latency: Updated daily       
+layers:
+         
+
+
+  - id: ndvi-change-hurricane-helene-202409-v3
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  ndvi-change-hurricane-helene-202409-v3
+    name: Experimental Binary Normalized Difference Vegetation Index
+    type: raster 
+    initialDatetime: newest
+    description: The Experimental Binary NDVI change product is highlighting areas that experienced change (of any kind) since the pre-event Copernicus Sentinel-2 pass (October 2024) used in the analysis. The product is further filters to reduce noise and focus the identification on the more pronounced areas of change in an effort to identify areas that may have experienced damage during Hurricane Helene's passage and associated water and wind impacts.
+    sourceParams:
+      assets: binary_mask
+      resampling: nearest
+      nodata: 0
+      colormap: '{"0":[255,255,255,0],"1":[255,255,0,255]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: false
+    legend:
+      unit:
+        label: NDVI Change       
+      type: categorical
+      min: "0"
+      max: "1"
+      stops:
+        - color: rgba(255,255,255,0)
+          label: No NDVI Change
+        - color: rgba(255,255,0,1)
+          label: NDVI Change
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: NDVI Change   
+
+  # - id: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2'
+  #   sourceParams:
+  #     assets: VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask   
+
+  # - id: DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2'
+  #   sourceParams:
+  #     assets: DNB_BRDF-Corrected_NTL_Mosaic_SNPP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'hot'
+  #     nodata: -9999
+  #     rescale:
+  #       - 0
+  #       - 3258 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: test      
+  #     type: gradient
+  #     min: "0"
+  #     max: "3258"
+  #     stops:
+  #       - rgba(0, 0, 0, 1)
+  #       - rgba(43, 15, 15, 1)
+  #       - rgba(193, 20, 20, 1)
+  #       - rgba(196, 114, 73, 1)
+  #       - rgba(246, 82, 0, 1)
+  #       - rgba(215, 199, 120, 1)
+  #       - rgba(199, 168, 58, 1)
+  #       - rgba(247, 218, 0, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: test  
+
+  # - id: DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2'
+  #   sourceParams:
+  #     assets: DNB_BRDF-Corrected_NTL_Mosaic_VJ1_C2
+  #     resampling: bilinear
+  #     colormap_name: 'hot'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 7916 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: test      
+  #     type: gradient
+  #     min: "0"
+  #     max: "7916"
+  #     stops:
+  #       - rgba(0, 0, 0, 1)
+  #       - rgba(43, 15, 15, 1)
+  #       - rgba(193, 20, 20, 1)
+  #       - rgba(196, 114, 73, 1)
+  #       - rgba(246, 82, 0, 1)
+  #       - rgba(215, 199, 120, 1)
+  #       - rgba(199, 168, 58, 1)
+  #       - rgba(247, 218, 0, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: test  
+
+  - id: black-marble-Corrected_NTLC2_Mosaic_C2-v1
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  black-marble-Corrected_NTLC2_Mosaic_C2-v1
+    name: black-marble-Corrected_NTLC2_Mosaic_C2-v1
+    type: raster 
+    initialDatetime: newest
+    description: 'black-marble-Corrected_NTLC2_Mosaic_C2-v1'
+    sourceParams:
+      assets: Corrected_NTLC2_Mosaic_C2
+      resampling: bilinear
+      colormap_name: 'inferno'
+      nodata: 0
+      rescale:
+        - 0
+        - 30 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      unit:
+        label: test      
+      type: gradient
+      min: "0"
+      max: "30"
+      stops:
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  # - id: black-marble-QF_Cloud_Mask_Mosaic_SNPP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-QF_Cloud_Mask_Mosaic_SNPP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-QF_Cloud_Mask_Mosaic_SNPP_C2'
+  #   sourceParams:
+  #     assets: QF_Cloud_Mask_Mosaic_SNPP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+  # - id: black-marble-QF_Cloud_Mask_Mosaic_VJ1_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-QF_Cloud_Mask_Mosaic_VJ1_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-QF_Cloud_Mask_Mosaic_VJ1_C2'
+  #   sourceParams:
+  #     assets: QF_Cloud_Mask_Mosaic_VJ1_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+  # - id: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2'
+  #   sourceParams:
+  #     assets: VNP46A2_QF_Cloud_Mask_Mosaic_VNP_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1 
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+  # - id: black-marble-VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2
+  #   stacApiEndpoint: https://dev.openveda.cloud/api/stac
+  #   tileApiEndpoint: https://dev.openveda.cloud/api/raster
+  #   stacCol:  black-marble-hurricane-helene-202409-v4
+  #   name: black-marble-VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2
+  #   type: raster 
+  #   initialDatetime: newest
+  #   description: 'black-marble-VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2'
+  #   sourceParams:
+  #     assets: VNP46A2_QF_Cloud_MaskC2_Cloud_C2_Mosaic_C2
+  #     resampling: bilinear
+  #     colormap_name: 'greys'
+  #     nodata: 0
+  #     rescale:
+  #       - 0
+  #       - 1
+  #   zoomExtent:
+  #     - 0
+  #     - 20
+  #   analysis:
+  #     exclude: true
+  #   legend:
+  #     unit:
+  #       label: Cloud Mask       
+  #     type: gradient
+  #     min: "0"
+  #     max: "1"
+  #     stops:
+  #       - rgb(255,255,255)
+  #       - rgba(113, 113, 113, 1)
+  #   info:
+  #     source: NASA
+  #     spatialExtent: Global 
+  #     temporalResolution: Daily
+  #     unit: Cloud Mask  
+
+
+  - id: sentinel-1-S1A_rgb_gpufed
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-hurricane-helene-202409-v2
+    name: sentinel-1-S1A_rgb_gpufed
+    type: raster 
+    description: 'sentinel-1-S1A_rgb_gpufed'
+    sourceParams:
+      asset_bidx: S1A_rgb_gpufed|1,2,3
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: Cloud Mask  
+
+
+  - id: nighttime1
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  black-marble-Corrected_both-v1
+    name: NTLC2_Mosaic_C2
+    type: raster 
+    initialDatetime: newest
+    description: 'Corrected_NTLC2_Mosaic_C2'
+    sourceParams:
+      assets: Corrected_NTLC2_Mosaic_C2
+      resampling: bilinear
+      colormap_name: 'inferno'
+      nodata: 0
+      rescale:
+        - 0
+        - 30 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      unit:
+        label: test      
+      type: gradient
+      min: "0"
+      max: "30"
+      stops:
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: nighttime2
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  black-marble-Corrected_both-v1
+    name: NTL_Mosaic_VJ1_C2
+    type: raster 
+    initialDatetime: newest
+    description: 'Corrected_NTL_Mosaic_VJ1_C2'
+    sourceParams:
+      assets: Corrected_NTL_Mosaic_VJ1_C2
+      resampling: bilinear
+      colormap_name: 'inferno'
+      nodata: 0
+      rescale:
+        - 0
+        - 30 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:   
+      type: gradient
+      min: "0"
+      max: "30"
+      stops:
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: nighttimeCompare
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  black-marble-Corrected_both-v1
+    name: NTLC2_Mosaic_C2
+    type: raster 
+    initialDatetime: newest
+    description: 'Corrected_NTL_Mosaic_VJ1_C2 and Corrected_NTLC2_Mosaic_C2'
+    sourceParams:
+      assets: Corrected_NTLC2_Mosaic_C2
+      resampling: bilinear
+      colormap_name: 'inferno'
+      nodata: 0
+      rescale:
+        - 0
+        - 30 
+    compare:
+      datasetId: hurricane-helene-2024
+      layerId: nighttime2
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:    
+      type: gradient
+      min: "0"
+      max: "30"
+      stops:
+        - rgba(0, 0, 4, 1)
+        - rgba(40, 11, 84, 1)
+        - rgba(101, 21, 110, 1)b∫
+        - rgba(159, 42, 99, 1)
+        - rgba(212, 72, 66, 1)
+        - rgba(245, 125, 21, 1)
+        - rgba(252, 255, 164, 1)       
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+
+  - id: dswx-water-extent-bwtr
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  aria-dswx-hurricane-helene-202409-v7
+    name: Opera DSWx Water Extent (BWTR)
+    type: raster 
+    initialDatetime: newest
+    description: 'Opera DSWx Water Extent - BWTR'
+    sourceParams:
+      assets: DSWx-bwtr
+      resampling: nearest
+      nodata: 0
+      colormap: '{"0":[255,255,255,0],"1":[0,191,255,255]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: categorical
+      min: "0"
+      max: "1"
+      stops:
+        - color: rgba(255, 255, 255, 1)
+          label: "No Water"
+        - color: rgba(0, 191, 255, 1)
+          label: "Water"     
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
+      unit: test  
+
+  - id: sentinel1-S1A-IW
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    stacCol:  sentinel1-S1A-IW-hurricane-helene-202409-v4
+    name: Sentinel 1 Water Extent
+    type: raster 
+    initialDatetime: newest
+    description: 'Sentinel 1 Water Extent'
+    sourceParams:
+      assets: S1A_IW_gpufed
+      resampling: nearest
+      nodata: 0
+      colormap: '{"1":[1,92,230],"2":[255,0,0],"3":[56,168,1],"4":[230,151,2]}' 
+    zoomExtent:
+      - 0
+      - 20
+    analysis:
+      exclude: true
+    legend:
+      type: categorical
+      min: "1"
+      max: "4"
+      stops:
+        - color: "#015CE6"
+          label: "Open Water"
+        - color: "#FF0000"
+          label: "Flooded Developed"
+        - color: "#38A801"
+          label: "Flooded Vegetation"
+        - color: "#E69702"
+          label: "Flooded Cropland/Grassland"
+    info:
+      source: NASA
+      spatialExtent: Global 
+      temporalResolution: Daily
 
 ---
-
 <Block>
-  <Figure>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', width: '100%' }}>
-      <a href="/data-catalog" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
-        <img src="/images/event/data-catalog.png" alt="Dataset" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Dataset</div>
-      </a>
-      <a href="/exploration?datasets=%5B%7B%22id%22%3A%22" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
-        <img src="/images/event/data-view.png" alt="View Data" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>View Data</div>
-      </a>
-      <a href="https://data.disasters.openveda.cloud/browseui/browseui/browseui/#us_svrwx_202504/" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
-        <img src="/images/event/download-data.png" alt="Download Data" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Access Data</div>
-      </a>
-    </div>
-  </Figure>
-</Block>
+  <Prose>   
+    **Temporal Extent:** October 10, 2023 - Ongoing<br />
+    **Temporal Resolution:** Daily<br />
+    **Spatial Extent:** Global    
+    **Spatial Resolution:** 500m   
+    **Data Units:** Watts per square centimeter per steradian (W/cm²/sr)       
+    **Data Type:** Operational<br />
+    **Data Latency:** Updated daily
 
-<Block>
-    <Prose>
-    From Sept. 24 to Sept. 26, 2024, Hurricane Helene caused significant flooding, power outages, and damage across Florida, Georgia, South Carolina, North Carolina, Virginia, and Tennessee. The NASA Disasters Response Coordination System (DRCS) activated and collaborated directly with FEMA, USGS, NOAA, the American Red Cross, and state emergency management agencies from Florida, Georgia, North Carolina, Virginia. 
+    Greenhouse gas (GHG) emission indicators, such as energy consumption, urban development, transportation, and industrial processes, are often difficult to monitor due to limitations in the spatial and temporal coverage of conventional ground-based measurements. In 2022 alone, the Intergovernmental Panel on Climate Change (IPCC) report indicated that approximately 35% of anthropogenic emissions recorded in 2019 were attributed to electricity and heat production. Satellite observations offer unique capabilities for enhancing GHG monitoring efforts as they can effectively map the extent and distribution of the GHGs across varied geographic areas and times with a high degree of accuracy. Nightlight data can particularly present valuable insights into human activities as they possess high radiometric resolution, enabling the identification of bright urban lights down to gas flares. Collected by the Visible Infrared Imaging Radiometer Suite (VIIRS) sensor aboard the Suomi National Polar-orbiting Partnership (NPP) satellite, the Daily Gridded Day/Night Band (DNB) product supplies measurements of nocturnal visible and near-infrared (NIR) light emitted from cities, industrial sites, power plants, gas flaring sources, biomass burning, as well as other human-induced emission initiators. The light emitted and captured by the VIIRS sensor can be a valuable indicator of GHG emissions, enabling the better identification of hotspots and the estimation of emissions across a given location in Near Real-Time (NRT). The DNB collection provides global linear 0.0045° x 0.0045° latitude and longitude grid nightlight data with a 500-meter spatial resolution. 
 
-    NASA centers supporting the DRCS response include: Ames Research Center (ARC), Goddard Space Flight Center (GSFC), Jet Propulsion Laboratory (JPL) and the California Institute of Technology, Johnson Space Center (JSC), Marshall Space Flight Center (MSFC), and Langley Research Center (LaRC).
-
-    NASA’s DRCS developed multiple Earth observation maps and data products to support response organizations. All products are free and publicly available on the NASA Disasters Mapping Portal. Key products include:
-
-    <ul>
-    <li> Nighttime lights </li>
-    <li>Landslide maps </li>
-    <li>Water extents </li>
-    <li>Optical imagery </li>
-    </ul>
-    Keep scrolling to learn about and interact with these data products!
-    </Prose>
-</Block>
-
-<Block>
-    <Prose>
-
-    ## Nighttime Lights
-    Nighttime Lights imagery is often used for identifying nighttime lights from cities, fires, boats, and other phenomena. At its highest resolution, this visualization represents the underlying data scaled to a resolution of 500m per pixel at the equator. These data were published daily from Sept.
-
-    The maps below compare pre-incident nighttime lights as seen on Sept. 22 (left) with a post-incident scene from Oct. 2 (center). DRCS created an experimental radiance change map aggregated by xipcode (right) to localize possible power outages and impacts. More information on Black Marble and a swipe app are available here.
-
-    This product is under development. Currently it visualizes change in luminosity between the August Black Marble baseline and Oct. 2, 2024, aggregated at the zip code level. Red areas experienced the most loss in luminosity, while gray indicates no date or cloud coverage. For more information on the experimental luminosity change map, please contact us at drcs@nasa.gov.
-
-    </Prose>
-</Block>
-
-<Block>
-  <Prose> 
-    <Figure>
-    <Map
-      datasetId='hurricane-helene-2024'
-      layerId='nighttimeCompare'
-      dateTime='2024-09-22'
-      zoom={6.5}
-      center={[-84.3856, 33.7588]}
-      compareDateTime='2024-10-02'
-    />
-    <Caption
-      attrAuthor='NASA'
-      attrUrl='https://nasa.gov/'
-    >
-    Post-incident water extents (Sept. 26, Sept. 28, and Oct. 3) derived from Sentinel 1 SAR by the Alaskan Satellite Facility. Credits: NASA/MSFC, USGS, ESA Copernicus. Sentinel data used in this derived product, contains modified Copernicus Sentinel data (2019-2022), processed by ESA, Alaska Satellite Facility.
-    </Caption>
-    </Figure>
   </Prose>
 </Block>
 
 
-<Block>
-    <Prose>
-
-    ## Water Extents
-    OPERA Dynamic Surface Water eXtent (DSWx) change map - Florida
-    The Advanced Rapid Imaging and Analysis (ARIA) and Observational Products for End-Users from Remote Sensing Analysis (OPERA) teams at NASA's Jet Propulsion Laboratory and California Institute of Technology derived the surface water extent maps below using the OPERA Dynamic Surface Water eXtent from Sentinel-1 (DSWx-S1) products. The OPERA Dynamic Surface Water eXtent data covers the west coast of Florida only and visualized in the map below.
-
-    In addition, OPERA has produced a Surface Disturbance product. The Disturbance product (DIST) maps per pixel vegetation disturbance (specifically, vegetation cover loss) from Harmonized Landsat Sentinel-2 (HLS) scenes. This data is available for western North Carolina and surrounding areas, also in the map below. For more information about the Surface Disturbance product suite, please refer to the DIST Product page: https://www.jpl.nasa.gov/go/opera/products/dist-product-suite/
-
-    The results posted here are preliminary and unvalidated, primarily intended to aid the field response and people who want to have a rough first look at the water extent. The ARIA-share website has always focused on posting preliminary results as fast as possible for disaster response.
-    </Prose>
-</Block>
-
-<Block>
-  <Prose> 
-    <Figure>
-    <Map
-      datasetId='hurricane-helene-2024'
-      layerId='dswx-water-extent-bwtr'
-      dateTime='2024-09-26'
-      zoom={10}
-      center={[-82.8067, 30.4563]}
-    />
-    <Caption
-      attrAuthor='NASA'
-      attrUrl='https://nasa.gov/'
-    >
-    OPERA Dynamic Surface Water eXtent (DSWx) Hurricane Helene. Credits: NASA JPL-Caltech ARIA/OPERA Team. The OPERA project, managed by the Jet Propulsion Laboratory and funded by NASA under the Satellite Needs Working Group cycle-2 activities, creates remote sensing products to address Earth observation needs across U.S. civilian federal agencies.
-    </Caption>
-    </Figure>
-  </Prose>
-</Block>
-
-<Block>
-    <Prose>
-    ## Alaska Satellite Facility HydroSAR Water Extents - North and South Carolina
-    The Alaska Satellite Facility has developed false color Red, Green, Blue (RGB) and Radiometrically Terrain-Correct (RTC) composites and surface water extent products of the Sentinel-1A/B Synthetic Aperture Radar (SAR) instrument which assigns the co- and cross-polarization information to a channel in the composite. When used to support a flooding event, areas in blue denotes water present at the time of the satellite overpass before or after the start of the flooding event.
-
-    Sentinel-1 RGB Decomposition of RTC VV and VH imagery over United States coastlines. Blue areas have low returns in VV and VH (smooth surfaces such as calm water, but also frozen/crusted soil or dry sand), Green areas have high returns in VH (volume scatterers such as vegetation or some types of snow/ice), and red areas have relatively high VV returns and relatively low VH returns (such as urban or sparsely vegetated areas).
-
-    The map below shows flood extents derived from these Sentinel 1 SAR decompositions in parts of North and South Carolina. Pre-incident data was collected on Sept. 16, and post-event data was collected Sept. 26, Sept. 28, and Oct. 3.
-  </Prose>
-</Block>
-
-<Block>
-  <Prose> 
-    ## Colorized SAR
-    <Figure>
-    <Map
-      datasetId='hurricane-helene-2024'
-      layerId='sentinel-1-S1A_rgb_gpufed'
-      dateTime='2024-09-28'
-      zoom={7}
-      center={[-81.2668, 35.1586]}
-    />
-    <Caption
-      attrAuthor='NASA'
-      attrUrl='https://nasa.gov/'
-    >
-    Post-incident water extents (Sept. 28) derived from Sentinel 1 SAR by the Alaskan Satellite Facility. Credits: NASA/MSFC, USGS, ESA Copernicus. Sentinel data used in this derived product, contains modified Copernicus Sentinel data (2019-2022), processed by ESA, Alaska Satellite Facility.
-    </Caption>
-    </Figure>
-  </Prose>
-</Block>
-
-<Block>
-  <Prose> 
-    ## Classified Water Extents
-    <Figure>
-    <Map
-      datasetId='hurricane-helene-2024'
-      layerId='sentinel1-S1A-IW'
-      dateTime='2024-09-28'
-      zoom={9}
-      center={[-81.056, 33.9985]}
-    />
-    <Caption
-      attrAuthor='NASA'
-      attrUrl='https://nasa.gov/'
-    >
-    Post-incident water extents (Sept. 28) derived from Sentinel 1 SAR by the Alaskan Satellite Facility. Credits: NASA/MSFC, USGS, ESA Copernicus. Sentinel data used in this derived product, contains modified Copernicus Sentinel data (2019-2022), processed by ESA, Alaska Satellite Facility.
-    </Caption>
-    </Figure>
-  </Prose>
-</Block>
-
-<Block>
-    <Prose>
-    ## Optical Imagery
-    ### Sentinel 2
-    From the European Space Agency Sentinel 2-A and 2-B satellites, the below 10m true color imagery shows how the Earth's surface would look to the naked eye from space. The True Color RGBs below are produced using the 3 visible wavelength bands (red, green, and blue). False-color imagery featuring short wave infrared (SWIR) and near infrared (NIR) bands are also available as map image layers in the gallery.
-
-    At 10m spatial resolution, this data can show landcover change, wide area flooding, severe road damage, and major change to urban areas. While not sufficient for structure-level damage assessments, it can reveal areas that may have been heavily impacted and locations of flood.
-
-    DRCS performed a Normalized Difference Vegetation Index (NDVI) analysis on the Sentinel 2 data to identify areas that may have sustained impacts based on changes in vegetation. The Experimental Binary NDVI change product is highlighting areas that experienced change (of any kind) since the pre-event Copernicus Sentinel-2 pass (22 September 2024) used in the analysis. The product is further filtered to reduce noise and focus on more pronounced areas of change in an effort to identify areas that may have experienced damage during Hurricane Helene's passage and associated water and wind impacts.
-
-    The swipe app below allows users to interact with the experimental NDVI change product while viewing the pre-incident (right) and post-incident (left) imagery.
-    </Prose>
-</Block>
 
 
 <Block>
-  <Prose> 
-    <Figure>
-    <Map
-      datasetId='hurricane-helene-2024'
-      layerId='ndvi-change-hurricane-helene-202409-v3'
-      dateTime='2024-10-02'
-      zoom={8.5}
-      center={[-82.2668, 34.1586]}
-    />
-    <Caption
-      attrAuthor='NASA'
-      attrUrl='https://nasa.gov/'
-    >
-      Swipe App for Hurricane Helene - Sentinel-2 and NDVI Change Map
-    </Caption>
-    </Figure>
-  </Prose>
-</Block>
+  <Prose>
+    ## Source Data Product Citation
+    Román, M. O. 2023. About. MODAPS Services. NASA Suomi-NPP/VIIRS Land SIPS/Land, Atmosphere Near real-time Capability for EOS (LANCE) Moderate Resolution Imaging Spectroradiometer (MODIS). https://doi.org/10.5067/VIIRS/VNP46A1_NRT.002
+    
+    ## Version History
 
-<Block>
-  <Prose> 
-    ## Landsat
-    The NASA/USGS Landsat program is the longest-running multispectral Earth imaging mission. True Color imagery from Landsat 8 and 9 is processed to 30m spatial resolution and shows how the Earth would look to the naked eye from space. The True Color RGB is produced using the 3 visible wavelength bands (red, green, and blue) from the respective sensor. Some minor atmospheric corrections have occurred.
+    ## Dataset Accuracy
 
-    At 30m spatial resolution, this data can reveal flooding and wide-area landcover change. It is not sufficient for structure-level damage assessments but can provide situational awareness on hazard extents.
+    ## Disclaimer
+
+    ## Scientific Details
+    The Top of Atmosphere (TOA) nighttime radiance product is updated daily and contains 26 Science Data Sets (SDS), including sensor radiance, zenith and azimuth angles (at-sensor, solar, and lunar), cloud-mask flags, time, shortwave infrared (IR) radiance, brightness temperatures, VIIRS quality flags, moon phase angle, and moon illumination fraction. The DNB’s ultra-sensitivity in low-light conditions enhances the process of monitoring the magnitude and radiance signature of nighttime phenomena, particularly sources of manmade light emissions. The product is produced using lunar irradiance modeling, temporal gap filling, and gridding algorithms to convert data to a lat and long grid available at 15 arc-second resolution. The gidding algorithms were modified to comply with DNB’s unique viewing geometry and to collect observations from available 6-min swath granules (2,366 km along track, and about 3,100 km across track), allowing for the derivation of high-quality data with minimal impact from cloud cover and off-nadir viewing. By employing the “turning off the moon” approach, the upward surface radiance from artificial light emissions can be extracted from at-sensor nighttime radiance at TOA. To reduce uncertainty due to existing vegetation within the ground-to-sensor geometry path, particularly in cities with temperate climates, the clumping index, known as the vegetation dispersion parameter, was used to quantify the confined distribution of foliage for a given area. Radiance values are reported in Watts per square centimeter per steradian (W/cm²/sr) and span across a spectral range of 500 to 900 nm with global coverage between ±75° latitude. The files are originally provided in the standard Hierarchical Data Format - Earth Observing System (HDF-EOS) format. 
+
+    ## Key Publications
+
+    ## Other Relevant Publications
+
+    ## Learn More
+
+    ## Acknowledgment
+    This dataset was produced by researchers at NASA Suomi-NPP/VIIRS Land SIPS/Land, Atmosphere Near Real-time Capability for EOS (LANCE)Moderate Resolution Imaging Spectroradiometer (MODIS), located at NASA Goddard Space Flight Center (GSFC) in Greenbelt, MD, United States. We thank the Black Marble Science Team for their continued efforts in acquiring, processing, validating, and disseminating this product.
+
+    ## License
+    [Creative Commons Zero v1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (CC0 1.0)
+
+
   </Prose>
 </Block>
