@@ -14,8 +14,8 @@ import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 
 export const navItems: NavItem[] = [
   {
-    id: 'data-catalog',
-    title: 'Data Catalog',
+    id: 'events',
+    title: 'Events',
     to: `/${DATASET_CATALOG_PATH}`,
     type: 'internalLink',
   },
@@ -26,8 +26,8 @@ export const navItems: NavItem[] = [
     type: 'internalLink',
   },
   {
-    id: 'events',
-    title: 'Events',
+    id: 'summaries',
+    title: 'Activation Summaries',
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',
   },

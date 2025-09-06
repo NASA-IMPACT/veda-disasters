@@ -104,9 +104,9 @@ const components = {
 };
 
 export function CustomMDX(props: any) {
-  const datasets = getDatasetsMetadata();
+  const events = getDatasetsMetadata();
   return (
-    <Providers datasets={datasets}>
+    <Providers events={events}>
       <LegacyGlobalStyles />
       <MDXRemote
         {...props}
