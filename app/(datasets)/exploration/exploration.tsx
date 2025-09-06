@@ -11,10 +11,10 @@ import { useSetAtom } from 'jotai';
 import useElementHeight from '@utils/hooks/use-element-height';
 import Providers from '../providers';
 
-export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
+export default function ExplorationAnalysis({ events }: { events: any }) {
   const setExternalDatasets = useSetAtom(externalDatasetsAtom);
 
-  setExternalDatasets(datasets);
+  setExternalDatasets(events);
 
   const [timelineDatasets, setTimelineDatasets] = useTimelineDatasetAtom();
   const [datasetModalRevealed, setDatasetModalRevealed] = useState(
@@ -31,7 +31,7 @@ export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
   const offsetHeight = useElementHeight({ queryToSelect: 'header' });
 
   return (
-    <Providers datasets={datasets}>
+    <Providers events={events}>
       <LegacyGlobalStyles />
       <div
         id='ea-wrapper'
@@ -48,10 +48,10 @@ export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
           close={closeModal}
           timelineDatasets={timelineDatasets}
           setTimelineDatasets={setTimelineDatasets}
-          datasets={datasets}
+          events={events}
         />
         <ExplorationAndAnalysis
-          datasets={timelineDatasets}
+          events={timelineDatasets}
           setDatasets={setTimelineDatasets}
           openDatasetsSelectionModal={openModal}
         />

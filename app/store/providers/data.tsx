@@ -20,9 +20,9 @@ export function useDataStore() {
 // @TODO: Decided how to handle function as mapLabel from VEDA UI
 // https://github.com/NASA-IMPACT/veda-ui/issues/1377
 function updateMapLabels(data) { 
-  return data.map((dataset) => {
-    if (dataset.metadata && dataset.metadata.layers) {
-      dataset.metadata.layers.forEach((layer) => {
+  return data.map((event) => {
+    if (events.metadata && events.metadata.layers) {
+      event.metadata.layers.forEach((layer) => {
         if (layer.mapLabel) {
           layer.mapLabel = eval(layer.mapLabel);
         }
@@ -31,7 +31,7 @@ function updateMapLabels(data) {
         }
       });
     }
-    return dataset;
+    return event;
   });
 }
 
@@ -42,11 +42,11 @@ function DataProvider({
   children: JSX.Element | ReactNode;
   initialDatasets: any[] | undefined;
 }) {
-  const [datasets, setDatasets] = useState<any[] | undefined>(
+  const [events, setDatasets] = useState<any[] | undefined>(
     updateMapLabels(initialDatasets),
   );
   const value = {
-    datasets,
+    events,
     setDatasets,
   };
 
