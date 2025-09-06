@@ -6,9 +6,9 @@ import { PageHero, LegacyGlobalStyles } from '@lib';
 import Providers from 'app/(datasets)/providers';
 
 export default function DatasetOverviewPage({ params }: { params: any }) {
-  const dataset = getDatasets().find((dataset) => dataset.slug === params.slug);
+  const event = getDatasets().find((event) => event.slug === params.slug);
 
-  if (!dataset) {
+  if (!event) {
     notFound();
   }
 
@@ -18,13 +18,13 @@ export default function DatasetOverviewPage({ params }: { params: any }) {
         <Providers>
           <LegacyGlobalStyles />
           <PageHero
-            title={dataset.metadata.name}
-            description={dataset.metadata.description}
-            coverSrc={dataset.metadata.media?.src}
-            coverAlt={dataset.metadata.media?.alt}
+            title={event.metadata.name}
+            description={event.metadata.description}
+            coverSrc={event.metadata.media?.src}
+            coverAlt={event.metadata.media?.alt}
           />
         </Providers>
-        <CustomMDX source={dataset.content} />
+        <CustomMDX source={event.content} />
       </article>
     </section>
   );
