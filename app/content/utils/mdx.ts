@@ -15,13 +15,13 @@ const STORY_CONTENT_PATH = path.join(
   process.cwd(),
   'app',
   'content',
-  'events',
+  'summaries',
 );
 const DATASET_CONTENT_PATH = path.join(
   process.cwd(),
   'app',
   'content',
-  'datasets',
+  'events',
 );
 
 const md = markdownit();
