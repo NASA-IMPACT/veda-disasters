@@ -48,10 +48,10 @@ export default function ExplorationAnalysis({ events }: { events: any }) {
           close={closeModal}
           timelineDatasets={timelineDatasets}
           setTimelineDatasets={setTimelineDatasets}
-          events={events}
+          datasets={events}
         />
         <ExplorationAndAnalysis
-          events={timelineDatasets}
+          datasets={timelineDatasets}
           setDatasets={setTimelineDatasets}
           openDatasetsSelectionModal={openModal}
         />
