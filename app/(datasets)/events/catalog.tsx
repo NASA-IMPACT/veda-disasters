@@ -9,7 +9,7 @@ export default function Catalog({ events }: { events: any }) {
   return (
     <Providers>
       <CatalogContent
-        events={events}
+        datasets={events}
         search={controlVars.search}
         onAction={controlVars.onAction}
         taxonomies={controlVars.taxonomies}

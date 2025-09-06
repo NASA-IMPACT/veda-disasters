@@ -21,7 +21,7 @@ export function useDataStore() {
 // https://github.com/NASA-IMPACT/veda-ui/issues/1377
 function updateMapLabels(data) { 
   return data.map((event) => {
-    if (events.metadata && events.metadata.layers) {
+    if (event.metadata && event.metadata.layers) {
       event.metadata.layers.forEach((layer) => {
         if (layer.mapLabel) {
           layer.mapLabel = eval(layer.mapLabel);

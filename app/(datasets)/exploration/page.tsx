@@ -12,10 +12,10 @@ const ExplorationAnalysis = dynamic(
 );
 
 export default function Page() {
-  const datasets: any[] = getTransformedDatasetMetadata();
+  const events: any[] = getTransformedDatasetMetadata();
   return (
     <section>
-      <ExplorationAnalysis datasets={datasets} />
+      <ExplorationAnalysis events={events} />
     </section>
   );
 }
