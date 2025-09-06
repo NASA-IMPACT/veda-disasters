@@ -28,7 +28,7 @@ export default function HomePage() {
          <h4 className='usa-alert__heading'>Current Activations</h4>
           <p className='usa-alert__text'>
            The Disasters Program is currently providing support for the
-           <a className='usa-link' href='https://deploy-preview-21--disasters-hub.netlify.app/events/ca-wildfire-2025'>California Wildfires</a> 
+           <a className='usa-link' href='https://deploy-preview-21--disasters-hub.netlify.app/events/ca-wildfires-2025'>California Wildfires</a> 
           affecting the Los Angeles metropolitan area.
           </p>
         </div>
