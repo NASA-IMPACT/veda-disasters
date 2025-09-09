@@ -50,22 +50,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
-        <div className="minh-viewport display-flex flex-column">
+        <div className='minh-viewport display-flex flex-column'>
           <Header />
 
           {/* Global site-wide banner */}
-          <div className="usa-alert usa-alert--error" role="alert">
-            <div className="usa-alert__body">
-              <h4 className="usa-alert__heading">Under Maintenance</h4>
-              <p className="usa-alert__text">
+          <div className='usa-alert usa-alert--error' role='alert'>
+            <div className='usa-alert__body'>
+              <h4 className='usa-alert__heading'>Under Maintenance</h4>
+              <p className='usa-alert__text'>
                 This website is currently being migrated. Some services and webpages may not work as expected.
               </p>
             </div>
           </div>
 
-          <main id="pagebody" className="flex-fill" tabIndex={-1}>
+          <main id='pagebody' className='flex-fill' tabIndex={-1}>
             {children}
           </main>
 
