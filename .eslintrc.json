@@ -7,7 +7,7 @@
     "prettier"
   ],
   "rules": {
-    "jsx-quotes": [2, "prefer-single"],
+    "jsx-quotes": ["error", "prefer-double"],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-require-imports": "off",
