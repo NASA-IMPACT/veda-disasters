@@ -1,110 +1,56 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck : until veda-ui fixes its types: NavItem type enum
-import React from "react";
-import { PageHeader } from "@lib";
-import { NavItem } from "@lib";
-import NasaLogoColor from "app/components/nasa-logo-color.js";
-import DisastersLogo from "app/components/nasa-disasters-logo-color.js";
-import {
-  DATASET_CATALOG_PATH,
-  EVENTS_PATH,
-  EXPLORATION_PATH,
-  STORY_HUB_PATH,
-} from "app/config";
-import VedaUIConfigProvider from "app/store/providers/veda-ui-config";
-
-export const navItems: NavItem[] = [
-  {
-    id: "data-catalog",
-    title: "Activations Gallery",
-    to: `/${DATASET_CATALOG_PATH}`,
-    type: "internalLink",
-  },
-  {
-    id: "exploration",
-    title: "Data Visualization",
-    to: `/${EXPLORATION_PATH}`,
-    type: "internalLink",
-  },
-  {
-    id: "events",
-    title: "Event Summaries",
-    to: `/${STORY_HUB_PATH}`,
-    type: "internalLink",
-  },
-];
-
-export const subNavItems: NavItem[] = [
-  {
-    id: "about",
-    title: "About",
-    to: "/about",
-    type: "internalLink",
-  },
-  {
-    id: "contact-us",
-    title: "Contact us",
-    actionId: "open-google-form",
-    type: "action",
-  },
-];
+import Link from 'next/link'
+import NasaLogoColor from './nasa-logo-color'
+import DisastersLogo from './disasters-logo-color'
 
 export default function Header() {
-  // Scale factor to make the inline SVGs ~40px tall (312×258 NASA SVG → 40px ≈ 0.155)
-  const SCALE = 0.155;
-
   return (
-    <VedaUIConfigProvider>
-      <PageHeader
-        title={"NASA Disasters Program"}
-        mainNavItems={navItems}
-        subNavItems={subNavItems}
-        logoSvg={
-          <div
-            id="logo-container-link"
-            className="display-flex flex-align-start flex-justify-start"
-            style={{ gap: "0.5rem", lineHeight: 0 }}
+    <header className="usa-header usa-header--basic">
+      <div className="usa-nav-container display-flex flex-justify flex-align-center padding-x-2">
+        {/* Logos on the left */}
+        <div className="display-flex flex-align-center">
+          <a
+            href="https://appliedsciences.nasa.gov"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="NASA Applied Sciences"
+            className="margin-right-2"
           >
-            {/* NASA meatball -> external site */}
-            <a
-              href="https://appliedsciences.nasa.gov"
-              aria-label="NASA Applied Sciences (opens in new tab)"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="display-inline-block"
-              style={{ lineHeight: 0 }}
-            >
-              <div
-                style={{
-                  transform: `scale(${SCALE})`,
-                  transformOrigin: "top left",
-                  lineHeight: 0,
-                }}
-              >
-                <NasaLogoColor />
-              </div>
-            </a>
+            <NasaLogoColor />
+          </a>
+          <Link href="/" aria-label="NASA Disasters Program">
+            <DisastersLogo />
+          </Link>
+        </div>
 
-            {/* Disasters logo -> this site's homepage */}
-            <a
-              href="/"
-              aria-label="NASA Disasters homepage"
-              className="display-inline-block"
-              style={{ lineHeight: 0 }}
-            >
-              <div
-                style={{
-                  transform: `scale(${SCALE})`,
-                  transformOrigin: "top left",
-                  lineHeight: 0,
-                }}
-              >
-                <DisastersLogo />
-              </div>
-            </a>
-          </div>
-        }
-      />
-    </VedaUIConfigProvider>
-  );
+        {/* Title in the middle */}
+        <div className="flex-auto text-center">
+          <h1 className="usa-logo__text">
+            NASA Disasters Program{' '}
+            <span className="usa-tag bg-secondary-dark text-white">BETA</span>
+          </h1>
+        </div>
+
+        {/* Right-side nav links */}
+        <nav className="usa-nav">
+          <ul className="usa-nav__primary">
+            <li className="usa-nav__primary-item">
+              <Link href="/about">About</Link>
+            </li>
+            <li className="usa-nav__primary-item">
+              <Link href="/contact">Contact us</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      {/* Secondary nav */}
+      <nav className="usa-nav-submenu">
+        <ul className="usa-nav__secondary">
+          <li><Link href="/activations">Activations Gallery</Link></li>
+          <li><Link href="/visualizations">Data Visualization</Link></li>
+          <li><Link href="/summaries">Event Summaries</Link></li>
+        </ul>
+      </nav>
+    </header>
+  )
 }
