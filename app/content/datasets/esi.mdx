@@ -1,0 +1,184 @@
+---
+id: esi
+name: Evaporative Stress Index
+description: Evaporative Stress Index (ESI) reveals regions of drought where vegetation is stressed due to lack of water, enabling agriculture ministries to provide farmers with actionable advice about irrigation.
+
+media:
+  src: /images/dataset/esi_GSFC_20171208_Archive_e000115_orig.jpg
+  alt: Agricultural field in New Zealand, image from weather ballon.
+  author:
+    name:  Figure by NASA/David Webb
+    url:  https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000115/GSFC_20171208_Archive_e000115~orig.jpg
+taxonomy:
+  - name: Disaster
+    values:
+      - Wildfires
+      - Severe and Winter Weather
+  - name: Source
+    values:
+      - NASA
+  - name: Product Type
+    values:
+      - NRT
+
+infoDescription: |
+  ::markdown
+    - Temporal Extent: January 8, 2001 - Present
+    - Temporal Resolution: Weekly
+    - Spatial Extent: Global
+    - Spatial Resolution: 5km x 5km
+    - Data Units: Standard deviation
+    - Data Type: Research
+    - Data Latency: Updated weekly
+layers:
+  - id: esi-4wk
+    stacCol: esi-4wk
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: Evaporative Stress Index (4Wk)
+    type: raster
+    description: The global dataset, called the Evaporative Stress Index (ESI), available online and produced weekly at 5-kilometer resolution for the entire globe, reveals regions of drought where vegetation is stressed due to lack of water, enabling agriculture ministries to provide farmers with actionable advice about irrigation.
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      colormap_name: rdylgn
+      rescale:
+        - -3
+        - 3
+    legend:
+      unit:
+        label: Percentage %
+      type: gradient
+      min: -3
+      max: 3
+      stops:
+        - "#DC4536"
+        - "#F6905B"
+        - "#FCD586"
+        - "#FFFEC1"
+        - "#CCE989"
+        - "#87C86B"
+        - "#35A058"
+        - "#0C6739"
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Global
+      temporalResolution: Weekly
+      unit: Standard deviation
+    media:
+      src: /images/dataset/esi_GSFC_20171208_Archive_e000115_orig.jpg
+      alt: Agricultural field in New Zealand, image from weather ballon.
+
+---
+
+<Block>
+  <Prose>
+    **Temporal Extent:** January 8, 2001 - Present<br />
+    **Temporal Resolution:** Weekly<br />
+    **Spatial Extent:** Global<br />
+    **Spatial Resolution:** 5km x 5km<br />
+    **Data Type:** Research<br />
+    **Data Latency:** Updated Weekly
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+  # Data Check
+  </Prose>
+    <Figure>
+    <Map
+      datasetId='esi'
+      layerId='esi-4wk'
+      dateTime='2001-01-08'
+      zoom={10}
+      center={[-84.621, 40.107]}
+      compareDateTime='2001-01-15'
+    />
+    <Caption
+      attrAuthor='NASA'
+      attrUrl='https://nasa.gov/'
+    >
+      Comparison of artificial light emissions in Greenville, Ohio before and after a tornado strike on May 7, 2024.
+    </Caption>
+    </Figure>
+</Block>
+
+<Block>
+  <Prose>
+    ## About 
+    The NASA Short-term Prediction Research and Transition (SPoRT) Center runs the Alaska LIS (LIS-AK), a near-real-time version of the Noah land surface model at 0.03 degree resolution utilizing the NASA Land Information System (LIS) software.  The model input is the Global Data Assimilation (GDAS) forcing dataset, which is a near-real-time analysis of various observational data (ground, radar, satellite) consisting of surface meteorology (temperature, humidity, pressure, winds, precipitation) and downwelling long- and short-wave radiation.
+
+    Within LIS, the Noah Land Surface Model (LSM) is forced by this input data and produces analyses of soil temperature and moisture in 4 layers plus the snow state and fluxes of energy and water at the surface.  The Noah LSM accounts for snow accumulation based on the current LIS snow values in the continuous run and the forcing data from the atmospheric model.  Forcing variables influencing the snow depth in LIS include precipitation, air temperature, solar radiation.  Relevant modeled processes include compaction of snow, sublimation, and melting.
+
+
+    ## Source Data Product Citation
+    Kumar, S.V., C.D. Peters-Lidard, Y. Tian, P.R. Houser, J. Geiger, S. Olden, L. Lighty, J.L. Eastman, B. Doty, P. Dirmeyer, J. Adams, K. Mitchell, E. F. Wood, and J. Sheffield. (2006). Land Information System - An interoperable framework for high resolution land surface modeling. Environ. Modeling & Software, 21, 1402-1415, doi:10.1016/j.envsoft.2005.07.00
+
+    ## Version History
+    Version: 6.14(3.0.1)
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+    ## Scientific Details
+    Relative soil moisture (RSM) provides a measure of the soil saturation without having to consider the variation in soil type.  RSM is analogous to relative humidity for air saturation.  Thus, RSM provides an easy measure of the level of saturation as opposed to a volumetric value where the differing amounts of space between soil particles causes inconsistent volumetric maxima per soil type.  The water in the soil can be in liquid or frozen form.
+
+    The near-surface layer responds quickly to heavy rainfall and indicates near-saturated conditions conducive to significant runoff and river flooding, while the deeper column layers represent longer-term water storage via infiltration from upper layers.  These values can also be used as fire risk indicators since vegetation water is dependent on soil moisture, and the near-surface layer can be a proxy for moisture in surface fuels (duff or litter).
+
+    Green Vegetation Fraction (GVF) is typically a static input to the land surface model based on monthly climatological values for a given location. The GVF particularly impacts soil moisture due to the accounting in the model of evapotranspiration by photosynthetically active vegetation .  Compared to the assumed climatological GVF, the use of the daily VIIRS GVF composite provides a more realistic impact to soil moisture, especially in extreme or atypical conditions.
+
+    ## Key Publications
+    Aaron, J. and Peursem, K.V. Utilizing Remote Sensing & NASA SPoRT Land Information System-Alaska To Improve Flood & Landslide Situational Awareness From Heavy Precipitation. 104th AMS Annual Meeting. AMS, 2024. [https://ams.confex.com/ams/104ANNUAL/mediafile/Handout/Paper435177/AMS_2024_AK-LIS%202020%20event.pptx.pdf](https://ams.confex.com/ams/104ANNUAL/mediafile/Handout/Paper435177/AMS_2024_AK-LIS%202020%20event.pptx.pdf)
+
+    Tavakol, A., Rahmani, V., Quiring, S.M., Kumar, S.V. (2019). Evaluation analysis of NASA SMAP L3 and L4 and SPoRT-LIS soil moisture data in the United States. Remote Sensing of Environment, (229), 234-246, [https://doi.org/10.1016/j.rse.2019.05.006](https://doi.org/10.1016/j.rse.2019.05.006).
+
+    McDonough, K.R., Hutchinson, S.L., Hutchinson, J.M.S., Case, J.L., Rahmani, V. (2018). Validation and assessment of SPoRT-LIS surface soil moisture estimates for water resources management applications. Journal of Hydrology, (566), 43-54, [https://doi.org/10.1016/j.jhydrol.2018.09.007](https://doi.org/10.1016/j.jhydrol.2018.09.007).
+
+    Hoylman, Z. H., Holden, Z., Bocinsky, R. K., Ketchum, D., Swanson, A., & Jencso, K. (2024). Optimizing drought assessment for soil moisture deficits. Water Resources Research, (60), [https://doi.org/10.1029/2023WR036087](https://doi.org/10.1029/2023WR036087).
+
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+    ## Data Limitations
+
+    #### Soil Moisture
+    The SPoRT-LIS is as good as the input forcing analyses, so occasional soil moisture artifacts may appear in the horizontal maps related to quality-control issues of the input datasets. These can be manifested with unusually low or high percentiles, especially along international borders, coastlines, and isolated dry “bulls-eyes” at rain gauge with quality issues.
+
+    #### Snow Depth
+    Inaccuracies in the forcing data will result in inaccuracies in model data.  Large portions of the state are data-sparse so the GDAS forcing data, and hence the LIS output, may be subject to larger errors than usual.  Snow depth in coastal areas is subject to higher error and is often underestimated.  In some high-altitude, permanently glaciated areas, the model may accumulate too much snow.  The Noah (LSM) used within LIS does not represent snow removal or transport from wind scouring.
+
+    #### Green Vegetation Fraction
+    This product is derived from satellite observations of cloud-free scenes.  In cloudy areas, it may be a few days behind the actual conditions. The VIIRS GVF product is updated every day, but the retrieval process contains time-weighted reflectance composites using data over the past week, in order to generate spatially continuous grids in the daily product.  So there can be some noticeable time-lags during rapid green-up or brown-down transitions.
+
+    #### Limitations of use
+    NASA data and products are freely available to federal, state, public, non-profit and commercial users. This information can be experimental- or research-grade data products and may not be appropriate for operational use. These NASA data products, services, and the Disasters Mapping Portal are intended to aid decision makers and enhance situational awareness, but these data are not guaranteed to be consistently available or routinely updated. Please cite the information according to the direction provided in the metadata.
+
+    #### License
+    [Creative Commons Zero v1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (CC0 1.0)
+
+  </Prose>
+</Block>
+
+
+<Block>
+  <Prose>
+    ### Additional Resources
+    - [SPoRT Outputs Archives](https://nssrgeo.ndc.nasa.gov/SPoRT/modeling/lis/alaska3km/geotiff/)
+
+    ### Real-time SPoRT-LIS Viewer 
+ 
+    - [Relative soil moisture (0-10cm)](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=rsoim0-10&mode=nrt)
+    - [Relative soil moisture (0-40cm)](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=rsoim10-40&mode=nrt)
+    - [Green Vegetation Fraction](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=gvf&mode=nrt)
+    - [Snow Depth](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=snod&mode=nrt)
+  </Prose>
+</Block>
