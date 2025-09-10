@@ -4,7 +4,7 @@ import React from "react";
 import { PageHeader } from "@lib";
 import { NavItem } from "@lib";
 import NasaLogoColor from "app/components/nasa-logo-color.js";
-import DisastersLogo from "app/components/nasa-disasters-logo.js";
+import DisastersLogo from "app/components/nasa-disasters-logo-color.js";
 import {
   DATASET_CATALOG_PATH,
   EVENTS_PATH,
