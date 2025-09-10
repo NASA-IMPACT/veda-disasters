@@ -50,6 +50,9 @@ export const subNavItems: NavItem[] = [
 ];
 
 export default function Header() {
+  // Scale factor to make the inline SVGs ~40px tall (312×258 NASA SVG → 40px ≈ 0.155)
+  const SCALE = 0.155;
+
   return (
     <VedaUIConfigProvider>
       <PageHeader
@@ -73,7 +76,7 @@ export default function Header() {
             >
               <div
                 style={{
-                  transform: "scale(0.13)",
+                  transform: `scale(${SCALE})`,
                   transformOrigin: "top left",
                   lineHeight: 0,
                 }}
@@ -91,7 +94,7 @@ export default function Header() {
             >
               <div
                 style={{
-                  transform: "scale(0.13)",
+                  transform: `scale(${SCALE})`,
                   transformOrigin: "top left",
                   lineHeight: 0,
                 }}
