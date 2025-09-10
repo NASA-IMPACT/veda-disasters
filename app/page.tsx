@@ -41,7 +41,7 @@ export default function HomePage() {
         </div>
 
         <div className='grid-row margin-top-5'>
-          <h2>Featured Events</h2>
+          <h2>Featured Event Summaries</h2>
         </div>
         <div className='grid-row grid-gap-md  margin-top-2'>
           <div className='tablet:grid-col-6'>
