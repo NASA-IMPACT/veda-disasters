@@ -4,7 +4,7 @@ import React from "react";
 import { PageHeader } from "@lib";
 import { NavItem } from "@lib";
 import NasaLogoColor from "app/components/nasa-logo-color.js";
-import DisastersLogo from "app/components/nasa-disasters-logo-color.js";
+import DisastersLogo from "app/components/nasa-disasters-logo.js";
 import {
   DATASET_CATALOG_PATH,
   EVENTS_PATH,
@@ -59,8 +59,8 @@ export default function Header() {
         logoSvg={
           <div
             id="logo-container-link"
-            className="display-flex flex-align-start"
-            style={{ gap: "0.5rem" }}
+            className="display-flex flex-align-start flex-justify-start"
+            style={{ gap: "0.5rem", lineHeight: 0 }}
           >
             {/* NASA meatball -> external site */}
             <a
@@ -71,7 +71,6 @@ export default function Header() {
               className="display-inline-block"
               style={{ lineHeight: 0 }}
             >
-              {/* Scale wrapper to keep top-left origin and consistent size */}
               <div
                 style={{
                   transform: "scale(0.13)",
@@ -100,20 +99,6 @@ export default function Header() {
                 <DisastersLogo />
               </div>
             </a>
-
-            {/* Program title (kept with logos; left-justified, top-aligned) */}
-            <span
-              className="usa-logo__text"
-              style={{
-                fontWeight: 600,
-                marginLeft: "0.25rem",
-                alignSelf: "flex-start",
-                lineHeight: 1.2,
-                whiteSpace: "nowrap",
-              }}
-            >
-              NASA Disasters Program
-            </span>
           </div>
         }
       />
