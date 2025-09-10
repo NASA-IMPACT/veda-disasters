@@ -1,56 +1,77 @@
-import Link from 'next/link'
-import NasaLogoColor from './app/components/nasa-logo-color.js'
-import DisastersLogo from './app/components/nasa-disasters-logo-color.js'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck : until veda-ui fixes its types: NavItem type enum
+import React from 'react';
+import { PageHeader } from '@lib';
+import { NavItem } from '@lib';
+import NasaLogoColor from 'app/components/nasa-logo-color.js';
+//Official Disasters logo coloring
+//import DisastersLogoColor from 'app/components/nasa-disasters-logo-color.js'; 
+//Alternate blackout Disasters logo for example
+import DisastersLogoColor from 'app/components/nasa-disasters-logo-color-alt.js';
+import {
+  DATASET_CATALOG_PATH,
+  EVENTS_PATH,
+  EXPLORATION_PATH,
+  STORY_HUB_PATH,
+} from 'app/config';
+import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
+
+export const navItems: NavItem[] = [
+  {
+    id: 'events',
+    title: 'Events',
+    to: `/${DATASET_CATALOG_PATH}`,
+    type: 'internalLink',
+  },
+  {
+    id: 'exploration',
+    title: 'Exploration',
+    to: `/${EXPLORATION_PATH}`,
+    type: 'internalLink',
+  },
+  {
+    id: 'summaries',
+    title: 'Activation Summaries',
+    to: `/${STORY_HUB_PATH}`,
+    type: 'internalLink',
+  },
+];
+
+export const subNavItems: NavItem[] = [
+  {
+    id: 'about',
+    title: 'About',
+    to: '/about',
+    type: 'internalLink',
+  },
+  {
+    id: 'contact-us',
+    title: 'Contact us',
+    actionId: 'open-google-form',
+    type: 'action',
+  },
+];
 
 export default function Header() {
   return (
-    <header className="usa-header usa-header--basic">
-      <div className="usa-nav-container display-flex flex-justify flex-align-center padding-x-2">
-        {/* Logos on the left */}
-        <div className="display-flex flex-align-center">
-          <a
-            href="https://appliedsciences.nasa.gov"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="NASA Applied Sciences"
-            className="margin-right-2"
-          >
+    <VedaUIConfigProvider>
+      <PageHeader
+        title={'NASA Disasters Program'}
+        mainNavItems={navItems}
+        subNavItems={subNavItems}
+        logoSvg={
+          <div id='logo-container-link'>
+            {/*
+              USWDS targets only <a> tags for styling links. However when the text is a <span>
+              instead of a link, it does not inherit the color styling (it ends up being white).
+              To fix this, we must add the color inline like this.
+              TODO: Ideally we can address this on the veda-ui side so that the color applies to all elements within the logo.
+            */}
             <NasaLogoColor />
-          </a>
-          <Link href="/" aria-label="NASA Disasters Program">
-            <DisastersLogo />
-          </Link>
-        </div>
-
-        {/* Title in the middle */}
-        <div className="flex-auto text-center">
-          <h1 className="usa-logo__text">
-            NASA Disasters Program{' '}
-            <span className="usa-tag bg-secondary-dark text-white">BETA</span>
-          </h1>
-        </div>
-
-        {/* Right-side nav links */}
-        <nav className="usa-nav">
-          <ul className="usa-nav__primary">
-            <li className="usa-nav__primary-item">
-              <Link href="/about">About</Link>
-            </li>
-            <li className="usa-nav__primary-item">
-              <Link href="/contact">Contact us</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      {/* Secondary nav */}
-      <nav className="usa-nav-submenu">
-        <ul className="usa-nav__secondary">
-          <li><Link href="/activations">Activations Gallery</Link></li>
-          <li><Link href="/visualizations">Data Visualization</Link></li>
-          <li><Link href="/summaries">Event Summaries</Link></li>
-        </ul>
-      </nav>
-    </header>
-  )
+            <DisastersLogoColor />
+          </div>
+        }
+      />
+    </VedaUIConfigProvider>
+  );
 }

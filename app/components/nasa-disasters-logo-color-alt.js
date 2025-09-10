@@ -33,7 +33,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -44,7 +44,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -55,7 +55,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -66,7 +66,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -77,7 +77,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -88,7 +88,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -99,7 +99,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -110,7 +110,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -121,7 +121,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -132,7 +132,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -143,7 +143,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -154,7 +154,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -165,7 +165,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
@@ -176,7 +176,7 @@ export default function DisastersLogo() {
           <path
             transform="matrix(0.13333333,0,0,-0.13333333,0,301.09333)"
             style={{
-              fill: "#ffffff",
+              fill: "#000000",
               fillOpacity: 1,
               fillRule: "nonzero",
               stroke: "none",
