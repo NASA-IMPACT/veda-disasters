@@ -21,7 +21,7 @@ export default function HomePage() {
         aria-labelledby="hero-heading"
         style={{
           // TODO: replace with your actual image path
-          backgroundImage: `url('/public/images/homepage/homepage-hero.jpg')`,
+          backgroundImage: `url('/images/homepage/homepage-hero.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
