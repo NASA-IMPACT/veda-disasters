@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import NasaLogoColor from './nasa-logo-color'
-import DisastersLogo from './disasters-logo-color'
+import NasaLogoColor from './nasa-logo-color.js'
+import DisastersLogo from './disasters-logo-color.js'
 
 export default function Header() {
   return (
