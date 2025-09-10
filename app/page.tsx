@@ -15,33 +15,6 @@ const otherStories = featuredStories.slice(1);
 export default function HomePage() {
   return (
     <section>
-      {/* Maintenance banner */}
-      <div className="usa-alert usa-alert--error" role="alert">
-        <div className="usa-alert__body">
-          <h4 className="usa-alert__heading">Under Maintenance</h4>
-          <p className="usa-alert__text">
-            This website is currently being migrated. Some services and webpages may not work as expected.
-          </p>
-        </div>
-      </div>
-
-      {/* Activation banner */}
-      <div className="usa-alert usa-alert--info" role="status">
-        <div className="usa-alert__body">
-          <h4 className="usa-alert__heading">Current Activations</h4>
-          <p className="usa-alert__text">
-            The Disasters Program is currently providing support for{' '}
-            <a
-              className="usa-link"
-              href="https://deploy-preview-21--disasters-hub.netlify.app/events/ca-wildfires-2025"
-            >
-              California Wildfires
-            </a>{' '}
-            affecting the Los Angeles metropolitan area.
-          </p>
-        </div>
-      </div>
-
       {/* HERO */}
       <div
         className="position-relative margin-bottom-4"
