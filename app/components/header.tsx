@@ -15,19 +15,19 @@ import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 export const navItems: NavItem[] = [
   {
     id: 'data-catalog',
-    title: 'Data Catalog',
+    title: 'Activations Gallery',
     to: `/${DATASET_CATALOG_PATH}`,
     type: 'internalLink',
   },
   {
     id: 'exploration',
-    title: 'Exploration',
+    title: 'Data Visualization',
     to: `/${EXPLORATION_PATH}`,
     type: 'internalLink',
   },
   {
     id: 'events',
-    title: 'Events',
+    title: 'Event Summaries',
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',
   },
@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <VedaUIConfigProvider>
       <PageHeader
-        title={'Disasters Partnership and Learning Portal'}
+        title={'NASA Disasters Program'}
         mainNavItems={navItems}
         subNavItems={subNavItems}
         logoSvg={
