@@ -42,13 +42,7 @@ export const subNavItems: NavItem[] = [
     title: 'About',
     to: '/about',
     type: 'internalLink',
-  },
-  {
-    id: 'contact-us',
-    title: 'Contact us',
-    actionId: 'open-google-form',
-    type: 'action',
-  },
+  }
 ];
 
 export default function Header() {

@@ -1,9 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
-import { navItems, subNavItems } from './header';
+import { NavItem } from '@lib';
 import NasaLogoColor from './nasa-logo-color';
 import { PageFooter } from '@lib';
 import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
+
+export const navItems: NavItem[] = [
+  {
+    id: 'contact',
+    title: 'Contact Us',
+    to: 'mailto:hq-disasters-gis@mail.nasa.gov',
+    type: 'action',
+  },
+  {
+    id: 'newsletter',
+    title: 'Newsletter Signup',
+    to: 'https://lp.constantcontactpages.com/su/tn3iEZN',
+    type: 'action',
+  },
+  {
+    id: 'nasa',
+    title: 'NASA Earth Science',
+    to: 'https://science.nasa.gov/earth-science',
+    type: 'action',
+  },
+];
 
 export default function Footer() {
   const defaultFooterSettings = {
@@ -22,7 +43,6 @@ export default function Footer() {
     <VedaUIConfigProvider>
       <PageFooter
         mainNavItems={navItems}
-        subNavItems={subNavItems}
         hideFooter={false}
         logoSvg={<NasaLogoColor />}
         footerSettings={defaultFooterSettings}
