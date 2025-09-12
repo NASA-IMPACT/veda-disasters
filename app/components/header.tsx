@@ -4,6 +4,9 @@ import React from 'react';
 import { PageHeader } from '@lib';
 import { NavItem } from '@lib';
 import NasaLogoColor from 'app/components/nasa-logo-color.js';
+//Official Disasters logo coloring
+//import DisastersLogoColor from 'app/components/nasa-disasters-logo-color.js'; 
+//Alternate blackout Disasters logo for example
 import {
   DATASET_CATALOG_PATH,
   EVENTS_PATH,
@@ -14,20 +17,20 @@ import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 
 export const navItems: NavItem[] = [
   {
-    id: 'data-catalog',
-    title: 'Data Catalog',
+    id: 'events',
+    title: 'Events',
     to: `/${DATASET_CATALOG_PATH}`,
     type: 'internalLink',
   },
   {
     id: 'exploration',
-    title: 'Exploration',
+    title: 'Visualization',
     to: `/${EXPLORATION_PATH}`,
     type: 'internalLink',
   },
   {
-    id: 'events',
-    title: 'Events',
+    id: 'summaries',
+    title: 'Activation Summaries',
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',
   },
@@ -40,19 +43,13 @@ export const subNavItems: NavItem[] = [
     to: '/about',
     type: 'internalLink',
   },
-  {
-    id: 'contact-us',
-    title: 'Contact us',
-    actionId: 'open-google-form',
-    type: 'action',
-  },
 ];
 
 export default function Header() {
   return (
     <VedaUIConfigProvider>
       <PageHeader
-        title={'Disasters Partnership and Learning Portal'}
+        title={'NASA Disasters Program'}
         mainNavItems={navItems}
         subNavItems={subNavItems}
         logoSvg={
