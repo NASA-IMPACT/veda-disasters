@@ -5,7 +5,7 @@ import { getStoriesMetadata } from 'app/content/utils/mdx';
 const featuredStories = getStoriesMetadata()
   .map((d) => ({
     ...d.metadata,
-    path: `events/${d.slug}`,
+    path: `data-catalog/${d.slug}`,
   }))
   .filter((_d, idx) => idx < 3);
 

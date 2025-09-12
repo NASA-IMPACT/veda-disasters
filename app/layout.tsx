@@ -67,12 +67,12 @@ export default function RootLayout({
 
           <div className="usa-alert usa-alert--info" role="status" aria-live="polite">
             <div className="usa-alert__body">
-              <h4 className="usa-alert__heading">Current Activations</h4>
+              <h4 className="usa-alert__heading">Activation Status</h4>
               <p className="usa-alert__text">
                 The Disasters Program is currently providing support for the{" "}
                 <a
                   className="usa-link"
-                  href="https://deploy-preview-21--disasters-hub.netlify.app/events/ca-wildfires-2025"
+                  href="/data-catalog/ca-wildfires-2025"
                 >
                   California Wildfires
                 </a>{" "}
