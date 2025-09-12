@@ -7,7 +7,6 @@ import NasaLogoColor from 'app/components/nasa-logo-color.js';
 //Official Disasters logo coloring
 //import DisastersLogoColor from 'app/components/nasa-disasters-logo-color.js'; 
 //Alternate blackout Disasters logo for example
-import DisastersLogoColor from 'app/components/nasa-disasters-logo-color-alt.js';
 import {
   DATASET_CATALOG_PATH,
   EVENTS_PATH,
@@ -25,7 +24,7 @@ export const navItems: NavItem[] = [
   },
   {
     id: 'exploration',
-    title: 'Exploration',
+    title: 'Visualization',
     to: `/${EXPLORATION_PATH}`,
     type: 'internalLink',
   },
@@ -68,7 +67,6 @@ export default function Header() {
               TODO: Ideally we can address this on the veda-ui side so that the color applies to all elements within the logo.
             */}
             <NasaLogoColor />
-            <DisastersLogoColor />
           </div>
         }
       />
