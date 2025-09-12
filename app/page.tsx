@@ -126,7 +126,7 @@ export default function HomePage() {
           <h2>Current Conditions</h2>
           <iframe id="current-dashboards"
                   scrolling="no"
-                  frameborder="0"
+                  frameBorder="0"
                   style={{height:'500px',width:'960px'}}
                   src="https://maps.disasters.nasa.gov/arcgis/apps/MapSeries/index.html?appid=ab7723584fe847449faaa2e62d3bef74"
                   >
