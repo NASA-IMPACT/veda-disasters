@@ -474,46 +474,29 @@ layers:
       temporalResolution: Daily
       unit: Landsat FCC   
 ---
+
 <Block>
-  <Prose>   
-    **Temporal Extent:** October 10, 2023 - Ongoing<br />
-    **Temporal Resolution:** Daily<br />
-    **Spatial Extent:** Global    
-    **Spatial Resolution:** 500m   
-    **Data Units:** Watts per square centimeter per steradian (W/cm²/sr)       
-    **Data Type:** Operational<br />
-    **Data Latency:** Updated daily
-
-    Greenhouse gas (GHG) emission indicators, such as energy consumption, urban development, transportation, and industrial processes, are often difficult to monitor due to limitations in the spatial and temporal coverage of conventional ground-based measurements. In 2022 alone, the Intergovernmental Panel on Climate Change (IPCC) report indicated that approximately 35% of anthropogenic emissions recorded in 2019 were attributed to electricity and heat production. Satellite observations offer unique capabilities for enhancing GHG monitoring efforts as they can effectively map the extent and distribution of the GHGs across varied geographic areas and times with a high degree of accuracy. Nightlight data can particularly present valuable insights into human activities as they possess high radiometric resolution, enabling the identification of bright urban lights down to gas flares. Collected by the Visible Infrared Imaging Radiometer Suite (VIIRS) sensor aboard the Suomi National Polar-orbiting Partnership (NPP) satellite, the Daily Gridded Day/Night Band (DNB) product supplies measurements of nocturnal visible and near-infrared (NIR) light emitted from cities, industrial sites, power plants, gas flaring sources, biomass burning, as well as other human-induced emission initiators. The light emitted and captured by the VIIRS sensor can be a valuable indicator of GHG emissions, enabling the better identification of hotspots and the estimation of emissions across a given location in Near Real-Time (NRT). The DNB collection provides global linear 0.0045° x 0.0045° latitude and longitude grid nightlight data with a 500-meter spatial resolution. 
-
-  </Prose>
+  <Figure>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', width: '100%' }}>
+      <a href="/events/hurricane-milton" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
+        <img src="/images/event/data-catalog.png" alt="Dataset" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Event Summary</div>
+      </a>
+      <a href="/exploration?datasets=%5B%7B%22id%22%3A%22black-marble-blue-yellow-noaa%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%2C%22colorMap%22%3A%22ylgrbu%22%7D%7D%2C%7B%22id%22%3A%22sentinel-1-S1A_rgb_gpufed-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%2C%7B%22id%22%3A%22sentinel1-S1A-IW-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%2C%7B%22id%22%3A%22sentinel1-Milton-compare%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%2C%7B%22id%22%3A%22dswx-water-extent-wtr-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%2C%7B%22id%22%3A%22dswx-water-extent-wtr-HLS-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%2C%7B%22id%22%3A%22dswx-water-extent-wtr-ChangeMap-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%2C%22colorMap%22%3A%22rdbu%22%2C%22scale%22%3A%7B%22min%22%3A-1%2C%22max%22%3A1%7D%7D%7D%2C%7B%22id%22%3A%22dswx-veg-anom-max-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%2C%22colorMap%22%3A%22hot%22%2C%22scale%22%3A%7B%22min%22%3A0%2C%22max%22%3A100%7D%7D%7D%2C%7B%22id%22%3A%22dswx-gen-anom-max-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%2C%22colorMap%22%3A%22hot%22%2C%22scale%22%3A%7B%22min%22%3A0%2C%22max%22%3A100%7D%7D%7D%2C%7B%22id%22%3A%22uavsar-Milton%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%2C%7B%22id%22%3A%22ndvi-hurricane-milton-202410-v2%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%2C%7B%22id%22%3A%22landsat-hurricane-milton-202410-v2%22%2C%22settings%22%3A%7B%22isVisible%22%3Atrue%2C%22opacity%22%3A100%2C%22analysisMetrics%22%3A%5B%7B%22id%22%3A%22mean%22%2C%22label%22%3A%22Average%22%2C%22chartLabel%22%3A%22Average%22%2C%22themeColor%22%3A%22infographicB%22%7D%2C%7B%22id%22%3A%22std%22%2C%22label%22%3A%22St+Deviation%22%2C%22chartLabel%22%3A%22St+Deviation%22%2C%22themeColor%22%3A%22infographicD%22%7D%5D%7D%7D%5D&taxonomy=%7B%7D&search=&date=2024-10-11T16%3A26%3A19.000Z" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
+        <img src="/images/event/data-view.png" alt="View Data" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Visualize</div>
+      </a>
+      <a href="https://gis.earthdata.nasa.gov/gis05/rest/services" style={{ display: 'block', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textDecoration: 'none' }}>
+        <img src="/images/event/download-data.png" alt="Download Data" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '1.25rem', fontWeight: '600', color: '#2c3d4f' }}>Access GIS Data</div>
+      </a>
+    </div>
+  </Figure>
 </Block>
+
+
 <Block>
   <Prose>
-    ## Source Data Product Citation
-    Román, M. O. 2023. About. MODAPS Services. NASA Suomi-NPP/VIIRS Land SIPS/Land, Atmosphere Near real-time Capability for EOS (LANCE) Moderate Resolution Imaging Spectroradiometer (MODIS). https://doi.org/10.5067/VIIRS/VNP46A1_NRT.002
-    
-    ## Version History
-
-    ## Dataset Accuracy
-
-    ## Disclaimer
-
-    ## Scientific Details
-    The Top of Atmosphere (TOA) nighttime radiance product is updated daily and contains 26 Science Data Sets (SDS), including sensor radiance, zenith and azimuth angles (at-sensor, solar, and lunar), cloud-mask flags, time, shortwave infrared (IR) radiance, brightness temperatures, VIIRS quality flags, moon phase angle, and moon illumination fraction. The DNB’s ultra-sensitivity in low-light conditions enhances the process of monitoring the magnitude and radiance signature of nighttime phenomena, particularly sources of manmade light emissions. The product is produced using lunar irradiance modeling, temporal gap filling, and gridding algorithms to convert data to a lat and long grid available at 15 arc-second resolution. The gidding algorithms were modified to comply with DNB’s unique viewing geometry and to collect observations from available 6-min swath granules (2,366 km along track, and about 3,100 km across track), allowing for the derivation of high-quality data with minimal impact from cloud cover and off-nadir viewing. By employing the “turning off the moon” approach, the upward surface radiance from artificial light emissions can be extracted from at-sensor nighttime radiance at TOA. To reduce uncertainty due to existing vegetation within the ground-to-sensor geometry path, particularly in cities with temperate climates, the clumping index, known as the vegetation dispersion parameter, was used to quantify the confined distribution of foliage for a given area. Radiance values are reported in Watts per square centimeter per steradian (W/cm²/sr) and span across a spectral range of 500 to 900 nm with global coverage between ±75° latitude. The files are originally provided in the standard Hierarchical Data Format - Earth Observing System (HDF-EOS) format. 
-
-    ## Key Publications
-
-    ## Other Relevant Publications
-
-    ## Learn More
-
-    ## Acknowledgment
-    This dataset was produced by researchers at NASA Suomi-NPP/VIIRS Land SIPS/Land, Atmosphere Near Real-time Capability for EOS (LANCE)Moderate Resolution Imaging Spectroradiometer (MODIS), located at NASA Goddard Space Flight Center (GSFC) in Greenbelt, MD, United States. We thank the Black Marble Science Team for their continued efforts in acquiring, processing, validating, and disseminating this product.
-
-    ## License
-    [Creative Commons Zero v1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (CC0 1.0)
-
-
+    In response to Hurricane Milton, the NASA Disasters Response Coordination System (DRCS) is activated and collaborating directly with FEMA, USGS, NOAA, and FLGIO. DRCS is developing Earth observation maps and data products, all freely and publicly available on the NASA Disasters Mapping Portal. Keep scrolling to learn about and interact with these data products!
   </Prose>
 </Block>

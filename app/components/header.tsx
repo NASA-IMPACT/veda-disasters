@@ -68,6 +68,7 @@ export default function Header() {
               TODO: Ideally we can address this on the veda-ui side so that the color applies to all elements within the logo.
             */}
             <NasaLogoColor />
+            <DisastersLogoColor />
           </div>
         }
       />
