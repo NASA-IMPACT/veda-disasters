@@ -9,15 +9,14 @@ export const navItems: NavItem[] = [
   {
     id: 'contact',
     title: 'Contact Us',
-    name: 'Contact Us',
-    to: 'hq-disasters-gis@mail.nasa.gov',
-    type: 'email',
+    href: 'mailto:hq-disasters-gis@mail.nasa.gov',
+    type: 'externalLink',
   },
   {
     id: 'newsletter',
     title: 'Newsletter Signup',
-    url: 'https://lp.constantcontactpages.com/su/tn3iEZN',
-    type: 'externalNavLink',
+    href: 'https://lp.constantcontactpages.com/su/tn3iEZN',
+    type: 'externalLink',
   },
 ];
 
@@ -25,7 +24,7 @@ export const subNavItems: NavItem[] = [
   {
     id: 'nasa',
     title: 'NASA Earth Science Division',
-    url: 'https://science.nasa.gov/earth-science',
+    href: 'https://science.nasa.gov/earth-science',
     type: 'externalLink',
   },
 ];
