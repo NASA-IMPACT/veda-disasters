@@ -9,19 +9,23 @@ export const navItems: NavItem[] = [
   {
     id: 'contact',
     title: 'Contact Us',
-    to: 'mailto:hq-disasters-gis@mail.nasa.gov',
-    type: 'externalLink',
+    name: 'Contact Us',
+    to: 'hq-disasters-gis@mail.nasa.gov',
+    type: 'email',
   },
   {
     id: 'newsletter',
     title: 'Newsletter Signup',
-    to: 'https://lp.constantcontactpages.com/su/tn3iEZN',
-    type: 'externalLink',
+    url: 'https://lp.constantcontactpages.com/su/tn3iEZN',
+    type: 'externalNavLink',
   },
+];
+
+export const subNavItems: NavItem[] = [
   {
     id: 'nasa',
-    title: 'NASA Earth Science',
-    to: 'https://science.nasa.gov/earth-science',
+    title: 'NASA Earth Science Division',
+    url: 'https://science.nasa.gov/earth-science',
     type: 'externalLink',
   },
 ];
@@ -29,7 +33,7 @@ export const navItems: NavItem[] = [
 export default function Footer() {
   const defaultFooterSettings = {
     secondarySection: {
-      division: 'NASA Earth Action 2025',
+      division: 'NASA Disasters Program',
       version: 'BETA VERSION',
       title: 'NASA Official',
       name: 'Shanna McClain',
@@ -43,7 +47,7 @@ export default function Footer() {
     <VedaUIConfigProvider>
       <PageFooter
         mainNavItems={navItems}
-        subNavItems={}
+        subNavItems={subNavItems}
         hideFooter={false}
         logoSvg={<NasaLogoColor />}
         footerSettings={defaultFooterSettings}
