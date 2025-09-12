@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { getStoriesMetadata } from 'app/content/utils/mdx';
+import DisastersWordMarkWhite from 'app/components/disasters-wordmark-white.js';
 
 const featuredStories = getStoriesMetadata()
   .map((d) => ({
@@ -42,10 +43,9 @@ export default function HomePage() {
         <div className="grid-container position-relative" style={{ zIndex: 1 }}>
           <div className="grid-row">
             <div className="grid-col-12 tablet:grid-col-10 desktop:grid-col-8">
-              <p className="text-uppercase text-white font-sans-xs margin-top-7 margin-bottom-1 letter-spacing-2">
-                Disasters
-              </p>
-
+              <br/><br/>
+              <DisastersWordMarkWhite />
+              <br/><br/><br/><br/>
               <h1
                 id="hero-heading"
                 className="font-sans-3xl text-white line-height-sans-2 margin-0"
