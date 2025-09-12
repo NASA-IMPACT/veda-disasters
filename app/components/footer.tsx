@@ -10,19 +10,19 @@ export const navItems: NavItem[] = [
     id: 'contact',
     title: 'Contact Us',
     to: 'mailto:hq-disasters-gis@mail.nasa.gov',
-    type: 'action',
+    type: 'externalLink',
   },
   {
     id: 'newsletter',
     title: 'Newsletter Signup',
     to: 'https://lp.constantcontactpages.com/su/tn3iEZN',
-    type: 'action',
+    type: 'externalLink',
   },
   {
     id: 'nasa',
     title: 'NASA Earth Science',
     to: 'https://science.nasa.gov/earth-science',
-    type: 'action',
+    type: 'externalLink',
   },
 ];
 
@@ -43,6 +43,7 @@ export default function Footer() {
     <VedaUIConfigProvider>
       <PageFooter
         mainNavItems={navItems}
+        subNavItems={}
         hideFooter={false}
         logoSvg={<NasaLogoColor />}
         footerSettings={defaultFooterSettings}

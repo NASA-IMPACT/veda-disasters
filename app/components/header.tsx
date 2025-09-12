@@ -42,7 +42,7 @@ export const subNavItems: NavItem[] = [
     title: 'About',
     to: '/about',
     type: 'internalLink',
-  }
+  },
 ];
 
 export default function Header() {
