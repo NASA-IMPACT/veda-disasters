@@ -82,11 +82,7 @@ export default function HomePage() {
               maxWidth: '75ch',
             }}
           >
-            A powerful interface for viewing, analyzing, and downloading the latest near real-time and
-            disaster specific data products in Geographic Information Systems (GIS) format. The Disasters
-            Mapping Portal supports NASA’s Earth Applied Sciences Disasters program area in its mission to
-            use Earth-observing data and applied research to improve the prediction of, preparation for,
-            response to and recovery from hazards and disasters around the world.
+            The NASA Disasters Program advances science and builds tools to help communities make informed decisions for disaster planning. Before, during, and after disasters strike, the Disasters Program provides partners with actionable data to recover from disaster impacts and build resilient communities.
           </p>
         </div>
 
