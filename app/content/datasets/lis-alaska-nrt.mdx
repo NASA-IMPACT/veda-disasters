@@ -37,7 +37,7 @@ layers:
   - id: rsm0-10cm-alaska
     stacCol: rsm0-10cm-alaska
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    tileApiEndpoint:  https://dev.openveda.cloud/api/raster
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
     name: Relative Soil Moisture (0-10cm), Updated Daily
     type: raster
     description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
@@ -50,9 +50,12 @@ layers:
     sourceParams:
       colormap_name: nipy_spectral_r
       resampling: bilinear
+      assets: rsm0-10cm
       rescale:
         - 0
         - 100
+      nodata:
+        - -9999
     legend:
       unit:
         label: Percentage %
@@ -81,7 +84,7 @@ layers:
         - rgb(180,139,130)
         - rgb(139,100,89)
     analysis:
-      exclude: true
+      exclude: false
     info:
       source: NASA
       spatialExtent: Alaska
@@ -107,9 +110,12 @@ layers:
     sourceParams:
       colormap_name: terrain
       resampling: bilinear
+      assets: gvf
       rescale:
         - 0
         - 100
+      nodata:
+        - -9999
     legend:
       unit:
         label: Percentage %
@@ -128,7 +134,7 @@ layers:
         - rgb(160,120,111)
         - rgb(120,79,69)
     analysis:
-      exclude: true
+      exclude: false
     info:
       source: NASA
       spatialExtent: Alaska
@@ -154,6 +160,9 @@ layers:
     sourceParams:
       colormap_name: terrain
       resampling: bilinear
+      assets: snod
+      nodata:
+        - -9999
       rescale:
         - 0
         - 1000
@@ -181,7 +190,7 @@ layers:
         - rgb(245,127,23)
         - rgb(255,241,118)
     analysis:
-      exclude: true
+      exclude: false
     info:
       source: NASA
       spatialExtent: Alaska
