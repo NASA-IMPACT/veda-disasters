@@ -1,5 +1,5 @@
 ---
-id: esi
+id: esi-global
 name: Evaporative Stress Index
 description: Evaporative Stress Index (ESI) reveals regions of drought where vegetation is stressed due to lack of water, enabling agriculture ministries to provide farmers with actionable advice about irrigation.
 
@@ -31,8 +31,8 @@ infoDescription: |
     - Data Type: Research
     - Data Latency: Updated weekly
 layers:
-  - id: esi-4wk
-    stacCol: esi-4wk
+  - id: esi-4wk-global
+    stacCol: esi-4wk-global
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
     name: Evaporative Stress Index (4Wk)
     type: raster
@@ -44,11 +44,19 @@ layers:
       - 0
       - 20
     sourceParams:
+      assets: esi-4wk
       colormap_name: rdylgn
       nodata: -9999
       rescale:
         - -3
         - 3
+    compare:
+      datasetId: esi-global
+      layerId: esi-4wk-global
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
+        }
     legend:
       unit:
         label: Percentage %
@@ -72,7 +80,59 @@ layers:
       temporalResolution: Weekly
       unit: Standard deviation
     media:
-      src: /images/dataset/esi_GSFC_20171208_Archive_e000115_orig.jpg
+      src: /images/dataset/esi-GSFC_20171208_Archive_e000115~orig.jpg
+      alt: Agricultural field in New Zealand, image from weather ballon.
+
+  - id: esi-12wk-global
+    stacCol: esi-12wk-global
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: Evaporative Stress Index (12Wk)
+    type: raster
+    description: The global dataset, called the Evaporative Stress Index (ESI), available online and produced weekly at 5-kilometer resolution for the entire globe, reveals regions of drought where vegetation is stressed due to lack of water, enabling agriculture ministries to provide farmers with actionable advice about irrigation.
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: esi-12wk
+      colormap_name: rdylgn
+      nodata: -9999
+      rescale:
+        - -3
+        - 3
+    compare:
+      datasetId: esi-global
+      layerId: esi-12wk-global
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
+        }
+    legend:
+      unit:
+        label: Percentage %
+      type: gradient
+      min: -3
+      max: 3
+      stops:
+        - "#DC4536"
+        - "#F6905B"
+        - "#FCD586"
+        - "#FFFEC1"
+        - "#CCE989"
+        - "#87C86B"
+        - "#35A058"
+        - "#0C6739"
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Global
+      temporalResolution: Weekly
+      unit: Standard deviation
+    media:
+      src: /images/dataset/esi-GSFC_20171208_Archive_e000115~orig.jpg
       alt: Agricultural field in New Zealand, image from weather ballon.
 
 ---
