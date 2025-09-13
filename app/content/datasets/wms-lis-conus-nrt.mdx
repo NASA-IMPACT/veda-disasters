@@ -1,7 +1,8 @@
 ---
-id: lis-conus-nrt
+id: wms-lis-conus-nrt
 name: Land Information System - CONUS
 description: Soil moisture percentiles integrated over various depths for the contiguous United States (CONUS) produced by NASA’s Short-term Prediction and Transition Center – Land Information System (SPoRT-LIS).
+isHidden: true
 
 media:
   src: /images/dataset/lis-conus-nrt-cover.jpg
@@ -10,17 +11,20 @@ media:
     name:  Figure by Loic
     url:  https://as1.ftcdn.net/v2/jpg/02/23/42/98/1000_F_223429826_1f1lL7wGycwZQoyFlXL8p7tAXS59NqdE.jpg
 taxonomy:
-  - name: Topics
+  - name: Disaster
     values:
-      - Agriculture
-      - Climate
-      - Drought
-      - Evapotranspiration
-      - Hydrology
-      - Water Resources
+      - Hurricanes and Cyclones
+      - Wildfires
+      - Floods
+      - Landslides
+      - Severe and Winter Weather
   - name: Source
     values:
       - NASA
+  - name: Product Type
+    values:
+      - NRT
+      
 infoDescription: |
   ::markdown
     - Temporal Extent: 30 days prior - present

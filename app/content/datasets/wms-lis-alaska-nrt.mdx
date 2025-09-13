@@ -1,7 +1,8 @@
 ---
-id: lis-alaska-nrt
+id: wms-lis-alaska-nrt
 name: Land Information System - Alaska
 description: State of Alaska vegetation and hydrological information produced by NASA’s Short-term Prediction and Transition Center – Land Information System (SPoRT-LIS).
+isHidden: true
 
 media:
   src: /images/dataset/lis-alaska-nrt-cover.jpg
@@ -26,20 +27,19 @@ taxonomy:
 
 infoDescription: |
   ::markdown
-    - Temporal Extent: February 17, 2025 - Present
-    - Temporal Resolution: Hourly/Daily
+    - Temporal Extent: June 1, 2010 - Present
+    - Temporal Resolution: Daily
     - Spatial Extent: Alaska
     - Spatial Resolution: 0.03° x 0.03°
-    - Data Units: Relative soil moisture and green vegetation fraction (%); snow depth (inches)  
+    - Data Units: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
     - Data Type: Research
     - Data Latency: Updated daily
 layers:
-  - id: rsm0-10cm-alaska
-    stacCol: rsm0-10cm-alaska
+  - id: alaska_relative_soil_moisture_10cm
+    stacCol: nrt_lis_ak_rsm_10cm
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    tileApiEndpoint:  https://dev.openveda.cloud/api/raster
     name: Relative Soil Moisture (0-10cm), Updated Daily
-    type: raster
+    type: wms
     description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
     initialDatetime: newest
     projection:
@@ -48,11 +48,9 @@ layers:
       - 0
       - 20
     sourceParams:
-      colormap_name: nipy_spectral_r
-      resampling: bilinear
-      rescale:
-        - 0
-        - 100
+      layers: lis_ak_rsm_10cm:lis_rsm
+      version: 1.3.0
+      crs: EPSG:3857
     legend:
       unit:
         label: Percentage %
@@ -91,12 +89,66 @@ layers:
       src: /images/dataset/alaska_soil_moisture.thumbnail.png
       alt: Relative soil moisture percentiles for the state of Alaska
 
-  - id: gvf-alaska
-    stacCol: gvf-alaska
+  - id: alaska_relative_soil_moisture_40cm
+    stacCol: nrt_lis_ak_rsm_40cm
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    name: Relative Soil Moisture (0-40cm), Updated Daily
+    type: wms
+    description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: lis_ak_rsm_40cm:lis_rsm
+      version: 1.3.0
+      crs: EPSG:3857
+    legend:
+      unit:
+        label: Percentage %
+      type: gradient
+      min: 0
+      max: 100
+      stops:
+        - rgb(60,40,180)
+        - rgb(111,96,219)
+        - rgb(160,139,255)
+        - rgb(149,209,251)
+        - rgb(79,165,245)
+        - rgb(40,129,240)
+        - rgb(19,100,209)
+        - rgb(29,180,30)
+        - rgb(79,240,79)
+        - rgb(149,245,139)
+        - rgb(255,231,121)
+        - rgb(255,191,60)
+        - rgb(255,160,1)
+        - rgb(255,96,0)
+        - rgb(255,50,1)
+        - rgb(226,18,0)
+        - rgb(165,0,0)
+        - rgb(225,190,180)
+        - rgb(180,139,130)
+        - rgb(139,100,89)
+
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Alaska
+      temporalResolution: Daily
+      unit: Percentage %
+    media:
+      src: /images/dataset/alaska_soil_moisture.thumbnail.png
+      alt: Relative soil moisture percentiles for the state of Alaska
+
+  - id: alaska_gvf
+    stacCol: nrt_lis_ak_green_veg_fraction
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
     name: Green Vegetation Fraction, Updated Daily
-    type: raster
+    type: wms
     description: Green Vegetation Fraction (GVF) from VIIRS on Suomi NPP.
     initialDatetime: newest
     projection:
@@ -105,11 +157,9 @@ layers:
       - 0
       - 20
     sourceParams:
-      colormap_name: terrain
-      resampling: bilinear
-      rescale:
-        - 0
-        - 100
+      layers: lis_ak_green_veg_fraction:lis_ak_green_veg_fraction_arcmap
+      version: 1.3.0
+      crs: EPSG:3857
     legend:
       unit:
         label: Percentage %
@@ -138,12 +188,11 @@ layers:
       src: /images/dataset/alaska_green_vegetative_fraction.thumbnail.png
       alt: Green vegetation fraction for the state of Alaska
 
-  - id: snod-alaska
-    stacCol: snod-alaska
+  - id: alaska_snow_depth
+    stacCol: nrt_lis_ak_snow_depth
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    tileApiEndpoint: https://dev.openveda.cloud/api/raster
     name: Snow Depth, Updated Daily
-    type: raster
+    type: wms
     description: Snow depth for the state of Alaska.
     initialDatetime: newest
     projection:
@@ -152,11 +201,9 @@ layers:
       - 0
       - 20
     sourceParams:
-      colormap_name: terrain
-      resampling: bilinear
-      rescale:
-        - 0
-        - 1000
+      layers: lis_ak_snow_depth:lis_ak_snow_depth
+      version: 1.3.0
+      crs: EPSG:3857
     legend:
       unit:
         label: Inches

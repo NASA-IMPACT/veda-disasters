@@ -50,13 +50,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body>
-        <div className='minh-viewport display-flex flex-column'>
+        <div className="minh-viewport display-flex flex-column">
           <Header />
-          <main id='pagebody' className='flex-fill' tabIndex={-1}>
+
+          {/* Global site-wide banners */}
+          <div className="usa-alert usa-alert--error" role="alert">
+            <div className="usa-alert__body">
+              <h4 className="usa-alert__heading">Under Maintenance</h4>
+              <p className="usa-alert__text">
+                This website is currently being migrated. Some services and webpages may not work as expected.
+              </p>
+            </div>
+          </div>
+
+          <div className="usa-alert usa-alert--info" role="status" aria-live="polite">
+            <div className="usa-alert__body">
+              <h4 className="usa-alert__heading">Current Activations</h4>
+              <p className="usa-alert__text">
+                The Disasters Program is currently providing support for the{" "}
+                <a
+                  className="usa-link"
+                  href="https://deploy-preview-21--disasters-hub.netlify.app/events/ca-wildfires-2025"
+                >
+                  California Wildfires
+                </a>{" "}
+                affecting the Los Angeles metropolitan area.
+              </p>
+            </div>
+          </div>
+
+          <main id="pagebody" className="flex-fill" tabIndex={-1}>
             {children}
           </main>
+
           <Footer />
         </div>
       </body>

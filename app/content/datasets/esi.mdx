@@ -1,21 +1,18 @@
 ---
-id: lis-alaska-nrt
-name: Land Information System - Alaska
-description: State of Alaska vegetation and hydrological information produced by NASA’s Short-term Prediction and Transition Center – Land Information System (SPoRT-LIS).
+id: esi
+name: Evaporative Stress Index
+description: Evaporative Stress Index (ESI) reveals regions of drought where vegetation is stressed due to lack of water, enabling agriculture ministries to provide farmers with actionable advice about irrigation.
 
 media:
-  src: /images/dataset/lis-alaska-nrt-cover.jpg
-  alt: Medenhall Glacier Outlook, Juneau, Alaska
+  src: /images/dataset/esi-GSFC_20171208_Archive_e000115~orig.jpg
+  alt: Agricultural field in New Zealand, image from weather ballon.
   author:
-    name:  Figure by Mike
-    url:  https://stock.adobe.com/images/medenhall-glacier-outlook-juneau-alaska/138501742?prev_url=detail
+    name:  Figure by NASA/David Webb
+    url:  https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000115/GSFC_20171208_Archive_e000115~orig.jpg
 taxonomy:
   - name: Disaster
     values:
-      - Hurricanes and Cyclones
       - Wildfires
-      - Floods
-      - Landslides
       - Severe and Winter Weather
   - name: Source
     values:
@@ -26,21 +23,20 @@ taxonomy:
 
 infoDescription: |
   ::markdown
-    - Temporal Extent: February 17, 2025 - Present
-    - Temporal Resolution: Hourly/Daily
-    - Spatial Extent: Alaska
-    - Spatial Resolution: 0.03° x 0.03°
-    - Data Units: Relative soil moisture and green vegetation fraction (%); snow depth (inches)  
+    - Temporal Extent: January 8, 2001 - Present
+    - Temporal Resolution: Weekly
+    - Spatial Extent: Global
+    - Spatial Resolution: 5km x 5km
+    - Data Units: Standard deviation
     - Data Type: Research
-    - Data Latency: Updated daily
+    - Data Latency: Updated weekly
 layers:
-  - id: rsm0-10cm-alaska
-    stacCol: rsm0-10cm-alaska
+  - id: esi-4wk
+    stacCol: esi-4wk
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    tileApiEndpoint:  https://dev.openveda.cloud/api/raster
-    name: Relative Soil Moisture (0-10cm), Updated Daily
+    name: Evaporative Stress Index (4Wk)
     type: raster
-    description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
+    description: The global dataset, called the Evaporative Stress Index (ESI), available online and produced weekly at 5-kilometer resolution for the entire globe, reveals regions of drought where vegetation is stressed due to lack of water, enabling agriculture ministries to provide farmers with actionable advice about irrigation.
     initialDatetime: newest
     projection:
       id: 'equirectangular'
@@ -48,160 +44,70 @@ layers:
       - 0
       - 20
     sourceParams:
-      colormap_name: nipy_spectral_r
-      resampling: bilinear
+      colormap_name: rdylgn
+      nodata: -9999
       rescale:
-        - 0
-        - 100
+        - -3
+        - 3
     legend:
       unit:
         label: Percentage %
       type: gradient
-      min: 0
-      max: 100
+      min: -3
+      max: 3
       stops:
-        - rgb(60,40,180)
-        - rgb(111,96,219)
-        - rgb(160,139,255)
-        - rgb(149,209,251)
-        - rgb(79,165,245)
-        - rgb(40,129,240)
-        - rgb(19,100,209)
-        - rgb(29,180,30)
-        - rgb(79,240,79)
-        - rgb(149,245,139)
-        - rgb(255,231,121)
-        - rgb(255,191,60)
-        - rgb(255,160,1)
-        - rgb(255,96,0)
-        - rgb(255,50,1)
-        - rgb(226,18,0)
-        - rgb(165,0,0)
-        - rgb(225,190,180)
-        - rgb(180,139,130)
-        - rgb(139,100,89)
+        - "#DC4536"
+        - "#F6905B"
+        - "#FCD586"
+        - "#FFFEC1"
+        - "#CCE989"
+        - "#87C86B"
+        - "#35A058"
+        - "#0C6739"
     analysis:
       exclude: true
     info:
       source: NASA
-      spatialExtent: Alaska
-      temporalResolution: Daily
-      unit: Percentage %
+      spatialExtent: Global
+      temporalResolution: Weekly
+      unit: Standard deviation
     media:
-      src: /images/dataset/alaska_soil_moisture.thumbnail.png
-      alt: Relative soil moisture percentiles for the state of Alaska
-
-  - id: gvf-alaska
-    stacCol: gvf-alaska
-    stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    tileApiEndpoint: https://dev.openveda.cloud/api/raster
-    name: Green Vegetation Fraction, Updated Daily
-    type: raster
-    description: Green Vegetation Fraction (GVF) from VIIRS on Suomi NPP.
-    initialDatetime: newest
-    projection:
-      id: 'equirectangular'
-    zoomExtent:
-      - 0
-      - 20
-    sourceParams:
-      colormap_name: terrain
-      resampling: bilinear
-      rescale:
-        - 0
-        - 100
-    legend:
-      unit:
-        label: Percentage %
-      type: gradient
-      min: 0
-      max: 100
-      stops:
-        - rgb(14,161,14)
-        - rgb(29,180,30)
-        - rgb(55,209,60)
-        - rgb(120,245,115)
-        - rgb(180,250,170)
-        - rgb(160,230,50)
-        - rgb(255,231,121)
-        - rgb(199,160,150)
-        - rgb(160,120,111)
-        - rgb(120,79,69)
-    analysis:
-      exclude: true
-    info:
-      source: NASA
-      spatialExtent: Alaska
-      temporalResolution: Daily
-      unit: Percentage %
-    media:
-      src: /images/dataset/alaska_green_vegetative_fraction.thumbnail.png
-      alt: Green vegetation fraction for the state of Alaska
-
-  - id: snod-alaska
-    stacCol: snod-alaska
-    stacApiEndpoint: https://dev.openveda.cloud/api/stac
-    tileApiEndpoint: https://dev.openveda.cloud/api/raster
-    name: Snow Depth, Updated Daily
-    type: raster
-    description: Snow depth for the state of Alaska.
-    initialDatetime: newest
-    projection:
-      id: 'equirectangular'
-    zoomExtent:
-      - 0
-      - 20
-    sourceParams:
-      colormap_name: terrain
-      resampling: bilinear
-      rescale:
-        - 0
-        - 1000
-    legend:
-      unit:
-        label: Inches
-      type: gradient
-      min: 0
-      max: 1000
-      stops:
-        - rgb(255,255,255)
-        - rgb(176,190,197)
-        - rgb(27,79,114)
-        - rgb(40,116,166)
-        - rgb(52,152,219)
-        - rgb(133,193,233)
-        - rgb(187,222,251)
-        - rgb(20,90,50)
-        - rgb(34,153,84)
-        - rgb(125,206,160)
-        - rgb(74,35,90)
-        - rgb(125,60,152)
-        - rgb(179,157,219)
-        - rgb(239,80,83)
-        - rgb(245,127,23)
-        - rgb(255,241,118)
-    analysis:
-      exclude: true
-    info:
-      source: NASA
-      spatialExtent: Alaska
-      temporalResolution: Daily
-      unit: Inches
-    media:
-      src: /images/dataset/alaska_snow_depth.thumbnail.png
-      alt: Snow depth for the state of Alaska
+      src: /images/dataset/esi_GSFC_20171208_Archive_e000115_orig.jpg
+      alt: Agricultural field in New Zealand, image from weather ballon.
 
 ---
 
 <Block>
   <Prose>
-    **Temporal Extent:** 6 days prior - Present<br />
-    **Temporal Resolution:** Daily<br />
-    **Spatial Extent:** Alaska<br />
-    **Spatial Resolution:** 0.03° x 0.03°<br />
+    **Temporal Extent:** January 8, 2001 - Present<br />
+    **Temporal Resolution:** Weekly<br />
+    **Spatial Extent:** Global<br />
+    **Spatial Resolution:** 5km x 5km<br />
     **Data Type:** Research<br />
-    **Data Latency:** Updated Daily
+    **Data Latency:** Updated Weekly
   </Prose>
+</Block>
+
+<Block>
+  <Prose>
+  # Data Check
+  </Prose>
+    <Figure>
+    <Map
+      datasetId='esi'
+      layerId='esi-4wk'
+      dateTime='2001-01-08'
+      zoom={10}
+      center={[-84.621, 40.107]}
+      compareDateTime='2001-01-15'
+    />
+    <Caption
+      attrAuthor='NASA'
+      attrUrl='https://nasa.gov/'
+    >
+      Comparison of artificial light emissions in Greenville, Ohio before and after a tornado strike on May 7, 2024.
+    </Caption>
+    </Figure>
 </Block>
 
 <Block>
