@@ -1,0 +1,88 @@
+---
+id: test-p3h-alaska-nrt
+name: Test P3H Land Information System - Alaska
+description: State of Alaska vegetation and hydrological information produced by NASA’s Short-term Prediction and Transition Center – Land Information System (SPoRT-LIS).
+
+media:
+  src: /images/dataset/lis-alaska-nrt-cover.jpg
+  alt: Medenhall Glacier Outlook, Juneau, Alaska
+  author:
+    name:  Figure by Mike
+    url:  https://stock.adobe.com/images/medenhall-glacier-outlook-juneau-alaska/138501742?prev_url=detail
+taxonomy:
+  - name: Disaster
+    values:
+      - Hurricanes and Cyclones
+      - Wildfires
+      - Floods
+      - Landslides
+      - Severe and Winter Weather
+  - name: Source
+    values:
+      - NASA
+  - name: Product Type
+    values:
+      - NRT
+
+infoDescription: |
+  ::markdown
+    - Temporal Extent: February 17, 2025 - Present
+    - Temporal Resolution: Hourly/Daily
+    - Spatial Extent: Alaska
+    - Spatial Resolution: 0.03° x 0.03°
+    - Data Units: Relative soil moisture and green vegetation fraction (%); snow depth (inches)  
+    - Data Type: Research
+    - Data Latency: Updated daily
+layers:
+
+  - id: gvf-alaska-P3H
+    stacCol: gvf-alaska-P3H
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    tileApiEndpoint: https://dev.openveda.cloud/api/raster
+    name: Green Vegetation Fraction, Updated Daily
+    type: raster
+    description: Green Vegetation Fraction (GVF) from VIIRS on Suomi NPP.
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      colormap_name: terrain
+      resampling: bilinear
+      assets: gvf
+      rescale:
+        - 0
+        - 100
+      nodata:
+        - -9999
+    legend:
+      unit:
+        label: Percentage %
+      type: gradient
+      min: 0
+      max: 100
+      stops:
+        - rgb(14,161,14)
+        - rgb(29,180,30)
+        - rgb(55,209,60)
+        - rgb(120,245,115)
+        - rgb(180,250,170)
+        - rgb(160,230,50)
+        - rgb(255,231,121)
+        - rgb(199,160,150)
+        - rgb(160,120,111)
+        - rgb(120,79,69)
+    analysis:
+      exclude: false
+    info:
+      source: NASA
+      spatialExtent: Alaska
+      temporalResolution: Daily
+      unit: Percentage %
+    media:
+      src: /images/dataset/alaska_green_vegetative_fraction.thumbnail.png
+      alt: Green vegetation fraction for the state of Alaska
+
+---
