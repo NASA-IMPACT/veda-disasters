@@ -39,7 +39,7 @@ layers:
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
     stacCol:  VIIRS_NOAA20_DayNightBand_AtSensor_M15
     name: Black Marble (Blue/Yellow) Nighttime Light Emissions
-    type: wmts 
+    type: wms 
     description: At sensor nighttime radiance observed by the Suomi NPP VIIRS Day/Night band.
     sourceParams:
       layers: VIIRS_NOAA20_DayNightBand_AtSensor_M15
@@ -414,13 +414,13 @@ layers:
   - id: ndvi-hurricane-milton-202410-v2
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
     tileApiEndpoint: https://dev.openveda.cloud/api/raster
-    stacCol:  ndvi-hurricane-milton-202410-v2
+    stacCol:  ndvi-change
     name: Experimental Binary Normalized Difference Vegetation Index
     type: raster 
     initialDatetime: newest
     description: The Experimental Binary NDVI change product is highlighting areas that experienced change (of any kind) since the pre-event Copernicus Sentinel-2 pass (October 2024) used in the analysis. The product is further filters to reduce noise and focus the identification on the more pronounced areas of change in an effort to identify areas that may have experienced damage during Hurricane Helene's passage and associated water and wind impacts.
     sourceParams:
-      assets: ndvi
+      assets: ndvi-change
       resampling: nearest
       nodata: 0
       colormap: '{"0":[255,255,255,0],"1":[255,255,0,255]}' 
