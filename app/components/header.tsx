@@ -17,14 +17,14 @@ import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 
 export const navItems: NavItem[] = [
     {
-    id: 'events',
-    title: 'Current Conditions',
-    to: `/${DATASET_CATALOG_PATH}`,
+    id: 'current',
+    title: 'Current Data',
+    to: `/${EXPLORATION_PATH}?datasets=%5B%5D&taxonomy=%7B"Product+Type"%3A%5B"nrt"%5D%7D`,
     type: 'internalLink',
   },
   {
-    id: 'exploration',
-    title: 'Themes',
+    id: 'hazards',
+    title: 'Hazards',
     type: 'dropdown',
     children: [
       {
