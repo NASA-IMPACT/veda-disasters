@@ -54,8 +54,8 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    id: 'summaries',
-    title: 'Activation Summaries',
+    id: 'events',
+    title: 'Events',
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',
   },
