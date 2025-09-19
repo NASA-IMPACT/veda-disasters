@@ -36,7 +36,7 @@ export const navItems: NavItem[] = [
      {
         id: 'fires',
         title: 'Wildfires',
-        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"wildfires"%5D%7D`,
+        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"fire"%5D%7D`,
         type: 'internalLink',
       },
      {
