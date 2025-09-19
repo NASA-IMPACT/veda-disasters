@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon:'/images/icon.svg'
+    icon:'/images/NASA_Insignia-RGB.svg'
   }
 };
 
