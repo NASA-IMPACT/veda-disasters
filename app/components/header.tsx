@@ -16,17 +16,42 @@ import {
 import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 
 export const navItems: NavItem[] = [
-  {
+    {
     id: 'events',
-    title: 'Events',
+    title: 'Current Conditions',
     to: `/${DATASET_CATALOG_PATH}`,
     type: 'internalLink',
   },
   {
     id: 'exploration',
-    title: 'Visualization',
-    to: `/${EXPLORATION_PATH}`,
-    type: 'internalLink',
+    title: 'Themes',
+    type: 'dropdown',
+    children: [
+      {
+        id: 'cyclones',
+        title: 'Tropical Cyclones',
+        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"hurricanes_and_cyclones"%5D%7D`,
+        type: 'internalLink',
+      },
+     {
+        id: 'fires',
+        title: 'Wildfires',
+        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"wildfires"%5D%7D`,
+        type: 'internalLink',
+      },
+     {
+        id: 'floods',
+        title: 'Floods',
+        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"floods"%5D%7D`,
+        type: 'internalLink',
+      },
+     {
+        id: 'earthquakes',
+        title: 'Earthquakes',
+        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"earthquakes"%5D%7D`,
+        type: 'internalLink',
+      },
+    ],
   },
   {
     id: 'summaries',
@@ -43,6 +68,12 @@ export const subNavItems: NavItem[] = [
     to: '/about',
     type: 'internalLink',
   },
+  {    
+    id: 'contact',
+    title: 'Contact Us',
+    to: 'mailto:brian.m.freitag@nasa.gov',
+    type: 'externalLink',
+  }
 ];
 
 export default function Header() {
