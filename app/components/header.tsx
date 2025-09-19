@@ -15,6 +15,18 @@ import {
 } from 'app/config';
 import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 
+const createTaxonomyUrl = (disaster: string) => {
+  const taxonomy = JSON.stringify({ "Disaster": [disaster] });
+  return `/${DATASET_CATALOG_PATH}?taxonomy=${encodeURIComponent(taxonomy)}`;
+};
+
+
+
+    // id: string;
+    // title: string;
+    // href: string;
+    // customClassNames?: string;
+    // type: 'externalLink';
 export const navItems: NavItem[] = [
     {
     id: 'current',
@@ -27,29 +39,30 @@ export const navItems: NavItem[] = [
     title: 'Hazards',
     type: 'dropdown',
     children: [
-      {
-        id: 'cyclones',
-        title: 'Tropical Cyclones',
-        to: `/${DATASET_CATALOG_PATH}?taxonomy=\{"Disaster":["hurricanes_and_cyclones"]\}`,
-        type: 'internalLink',
-      },
+    {
+      id: 'cyclones',
+      title: 'Tropical Cyclones',
+      href: createTaxonomyUrl('hurricanes_and_cyclones'),
+      type: 'externalLink',
+      
+    },
      {
         id: 'fires',
         title: 'Wildfires',
-        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"fire"%5D%7D`,
-        type: 'internalLink',
+        href: createTaxonomyUrl('fire'),
+        type: 'externalLink',
       },
      {
         id: 'floods',
         title: 'Floods',
-        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"floods"%5D%7D`,
-        type: 'internalLink',
+        href: createTaxonomyUrl('floods'),
+        type: 'externalLink',
       },
      {
         id: 'earthquakes',
         title: 'Earthquakes',
-        to: `/${DATASET_CATALOG_PATH}?taxonomy=%7B"Disaster"%3A%5B"earthquakes"%5D%7D`,
-        type: 'internalLink',
+        href: createTaxonomyUrl('earthquakes'),
+        type: 'externalLink',
       },
     ],
   },
