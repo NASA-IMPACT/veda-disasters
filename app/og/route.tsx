@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og'; // @TODO: Look into generating dynamic 
 export function GET(request: Request) {
   const url = new URL(request.url);
   const title =
-    url.searchParams.get('title') || 'Next.js VEDA Template Instance';
+    url.searchParams.get('title') || 'NASA Disasters';
 
   return new ImageResponse(
     (
