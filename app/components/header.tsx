@@ -15,24 +15,94 @@ import {
 } from 'app/config';
 import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 
+const createTaxonomyUrl = (disaster: string) => {
+  const taxonomy = JSON.stringify({ "Disaster": [disaster] });
+  return `/${DATASET_CATALOG_PATH}?taxonomy=${encodeURIComponent(taxonomy)}`;
+};
+
+
+
+    // id: string;
+    // title: string;
+    // href: string;
+    // customClassNames?: string;
+    // type: 'externalLink';
 export const navItems: NavItem[] = [
+    {
+    id: 'current',
+    title: 'Current Data',
+    to: `/${EXPLORATION_PATH}?datasets=%5B%5D&taxonomy=%7B"Product+Type"%3A%5B"nrt"%5D%7D`,
+    type: 'internalLink',
+  },
+  {
+    id: 'hazards',
+    title: 'Hazards',
+    type: 'dropdown',
+    children: [
+    {
+      id: 'cyclones',
+      title: 'Tropical Cyclones',
+      href: createTaxonomyUrl('hurricanes_and_cyclones'),
+      type: 'externalLink',
+      
+    },
+     {
+        id: 'fires',
+        title: 'Wildfires',
+        href: createTaxonomyUrl('fire'),
+        type: 'externalLink',
+      },
+     {
+        id: 'floods',
+        title: 'Floods',
+        href: createTaxonomyUrl('floods'),
+        type: 'externalLink',
+      },
+     {
+        id: 'earthquakes',
+        title: 'Earthquakes',
+        href: createTaxonomyUrl('earthquakes'),
+        type: 'externalLink',
+      },
+    ],
+  },
   {
     id: 'events',
     title: 'Events',
-    to: `/${DATASET_CATALOG_PATH}`,
-    type: 'internalLink',
-  },
-  {
-    id: 'exploration',
-    title: 'Visualization',
-    to: `/${EXPLORATION_PATH}`,
-    type: 'internalLink',
-  },
-  {
-    id: 'summaries',
-    title: 'Activation Summaries',
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',
+  },
+  {
+    id: 'connect',
+    title: 'Connect',
+    type: 'dropdown',
+    children: [
+    {
+      id: 'newsletter',
+      title: 'Newsletter',
+      href: 'https://lp.constantcontactpages.com/su/tn3iEZN',
+      type: 'externalLink',
+      
+    },
+     {
+        id: 'activate',
+        title: 'Request Activation',
+        to: '/home',
+        type: 'internalLink',
+      },
+     {
+        id: 'contact',
+        title: 'Contact Us',
+        href: 'mailto:hq-disasters-gis@mail.nasa.gov',
+        type: 'externalLink',
+      },
+     {
+        id: 'feedback',
+        title: 'Feedback',
+        to: '/home',
+        type: 'internalLink',
+      },
+    ],
   },
 ];
 
