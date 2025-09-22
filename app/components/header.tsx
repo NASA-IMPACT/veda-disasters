@@ -72,6 +72,38 @@ export const navItems: NavItem[] = [
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',
   },
+  {
+    id: 'connect',
+    title: 'Connect',
+    type: 'dropdown',
+    children: [
+    {
+      id: 'newsletter',
+      title: 'Newsletter',
+      href: 'https://lp.constantcontactpages.com/su/tn3iEZN',
+      type: 'externalLink',
+      
+    },
+     {
+        id: 'activate',
+        title: 'Request Activation',
+        to: '/home',
+        type: 'internalLink',
+      },
+     {
+        id: 'contact',
+        title: 'Contact Us',
+        href: 'mailto:hq-disasters-gis@mail.nasa.gov',
+        type: 'externalLink',
+      },
+     {
+        id: 'feedback',
+        title: 'Feedback',
+        to: '/home',
+        type: 'internalLink',
+      },
+    ],
+  },
 ];
 
 export const subNavItems: NavItem[] = [
@@ -81,12 +113,6 @@ export const subNavItems: NavItem[] = [
     to: '/about',
     type: 'internalLink',
   },
-  {    
-    id: 'contact',
-    title: 'Contact Us',
-    to: 'mailto:brian.m.freitag@nasa.gov',
-    type: 'externalLink',
-  }
 ];
 
 export default function Header() {
