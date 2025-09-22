@@ -20,7 +20,10 @@ const createTaxonomyUrl = (disaster: string) => {
   return `/${DATASET_CATALOG_PATH}?taxonomy=${encodeURIComponent(taxonomy)}`;
 };
 
-
+const createExplorationUrl = (product: string) => {
+  const exploreTaxonomy = JSON.stringify({ "Product Type": [product] });
+  return `/${EXPLORATION_PATH}?taxonomy=${encodeURIComponent(exploreTaxonomy)}`;
+};
 
     // id: string;
     // title: string;
@@ -31,8 +34,8 @@ export const navItems: NavItem[] = [
     {
     id: 'current',
     title: 'Current Data',
-    to: `/${EXPLORATION_PATH}?datasets=%5B%5D&taxonomy=%7B"Product+Type"%3A%5B"nrt"%5D%7D`,
-    type: 'internalLink',
+    href: createExplorationUrl('nrt'),
+    type: 'externalLink',
   },
   {
     id: 'hazards',
