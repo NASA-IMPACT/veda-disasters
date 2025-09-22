@@ -127,7 +127,7 @@ export default function HomePage() {
           <iframe id="current-dashboards"
                   scrolling="no"
                   frameBorder="0"
-                  style={{height:'100vh',width:'100vw'}}
+                  style={{height:'700px',width:'960px'}}
                   src="https://maps.disasters.nasa.gov/arcgis/apps/MapSeries/index.html?appid=ab7723584fe847449faaa2e62d3bef74"
                   >
       </iframe>

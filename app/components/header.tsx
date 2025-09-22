@@ -52,7 +52,7 @@ export const navItems: NavItem[] = [
      {
         id: 'fires',
         title: 'Wildfires',
-        href: createTaxonomyUrl('fire'),
+        href: createTaxonomyUrl('wildfire'),
         type: 'externalLink',
       },
      {
