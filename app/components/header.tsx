@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck : until veda-ui fixes its types: NavItem type enum
 import React from 'react';
 import { PageHeader } from '@lib';
 import { NavItem } from '@lib';
@@ -35,6 +33,7 @@ export const navItems: NavItem[] = [
   {
     id: 'hazards',
     title: 'Hazards',
+    // @ts-expect-error until veda-ui fixes its types: NavItem type enum (see https://github.com/NASA-IMPACT/veda-ui/issues/1882)
     type: 'dropdown',
     children: [
       {
@@ -72,6 +71,7 @@ export const navItems: NavItem[] = [
   {
     id: 'connect',
     title: 'Connect',
+    // @ts-expect-error until veda-ui fixes its types: NavItem type enum (see https://github.com/NASA-IMPACT/veda-ui/issues/1882)
     type: 'dropdown',
     children: [
       {
