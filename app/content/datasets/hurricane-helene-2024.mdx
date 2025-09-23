@@ -38,19 +38,21 @@ layers:
          
 
 
-  - id: ndvi-change-hurricane-helene-202409-v3
+  - id: ndvi-change-hurricane-helene-202409-v3 #we manually make this
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
     tileApiEndpoint: https://dev.openveda.cloud/api/raster
-    stacCol:  ndvi-change-hurricane-helene-202409-v3
-    name: Experimental Binary Normalized Difference Vegetation Index
+    stacCol:  ndvi-change #add this from disaster data repo
+    name: Experimental Binary Normalized Difference Vegetation Index #manually change this
     type: raster 
     initialDatetime: newest
     description: The Experimental Binary NDVI change product is highlighting areas that experienced change (of any kind) since the pre-event Copernicus Sentinel-2 pass (October 2024) used in the analysis. The product is further filters to reduce noise and focus the identification on the more pronounced areas of change in an effort to identify areas that may have experienced damage during Hurricane Helene's passage and associated water and wind impacts.
     sourceParams:
-      assets: binary_mask
+      assets: binary_mask #if it's a single band, if multi band replace "assets" with "asset_bidx" -- binary_mask|1,2,3
       resampling: nearest
       nodata: 0
-      colormap: '{"0":[255,255,255,0],"1":[255,255,0,255]}' 
+      colormap: '{"0":[255,255,255,0],"1":[255,255,0,255]}'  #if categorical, make colormap here
+      colormap_name: magma #only if continuous data
+      #no colormap name for rgb/3 band etc 
     zoomExtent:
       - 0
       - 20
