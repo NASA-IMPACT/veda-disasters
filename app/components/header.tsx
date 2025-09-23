@@ -5,7 +5,7 @@ import { PageHeader } from '@lib';
 import { NavItem } from '@lib';
 import NasaLogoColor from 'app/components/nasa-logo-color.js';
 //Official Disasters logo coloring
-//import DisastersLogoColor from 'app/components/nasa-disasters-logo-color.js'; 
+//import DisastersLogoColor from 'app/components/nasa-disasters-logo-color.js';
 //Alternate blackout Disasters logo for example
 import {
   DATASET_CATALOG_PATH,
@@ -16,56 +16,50 @@ import {
 import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
 
 const createTaxonomyUrl = (disaster: string) => {
-  const taxonomy = JSON.stringify({ "Disaster": [disaster] });
+  const taxonomy = JSON.stringify({ Disaster: [disaster] });
   return `/${DATASET_CATALOG_PATH}?taxonomy=${encodeURIComponent(taxonomy)}`;
 };
 
 const createExplorationUrl = (product: string) => {
-  const exploreTaxonomy = JSON.stringify({ "Product Type": [product] });
+  const exploreTaxonomy = JSON.stringify({ 'Product Type': [product] });
   return `/${EXPLORATION_PATH}?taxonomy=${encodeURIComponent(exploreTaxonomy)}`;
 };
 
-    // id: string;
-    // title: string;
-    // href: string;
-    // customClassNames?: string;
-    // type: 'externalLink';
 export const navItems: NavItem[] = [
-    {
+  {
     id: 'current',
     title: 'Current Data',
-    href: createExplorationUrl('nrt'),
-    type: 'externalLink',
+    to: createExplorationUrl('nrt'),
+    type: 'internalLink',
   },
   {
     id: 'hazards',
     title: 'Hazards',
     type: 'dropdown',
     children: [
-    {
-      id: 'cyclones',
-      title: 'Tropical Cyclones',
-      href: createTaxonomyUrl('hurricanes_and_cyclones'),
-      type: 'externalLink',
-      
-    },
-     {
+      {
+        id: 'cyclones',
+        title: 'Tropical Cyclones',
+        to: createTaxonomyUrl('hurricanes_and_cyclones'),
+        type: 'internalLink',
+      },
+      {
         id: 'fires',
         title: 'Wildfires',
-        href: createTaxonomyUrl('wildfire'),
-        type: 'externalLink',
+        to: createTaxonomyUrl('wildfire'),
+        type: 'internalLink',
       },
-     {
+      {
         id: 'floods',
         title: 'Floods',
-        href: createTaxonomyUrl('floods'),
-        type: 'externalLink',
+        to: createTaxonomyUrl('floods'),
+        type: 'internalLink',
       },
-     {
+      {
         id: 'earthquakes',
         title: 'Earthquakes',
-        href: createTaxonomyUrl('earthquakes'),
-        type: 'externalLink',
+        to: createTaxonomyUrl('earthquakes'),
+        type: 'internalLink',
       },
     ],
   },
@@ -80,26 +74,25 @@ export const navItems: NavItem[] = [
     title: 'Connect',
     type: 'dropdown',
     children: [
-    {
-      id: 'newsletter',
-      title: 'Newsletter',
-      href: 'https://lp.constantcontactpages.com/su/tn3iEZN',
-      type: 'externalLink',
-      
-    },
-     {
+      {
+        id: 'newsletter',
+        title: 'Newsletter',
+        href: 'https://lp.constantcontactpages.com/su/tn3iEZN',
+        type: 'externalLink',
+      },
+      {
         id: 'activate',
         title: 'Request Activation',
         to: '/home',
         type: 'internalLink',
       },
-     {
+      {
         id: 'contact',
         title: 'Contact Us',
         href: 'mailto:hq-disasters-gis@mail.nasa.gov',
         type: 'externalLink',
       },
-     {
+      {
         id: 'feedback',
         title: 'Feedback',
         to: '/home',
