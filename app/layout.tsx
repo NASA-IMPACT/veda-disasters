@@ -72,14 +72,14 @@ export default function RootLayout({
             <div className="usa-alert__body">
               <h4 className="usa-alert__heading">Activation Status</h4>
               <p className="usa-alert__text">
-                The Disasters Program is currently providing support for the{" "}
+                The Disasters Program is currently providing support for {" "}
                 <a
                   className="usa-link"
-                  href="/data-catalog/ca-wildfires-2025"
+                  href="/data-catalog/hurricane-milton-2024"
                 >
-                  California Wildfires
+                  Hurricane Milton
                 </a>{" "}
-                affecting the Los Angeles metropolitan area.
+                affecting the Florida peninsula.
               </p>
             </div>
           </div>
