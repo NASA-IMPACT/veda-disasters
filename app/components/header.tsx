@@ -44,7 +44,7 @@ export const navItems: NavItem[] = [
     children: [
     {
       id: 'cyclones',
-      title: 'Tropical Cyclones',
+      title: 'Hurricanes & Cyclones',
       href: createTaxonomyUrl('hurricanes_and_cyclones'),
       type: 'externalLink',
       
