@@ -19,17 +19,17 @@ const Footer = dynamic(() => import('./components/footer'), {
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),
   title: {
-    default: 'Next.js VEDA Template Instance',
-    template: '%s | Next.js VEDA Template Instance',
+    default: 'NASA Disasters Program',
+    template: '%s | NASA Disasters Program',
   },
-  description: 'Next.js VEDA Template Instance.',
+  description: 'NASA Disasters Program Partnership and Learning Portal',
   openGraph: {
-    title: 'Next.js VEDA Template Instance',
-    description: 'Next.js VEDA Template Instance.',
+    title: 'NASA Disasters Program',
+    description: 'NASA Disasters Program',
     url: baseUrl,
-    siteName: 'Next.js VEDA Template Instance',
+    siteName: 'NASA Disasters Program',
     locale: 'en_US',
-    type: 'website',
+    type: 'website'
   },
   robots: {
     index: true,
@@ -42,6 +42,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon:'/images/NASA_Insignia-RGB.svg'
+  }
 };
 
 export default function RootLayout({
@@ -67,16 +70,16 @@ export default function RootLayout({
 
           <div className="usa-alert usa-alert--info" role="status" aria-live="polite">
             <div className="usa-alert__body">
-              <h4 className="usa-alert__heading">Current Activations</h4>
+              <h4 className="usa-alert__heading">Activation Status</h4>
               <p className="usa-alert__text">
-                The Disasters Program is currently providing support for the{" "}
+                The Disasters Program is currently providing support for {" "}
                 <a
                   className="usa-link"
-                  href="https://deploy-preview-21--disasters-hub.netlify.app/events/ca-wildfires-2025"
+                  href="/data-catalog/hurricane-milton-2024"
                 >
-                  California Wildfires
+                  Hurricane Milton
                 </a>{" "}
-                affecting the Los Angeles metropolitan area.
+                affecting the Florida peninsula.
               </p>
             </div>
           </div>

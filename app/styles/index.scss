@@ -37,3 +37,11 @@ body {
     line-height: 1;
   }
 }
+
+// NASA Logo sizing
+#logo-container-link {
+  svg {
+    width: 70px !important;
+    height: 70px !important;
+  }
+}

@@ -15,10 +15,9 @@ export default function Page() {
     <div className='grid-container'>
       <section>
         <div className='margin-top-8 margin-bottom-3'>
-          <h1 className='font-sans-xl'>Data Catalog</h1>
+          <h1 className='font-sans-xl'>Event Catalog</h1>
           <p className='font-sans-md margin-top-1'>
-            This dashboard explores key indicators to track and compare changes
-            over time.
+            This catalog serves as a central location for event-specific data and resources developed by the Disaster Response Coordination Office to support federal, state, and local disaster response.
           </p>
         </div>
 
