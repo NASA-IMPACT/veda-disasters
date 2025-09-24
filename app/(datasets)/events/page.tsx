@@ -19,7 +19,7 @@ export default function Page() {
       <div className='margin-top-8 margin-bottom-3'>
         <h1 className='font-sans-xl'>Activation Summaries</h1>
         <p className='font-sans-md margin-top-1'>
-          Explore interactive, data-driven summaries highlighting NASA's Disaster Response Coordination Office support for federal, state, and local disaster response.
+          Explore interactive, data-driven summaries highlighting the Disaster Response Coordination Office support for federal, state, and local disaster response.
         </p>
       </div>
       <StoriesHub stories={events} />
