@@ -6,6 +6,16 @@ Next.js instance that uses the [VEDA-UI components library](https://github.com/n
 
 To set up and run this project locally, refer to the [Development guide](./docs/DEVELOPMENT.md).
 
+## Testing
+
+```bash
+# Run all tests
+yarn test:playwright
+
+# Run specific test
+yarn test:playwright --grep "catalog navigation"
+```
+
 ## Documentation
 
 Documentation for this project can be found in the [`docs`](./docs) directory. Below is a quick summary of available resources:

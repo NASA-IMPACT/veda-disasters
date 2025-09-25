@@ -1,10 +1,15 @@
 'use client';
 import React from 'react';
-import { CatalogContent, useFiltersWithQS } from '@lib';
+import { CatalogContent } from '@lib';
+import { useFiltersWithQSNextJS } from '../../hooks/use-filters-with-qs-nextjs';
 import Providers from '../providers';
 
+/**
+ * Catalog component that displays filtered datasets
+ * @param datasets - Array of dataset objects to display
+ */
 export default function Catalog({ datasets }: { datasets: any }) {
-  const controlVars = useFiltersWithQS();
+  const controlVars = useFiltersWithQSNextJS();
 
   return (
     <Providers>
