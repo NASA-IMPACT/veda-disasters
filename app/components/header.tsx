@@ -102,8 +102,8 @@ export const navItems: NavItem[] = [
      {
         id: 'feedback',
         title: 'Feedback',
-        to: '/home',
-        type: 'internalLink',
+        href: 'https://docs.google.com/forms/d/e/1FAIpQLSeCriSetRerEObzaJh0O3hv0-12oWrff_kjTxesgmJgkuOD7g/viewform',
+        type: 'externalLink',
       },
     ],
   },
